@@ -1,10 +1,12 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
 
 namespace Actualizator
 {
-    public static class Utilities
+    public static class LocalUtilities
     {
         public static string getErrorException(this Exception exception)
         {
@@ -26,7 +28,7 @@ namespace Actualizator
 
         public static void MensajeError(string mensaje)
         {
-            WriteTextLog(mensaje);
+            WriteTextLog(mensaje + " | Fecha: " + DateTime.Now.ToString());
             MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
@@ -34,6 +36,5 @@ namespace Actualizator
         {
             File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), "log.txt"), text + Environment.NewLine);
         }
-
-    }   
+    }
 }

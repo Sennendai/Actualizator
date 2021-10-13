@@ -1,6 +1,6 @@
 ﻿namespace Actualizator
 {
-    partial class Form1
+    partial class FormPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.btnPrevisualizar = new System.Windows.Forms.Button();
             this.cmbBoxFiltros = new System.Windows.Forms.ComboBox();
@@ -37,7 +38,7 @@
             this.textBackup = new System.Windows.Forms.TextBox();
             this.btnRutaBackup = new System.Windows.Forms.Button();
             this.textDestino = new System.Windows.Forms.TextBox();
-            this.cmbConexiones = new System.Windows.Forms.ComboBox();
+            this.cmbProyecto = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnVerCarpetaDestino = new System.Windows.Forms.Button();
             this.btnVerCarpetaOrigen = new System.Windows.Forms.Button();
@@ -57,9 +58,10 @@
             this.lblArchivosOrigen = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.tableLayoutDestino = new System.Windows.Forms.TableLayoutPanel();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -91,7 +93,7 @@
             this.splitContainer1.Panel1.Controls.Add(this.textBackup);
             this.splitContainer1.Panel1.Controls.Add(this.btnRutaBackup);
             this.splitContainer1.Panel1.Controls.Add(this.textDestino);
-            this.splitContainer1.Panel1.Controls.Add(this.cmbConexiones);
+            this.splitContainer1.Panel1.Controls.Add(this.cmbProyecto);
             this.splitContainer1.Panel1.Controls.Add(this.label5);
             this.splitContainer1.Panel1.Controls.Add(this.btnVerCarpetaDestino);
             this.splitContainer1.Panel1.Controls.Add(this.btnVerCarpetaOrigen);
@@ -172,6 +174,7 @@
             this.textBackup.Size = new System.Drawing.Size(444, 20);
             this.textBackup.TabIndex = 19;
             this.textBackup.Visible = false;
+            this.textBackup.MouseHover += new System.EventHandler(this.textBackup_MouseHover);
             // 
             // btnRutaBackup
             // 
@@ -191,42 +194,45 @@
             this.textDestino.ReadOnly = true;
             this.textDestino.Size = new System.Drawing.Size(444, 20);
             this.textDestino.TabIndex = 15;
+            this.textDestino.MouseHover += new System.EventHandler(this.textDestino_MouseHover);
             // 
-            // cmbConexiones
+            // cmbProyecto
             // 
-            this.cmbConexiones.FormattingEnabled = true;
-            this.cmbConexiones.Location = new System.Drawing.Point(144, 34);
-            this.cmbConexiones.Name = "cmbConexiones";
-            this.cmbConexiones.Size = new System.Drawing.Size(444, 21);
-            this.cmbConexiones.TabIndex = 14;
+            this.cmbProyecto.FormattingEnabled = true;
+            this.cmbProyecto.Location = new System.Drawing.Point(144, 34);
+            this.cmbProyecto.Name = "cmbProyecto";
+            this.cmbProyecto.Size = new System.Drawing.Size(444, 21);
+            this.cmbProyecto.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(21, 37);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(51, 13);
+            this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 13;
-            this.label5.Text = "Conexión";
+            this.label5.Text = "Proyecto";
             // 
             // btnVerCarpetaDestino
             // 
+            this.btnVerCarpetaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerCarpetaDestino.Location = new System.Drawing.Point(633, 85);
             this.btnVerCarpetaDestino.Name = "btnVerCarpetaDestino";
             this.btnVerCarpetaDestino.Size = new System.Drawing.Size(137, 20);
             this.btnVerCarpetaDestino.TabIndex = 8;
-            this.btnVerCarpetaDestino.Text = "Visualizar carpeta";
+            this.btnVerCarpetaDestino.Text = "Agregar ruta";
             this.btnVerCarpetaDestino.UseVisualStyleBackColor = true;
             this.btnVerCarpetaDestino.Visible = false;
             this.btnVerCarpetaDestino.Click += new System.EventHandler(this.btnVerCarpetaDestino_Click);
             // 
             // btnVerCarpetaOrigen
             // 
+            this.btnVerCarpetaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnVerCarpetaOrigen.Location = new System.Drawing.Point(633, 55);
             this.btnVerCarpetaOrigen.Name = "btnVerCarpetaOrigen";
             this.btnVerCarpetaOrigen.Size = new System.Drawing.Size(137, 20);
             this.btnVerCarpetaOrigen.TabIndex = 7;
-            this.btnVerCarpetaOrigen.Text = "Visualizar carpeta";
+            this.btnVerCarpetaOrigen.Text = "Agregar ruta";
             this.btnVerCarpetaOrigen.UseVisualStyleBackColor = true;
             this.btnVerCarpetaOrigen.Visible = false;
             this.btnVerCarpetaOrigen.Click += new System.EventHandler(this.btnVerCarpetaOrigen_Click);
@@ -287,6 +293,7 @@
             this.textOrigen.ReadOnly = true;
             this.textOrigen.Size = new System.Drawing.Size(444, 20);
             this.textOrigen.TabIndex = 0;
+            this.textOrigen.MouseHover += new System.EventHandler(this.textOrigen_MouseHover);
             // 
             // menuStrip1
             // 
@@ -312,8 +319,8 @@
             // 
             this.GuardarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem";
-            this.GuardarToolStripMenuItem.Size = new System.Drawing.Size(170, 22);
-            this.GuardarToolStripMenuItem.Text = "Guardar Conexión";
+            this.GuardarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
+            this.GuardarToolStripMenuItem.Text = "Guardar Proyecto";
             this.GuardarToolStripMenuItem.Click += new System.EventHandler(this.anadirToolStripMenuItem_Click);
             // 
             // splitContainer2
@@ -395,7 +402,7 @@
             this.tableLayoutDestino.ColumnCount = 1;
             this.tableLayoutDestino.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutDestino.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutDestino.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutDestino.Dock = System.Windows.Forms.DockStyle.Top;
             this.tableLayoutDestino.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutDestino.Name = "tableLayoutDestino";
             this.tableLayoutDestino.RowCount = 2;
@@ -403,6 +410,16 @@
             this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutDestino.Size = new System.Drawing.Size(527, 483);
             this.tableLayoutDestino.TabIndex = 0;
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(521, 44);
+            this.groupBox2.TabIndex = 1;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Destino";
             // 
             // splitter1
             // 
@@ -416,23 +433,13 @@
             // 
             this.folderBrowserDlg.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // groupBox2
-            // 
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(521, 44);
-            this.groupBox2.TabIndex = 1;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Destino";
-            // 
-            // Form1
+            // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1052, 665);
             this.Controls.Add(this.splitContainer1);
-            this.Name = "Form1";
+            this.Name = "FormPrincipal";
             this.ShowIcon = false;
             this.Text = "Sincronizar carpetas";
             this.splitContainer1.Panel1.ResumeLayout(false);
@@ -458,7 +465,7 @@
 
         private System.Windows.Forms.SplitContainer splitContainer1;
         private System.Windows.Forms.TextBox textDestino;
-        private System.Windows.Forms.ComboBox cmbConexiones;
+        private System.Windows.Forms.ComboBox cmbProyecto;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button btnVerCarpetaDestino;
         private System.Windows.Forms.Button btnVerCarpetaOrigen;
@@ -488,6 +495,7 @@
         private System.Windows.Forms.CheckBox chkBoxFiltros;
         private System.Windows.Forms.Button btnPrevisualizar;
         private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.ToolTip toolTipControl;
     }
 }
 

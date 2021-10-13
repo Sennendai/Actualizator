@@ -28,12 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblRutaDestino = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.lblArchivosDestino = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.treeViewDestino = new System.Windows.Forms.TreeView();
+            this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -63,7 +65,7 @@
             this.splitContainer1.Panel2Collapsed = true;
             this.splitContainer1.Panel2MinSize = 0;
             this.splitContainer1.Size = new System.Drawing.Size(386, 100);
-            this.splitContainer1.SplitterDistance = 80;
+            this.splitContainer1.SplitterDistance = 75;
             this.splitContainer1.TabIndex = 0;
             // 
             // lblRutaDestino
@@ -74,6 +76,7 @@
             this.lblRutaDestino.Size = new System.Drawing.Size(76, 13);
             this.lblRutaDestino.TabIndex = 5;
             this.lblRutaDestino.Text = "lblRutaDestino";
+            this.lblRutaDestino.MouseHover += new System.EventHandler(this.lblRutaDestino_MouseHover);
             // 
             // label2
             // 
@@ -136,5 +139,6 @@
         private System.Windows.Forms.TreeView treeViewDestino;
         private System.Windows.Forms.Label lblRutaDestino;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ToolTip toolTipControl;
     }
 }

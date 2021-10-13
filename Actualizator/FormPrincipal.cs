@@ -4,25 +4,32 @@ using System.ComponentModel;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Serialization;
+using Utilities.Clases.XML;
 
 namespace Actualizator
 {
-    public partial class Form1 : Form
+    public partial class FormPrincipal : Form
     {
         #region· VARIABLES
 
-        private int CountArchivosDestino = 0;
-        private int CountArchivosOrigen = 0;
-        private string RutaBackup;
-        private BindingList<Filtro> Filtros;
-        private bool HayFiltros = false;
-        private bool HacerBackup = false;
+        private int countArchivosDestino = 0;
+        private int countArchivosOrigen = 0;
+        private string rutaBackup;
+        private BindingList<Filtro> filtros;
+        private bool hayFiltros = false;
+        private bool hacerBackup = false;
+        private List<string> destinos = new List<string>();
+        private Proyecto nuevoProyecto;
+        private Proyecto actualProyecto;
+        private List<Proyecto> proyectos = new List<Proyecto>();
 
         #endregion
 
         #region· CONSTRUCTOR
 
-        public Form1()
+        public FormPrincipal()
         {
             InitializeComponent();
             CargarDatos();
@@ -34,10 +41,11 @@ namespace Actualizator
 
         private void CargarDatos()
         {
-            RutaBackup = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            rutaBackup = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            CargarProyectos();
 
-            Filtros = new BindingList<Filtro>();
-            BindingSource bSource = new BindingSource { DataSource = Filtros };
+            filtros = new BindingList<Filtro>();
+            BindingSource bSource = new BindingSource { DataSource = filtros };
             cmbBoxFiltros.DataSource = bSource;
 
             ActualizarDatos();
@@ -45,11 +53,11 @@ namespace Actualizator
 
         private void ActualizarDatos()
         {
-            textBackup.Text = RutaBackup;
-            lblArchivosOrigen.Text = CountArchivosOrigen.ToString();
+            textBackup.Text = rutaBackup;
+            lblArchivosOrigen.Text = countArchivosOrigen.ToString();
             //lblArchivosDestino.Text = CountArchivosDestino.ToString();
 
-            BindingSource bSource = new BindingSource { DataSource = Filtros };
+            BindingSource bSource = new BindingSource { DataSource = filtros };
             cmbBoxFiltros.DataSource = bSource;
         }
 
@@ -109,7 +117,7 @@ namespace Actualizator
         {
             FileInfo[] archivos = directory.GetFiles();
 
-            if (HayFiltros)
+            if (hayFiltros)
             {
                 archivos = FiltrarArchivos(archivos);
             }
@@ -143,7 +151,7 @@ namespace Actualizator
                         PopulateTreeView(dirInfo, null, treeView);
 
                         var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
-                        if (HayFiltros)
+                        if (hayFiltros)
                         {
                             contadorTodos = FiltrarArchivos(contadorTodos);
                         }
@@ -154,7 +162,7 @@ namespace Actualizator
             }
             catch (Exception ex)
             {
-                Utilities.MensajeError(Utilities.getErrorException(ex));
+                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
             }
 
             return contador;
@@ -165,18 +173,20 @@ namespace Actualizator
             try
             {
                 // Crear la ruta de carpeta
-                RutaBackup = Path.Combine(RutaBackup, DateTime.Now.ToString().Replace("/", "-").Replace(" ", "_").Replace(":", ""));
+                rutaBackup = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), 
+                    DateTime.Now.ToString().Replace("/", "-").Replace(" ", "_").Replace(":", ""));
                 // Crear la carpeta
-                Directory.CreateDirectory(RutaBackup);
+                Directory.CreateDirectory(rutaBackup);
                 // Copiar todos los archivos
                 foreach (FileInfo archivoOrigen in archivosOrigen)
                 {
-                    File.Copy(archivoOrigen.FullName, Path.Combine(RutaBackup, archivoOrigen.Name));
+                    File.Copy(archivoOrigen.FullName, Path.Combine(rutaBackup, archivoOrigen.Name));
+                    LocalUtilities.WriteTextLog("Backup: " + rutaBackup + " | Fecha: " + DateTime.Now.ToString());
                 }
             }
             catch (Exception ex)
             {
-                Utilities.MensajeError(Utilities.getErrorException(ex));
+                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -192,9 +202,9 @@ namespace Actualizator
                     FileInfo[] archivosOrigen = dirOrigen.GetFiles("*", SearchOption.AllDirectories);
                     FileInfo[] archivosDestino = dirDestino.GetFiles("*", SearchOption.AllDirectories);
 
-                    if (HayFiltros)  archivosOrigen = FiltrarArchivos(archivosOrigen); 
+                    if (hayFiltros)  archivosOrigen = FiltrarArchivos(archivosOrigen); 
 
-                    if (HacerBackup) CrerBackup(archivosOrigen);
+                    if (hacerBackup) CrerBackup(archivosOrigen);
 
                     foreach (FileInfo archivoOrigen in archivosOrigen)
                     {
@@ -213,19 +223,19 @@ namespace Actualizator
                 }
                 else
                 {
-                    Utilities.MensajeError("¡Compruebe las rutas de las carpetas!");
+                    LocalUtilities.MensajeError("¡Compruebe las rutas de las carpetas!");
                 }
 
             }
             catch (Exception ex)
             {
-                Utilities.MensajeError(Utilities.getErrorException(ex));
+                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
             }
         }
 
         private FileInfo[] FiltrarArchivos(FileInfo[] archivos)
         {
-            foreach (Filtro filtro in Filtros)
+            foreach (Filtro filtro in filtros)
             {
                 switch (filtro.cabecera)
                 {
@@ -241,11 +251,55 @@ namespace Actualizator
             return archivos;
         }
 
+        private void GuardarProyecto()
+        {
+            try
+            {
+                nuevoProyecto = new Proyecto(cmbProyecto.Text, textOrigen.Text, destinos, rutaBackup, filtros);
+                proyectos.Add(nuevoProyecto);
+
+                string proyectoXML = SerializerXML.getObjectSerialized(proyectos);
+
+                XmlDocument doc = new XmlDocument();
+                doc.LoadXml(proyectoXML);
+                doc.Save("proyectos.xml");
+
+                if (ExisteProyecto())
+                {
+                    LocalUtilities.WriteTextLog("Guardado proyecto XML " + " | Fecha: " + DateTime.Now.ToString());
+                    MessageBox.Show("Guardado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
+            }
+        }
+
+        private void CargarProyectos()
+        {
+            if (ExisteProyecto())
+            {
+                XmlDocument doc = new XmlDocument();
+                doc.Load(Path.Combine(Environment.CurrentDirectory, "proyectos.xml"));
+
+                string resultado = doc.InnerXml;
+
+                if (resultado != null)
+                {
+                    var test = SerializerXML.Deserialize_Opcion1<List<Proyecto>>(resultado);
+                }
+            }
+        }        
+
+        private bool ExisteProyecto()
+        {
+            return File.Exists(Path.Combine(Environment.CurrentDirectory, "proyectos.xml")); ;
+        }
+
         #endregion
 
         #region· INTERACCIONES
-
-        #endregion
 
         private void btnSubirArchivo1_Click(object sender, EventArgs e)
         {
@@ -264,7 +318,7 @@ namespace Actualizator
 
         private void btnVerCarpetaOrigen_Click(object sender, EventArgs e)
         {
-            CountArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
+            countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
         }
 
         private void btnVerCarpetaDestino_Click(object sender, EventArgs e)
@@ -276,6 +330,7 @@ namespace Actualizator
                 destino.RutaDestino = textDestino.Text;
 
                 tableLayoutDestino.Controls.Add(destino);
+                destinos.Add(textDestino.Text);
             }
         }
 
@@ -291,29 +346,29 @@ namespace Actualizator
 
         private void anadirToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            GuardarProyecto();
         }
 
         private void checkBoxBackup_CheckedChanged(object sender, EventArgs e)
         {
             textBackup.Visible = checkBoxBackup.Checked;
             btnRutaBackup.Visible = checkBoxBackup.Checked;
-            HacerBackup = checkBoxBackup.Checked;
+            hacerBackup = checkBoxBackup.Checked;
         }
 
         private void chkBoxFiltros_CheckedChanged(object sender, EventArgs e)
         {
             btnModificarFiltros.Visible = chkBoxFiltros.Checked;
             cmbBoxFiltros.Visible = chkBoxFiltros.Checked;
-            HayFiltros = chkBoxFiltros.Checked;
+            hayFiltros = chkBoxFiltros.Checked;
         }
 
         private void btnAddFiltros_Click(object sender, EventArgs e)
         {
             FormFiltros formFiltros;
-            if (Filtros?.Count() > 0)
+            if (filtros?.Count() > 0)
             {
-                formFiltros = new FormFiltros(Filtros);
+                formFiltros = new FormFiltros(filtros);
             }
             else
             {
@@ -323,9 +378,27 @@ namespace Actualizator
             formFiltros.ShowDialog();
             if (formFiltros.DialogResult == DialogResult.OK)
             {
-                Filtros = formFiltros.FiltrosADevolver;
+                filtros = formFiltros.FiltrosADevolver;
                 ActualizarDatos();
             }
         }
+
+        private void textOrigen_MouseHover(object sender, EventArgs e)
+        {
+            toolTipControl.SetToolTip(textOrigen, textOrigen.Text);
+        }
+
+        private void textDestino_MouseHover(object sender, EventArgs e)
+        {
+            toolTipControl.SetToolTip(textDestino, textDestino.Text);
+        }
+
+        private void textBackup_MouseHover(object sender, EventArgs e)
+        {
+            toolTipControl.SetToolTip(textBackup, textBackup.Text);
+        }
+
+        #endregion
+
     }
 }

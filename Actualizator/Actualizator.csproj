@@ -44,15 +44,19 @@
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="Utilities.Clases">
+      <HintPath>..\..\..\..\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\Cristian Personal\Sorteo\Utilities.Clases.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Proyecto.cs" />
     <Compile Include="Filtro.cs" />
-    <Compile Include="Form1.cs">
+    <Compile Include="FormPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Form1.Designer.cs">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <Compile Include="FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </Compile>
     <Compile Include="FormFiltros.cs">
       <SubType>Form</SubType>
@@ -68,12 +72,13 @@
     <Compile Include="Destino.Designer.cs">
       <DependentUpon>Destino.cs</DependentUpon>
     </Compile>
-    <Compile Include="Utilities.cs" />
+    <Compile Include="LocalUtilities.cs" />
+    <Compile Include="Proyectos.cs" />
     <EmbeddedResource Include="Destino.resx">
       <DependentUpon>Destino.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Form1.resx">
-      <DependentUpon>Form1.cs</DependentUpon>
+    <EmbeddedResource Include="FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FormFiltros.resx">
       <DependentUpon>FormFiltros.cs</DependentUpon>

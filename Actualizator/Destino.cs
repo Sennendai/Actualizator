@@ -60,12 +60,18 @@ namespace Actualizator
             splitContainer1.Panel2Collapsed = !splitContainer1.Panel2Collapsed;
             if (!splitContainer1.Panel2Collapsed)
             {
-                this.Size = new Size(500, 400);
+                //this.AutoSize = true;
+               this.Size = new Size(525, 400);
             }
             else
             {
-                this.Size = new Size(500, 100);
+                this.Size = new Size(525, 100);
             }
+        }
+
+        private void lblRutaDestino_MouseHover(object sender, EventArgs e)
+        {
+            toolTipControl.SetToolTip(lblRutaDestino, lblRutaDestino.Text);
         }
     }
 }

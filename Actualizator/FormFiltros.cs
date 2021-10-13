@@ -63,7 +63,7 @@ namespace Actualizator
             }
             else
             {
-                Utilities.MensajeError("¡Rellene el campo de filtro!");
+                LocalUtilities.MensajeError("¡Rellene el campo de filtro!");
             }
         }
 
