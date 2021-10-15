@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnAddProyecto = new System.Windows.Forms.Button();
             this.btnPrevisualizar = new System.Windows.Forms.Button();
             this.cmbBoxFiltros = new System.Windows.Forms.ComboBox();
             this.btnModificarFiltros = new System.Windows.Forms.Button();
@@ -57,8 +58,9 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblArchivosOrigen = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.tableLayoutDestino = new System.Windows.Forms.TableLayoutPanel();
+            this.splitContainer3 = new System.Windows.Forms.SplitContainer();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.tableLayoutDestino = new System.Windows.Forms.TableLayoutPanel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
@@ -73,7 +75,10 @@
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
-            this.tableLayoutDestino.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
+            this.splitContainer3.Panel1.SuspendLayout();
+            this.splitContainer3.Panel2.SuspendLayout();
+            this.splitContainer3.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -85,6 +90,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnAddProyecto);
             this.splitContainer1.Panel1.Controls.Add(this.btnPrevisualizar);
             this.splitContainer1.Panel1.Controls.Add(this.cmbBoxFiltros);
             this.splitContainer1.Panel1.Controls.Add(this.btnModificarFiltros);
@@ -104,19 +110,30 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnRutaOrigen);
             this.splitContainer1.Panel1.Controls.Add(this.textOrigen);
             this.splitContainer1.Panel1.Controls.Add(this.menuStrip1);
+            this.toolTipControl.SetToolTip(this.splitContainer1.Panel1, "Añadir Proyecto");
             // 
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.splitter1);
-            this.splitContainer1.Size = new System.Drawing.Size(1052, 665);
+            this.splitContainer1.Size = new System.Drawing.Size(1160, 665);
             this.splitContainer1.SplitterDistance = 178;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // btnAddProyecto
+            // 
+            this.btnAddProyecto.Location = new System.Drawing.Point(594, 30);
+            this.btnAddProyecto.Name = "btnAddProyecto";
+            this.btnAddProyecto.Size = new System.Drawing.Size(33, 20);
+            this.btnAddProyecto.TabIndex = 28;
+            this.btnAddProyecto.Text = "+";
+            this.btnAddProyecto.UseVisualStyleBackColor = true;
+            this.btnAddProyecto.Click += new System.EventHandler(this.btnAddProyecto_Click);
             // 
             // btnPrevisualizar
             // 
             this.btnPrevisualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrevisualizar.Location = new System.Drawing.Point(890, 34);
+            this.btnPrevisualizar.Location = new System.Drawing.Point(998, 34);
             this.btnPrevisualizar.Name = "btnPrevisualizar";
             this.btnPrevisualizar.Size = new System.Drawing.Size(137, 39);
             this.btnPrevisualizar.TabIndex = 27;
@@ -127,7 +144,7 @@
             // 
             this.cmbBoxFiltros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxFiltros.FormattingEnabled = true;
-            this.cmbBoxFiltros.Location = new System.Drawing.Point(144, 113);
+            this.cmbBoxFiltros.Location = new System.Drawing.Point(144, 138);
             this.cmbBoxFiltros.Name = "cmbBoxFiltros";
             this.cmbBoxFiltros.Size = new System.Drawing.Size(176, 21);
             this.cmbBoxFiltros.TabIndex = 26;
@@ -135,7 +152,7 @@
             // 
             // btnModificarFiltros
             // 
-            this.btnModificarFiltros.Location = new System.Drawing.Point(326, 111);
+            this.btnModificarFiltros.Location = new System.Drawing.Point(326, 136);
             this.btnModificarFiltros.Name = "btnModificarFiltros";
             this.btnModificarFiltros.Size = new System.Drawing.Size(114, 24);
             this.btnModificarFiltros.TabIndex = 25;
@@ -147,7 +164,7 @@
             // chkBoxFiltros
             // 
             this.chkBoxFiltros.AutoSize = true;
-            this.chkBoxFiltros.Location = new System.Drawing.Point(24, 112);
+            this.chkBoxFiltros.Location = new System.Drawing.Point(24, 135);
             this.chkBoxFiltros.Name = "chkBoxFiltros";
             this.chkBoxFiltros.Size = new System.Drawing.Size(112, 17);
             this.chkBoxFiltros.TabIndex = 22;
@@ -158,7 +175,7 @@
             // checkBoxBackup
             // 
             this.checkBoxBackup.AutoSize = true;
-            this.checkBoxBackup.Location = new System.Drawing.Point(24, 142);
+            this.checkBoxBackup.Location = new System.Drawing.Point(24, 112);
             this.checkBoxBackup.Name = "checkBoxBackup";
             this.checkBoxBackup.Size = new System.Drawing.Size(63, 17);
             this.checkBoxBackup.TabIndex = 21;
@@ -168,7 +185,7 @@
             // 
             // textBackup
             // 
-            this.textBackup.Location = new System.Drawing.Point(144, 141);
+            this.textBackup.Location = new System.Drawing.Point(144, 110);
             this.textBackup.Name = "textBackup";
             this.textBackup.ReadOnly = true;
             this.textBackup.Size = new System.Drawing.Size(444, 20);
@@ -178,7 +195,7 @@
             // 
             // btnRutaBackup
             // 
-            this.btnRutaBackup.Location = new System.Drawing.Point(594, 140);
+            this.btnRutaBackup.Location = new System.Drawing.Point(594, 109);
             this.btnRutaBackup.Name = "btnRutaBackup";
             this.btnRutaBackup.Size = new System.Drawing.Size(33, 20);
             this.btnRutaBackup.TabIndex = 17;
@@ -199,15 +216,16 @@
             // cmbProyecto
             // 
             this.cmbProyecto.FormattingEnabled = true;
-            this.cmbProyecto.Location = new System.Drawing.Point(144, 34);
+            this.cmbProyecto.Location = new System.Drawing.Point(144, 29);
             this.cmbProyecto.Name = "cmbProyecto";
             this.cmbProyecto.Size = new System.Drawing.Size(444, 21);
             this.cmbProyecto.TabIndex = 14;
+            this.cmbProyecto.SelectedIndexChanged += new System.EventHandler(this.cmbProyecto_SelectedIndexChanged);
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 37);
+            this.label5.Location = new System.Drawing.Point(21, 29);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 13;
@@ -240,7 +258,7 @@
             // btnSincronizar
             // 
             this.btnSincronizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSincronizar.Location = new System.Drawing.Point(890, 120);
+            this.btnSincronizar.Location = new System.Drawing.Point(998, 120);
             this.btnSincronizar.Name = "btnSincronizar";
             this.btnSincronizar.Size = new System.Drawing.Size(137, 39);
             this.btnSincronizar.TabIndex = 6;
@@ -302,7 +320,7 @@
             this.menuToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1052, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1160, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -335,9 +353,9 @@
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.tableLayoutDestino);
-            this.splitContainer2.Size = new System.Drawing.Size(1049, 483);
-            this.splitContainer2.SplitterDistance = 518;
+            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
+            this.splitContainer2.Size = new System.Drawing.Size(1157, 483);
+            this.splitContainer2.SplitterDistance = 554;
             this.splitContainer2.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -353,7 +371,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(518, 483);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(554, 483);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // treeViewOrigen
@@ -361,7 +379,7 @@
             this.treeViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewOrigen.Location = new System.Drawing.Point(3, 53);
             this.treeViewOrigen.Name = "treeViewOrigen";
-            this.treeViewOrigen.Size = new System.Drawing.Size(512, 427);
+            this.treeViewOrigen.Size = new System.Drawing.Size(548, 427);
             this.treeViewOrigen.TabIndex = 0;
             // 
             // groupBox1
@@ -371,7 +389,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(512, 44);
+            this.groupBox1.Size = new System.Drawing.Size(548, 44);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Origen";
@@ -396,30 +414,46 @@
             this.label3.TabIndex = 0;
             this.label3.Text = "Archivos: ";
             // 
-            // tableLayoutDestino
+            // splitContainer3
             // 
-            this.tableLayoutDestino.AutoScroll = true;
-            this.tableLayoutDestino.ColumnCount = 1;
-            this.tableLayoutDestino.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutDestino.Controls.Add(this.groupBox2, 0, 0);
-            this.tableLayoutDestino.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tableLayoutDestino.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutDestino.Name = "tableLayoutDestino";
-            this.tableLayoutDestino.RowCount = 2;
-            this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutDestino.Size = new System.Drawing.Size(527, 483);
-            this.tableLayoutDestino.TabIndex = 0;
+            this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.Location = new System.Drawing.Point(0, 0);
+            this.splitContainer3.Name = "splitContainer3";
+            this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainer3.Panel1
+            // 
+            this.splitContainer3.Panel1.Controls.Add(this.groupBox2);
+            // 
+            // splitContainer3.Panel2
+            // 
+            this.splitContainer3.Panel2.Controls.Add(this.tableLayoutDestino);
+            this.splitContainer3.Size = new System.Drawing.Size(599, 483);
+            this.splitContainer3.SplitterDistance = 48;
+            this.splitContainer3.TabIndex = 0;
             // 
             // groupBox2
             // 
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(3, 3);
+            this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(521, 44);
-            this.groupBox2.TabIndex = 1;
+            this.groupBox2.Size = new System.Drawing.Size(599, 48);
+            this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Destino";
+            // 
+            // tableLayoutDestino
+            // 
+            this.tableLayoutDestino.AutoScroll = true;
+            this.tableLayoutDestino.ColumnCount = 1;
+            this.tableLayoutDestino.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutDestino.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutDestino.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutDestino.Name = "tableLayoutDestino";
+            this.tableLayoutDestino.RowCount = 1;
+            this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutDestino.Size = new System.Drawing.Size(599, 431);
+            this.tableLayoutDestino.TabIndex = 1;
             // 
             // splitter1
             // 
@@ -437,7 +471,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1052, 665);
+            this.ClientSize = new System.Drawing.Size(1160, 665);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormPrincipal";
             this.ShowIcon = false;
@@ -456,7 +490,10 @@
             this.tableLayoutPanel1.ResumeLayout(false);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.tableLayoutDestino.ResumeLayout(false);
+            this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
+            this.splitContainer3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -481,7 +518,6 @@
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem GuardarToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutDestino;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeViewOrigen;
         private System.Windows.Forms.GroupBox groupBox1;
@@ -494,8 +530,11 @@
         private System.Windows.Forms.Button btnModificarFiltros;
         private System.Windows.Forms.CheckBox chkBoxFiltros;
         private System.Windows.Forms.Button btnPrevisualizar;
-        private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.ToolTip toolTipControl;
+        private System.Windows.Forms.SplitContainer splitContainer3;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutDestino;
+        private System.Windows.Forms.Button btnAddProyecto;
     }
 }
 

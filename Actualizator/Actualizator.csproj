@@ -47,6 +47,10 @@
     <Reference Include="Utilities.Clases">
       <HintPath>..\..\..\..\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\Cristian Personal\Sorteo\Utilities.Clases.dll</HintPath>
     </Reference>
+    <Reference Include="Utilities.Extensions, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\Cod descartado\Utilities.Extensions.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>

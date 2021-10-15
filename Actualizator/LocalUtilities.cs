@@ -1,8 +1,6 @@
 ﻿using System;
 using System.IO;
 using System.Windows.Forms;
-using System.Xml;
-using System.Xml.Serialization;
 
 namespace Actualizator
 {
@@ -17,7 +15,7 @@ namespace Actualizator
             }
             if (!string.IsNullOrEmpty(exception.Message))
             {
-                result = result + (!string.IsNullOrEmpty(result) ? ". Message -> " : "Message -> " + exception.Message);
+                result += (!string.IsNullOrEmpty(result) ? ". Message -> " : "Message -> " + exception.Message);
             }
             if (string.IsNullOrEmpty(result))
             {
@@ -36,5 +34,6 @@ namespace Actualizator
         {
             File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), "log.txt"), text + Environment.NewLine);
         }
+
     }
 }

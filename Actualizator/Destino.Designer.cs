@@ -36,10 +36,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.treeViewDestino = new System.Windows.Forms.TreeView();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
+            this.borrarDestinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.contextMenuDestino = new System.Windows.Forms.ContextMenuStrip(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.contextMenuDestino.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -52,6 +55,7 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.ContextMenuStrip = this.contextMenuDestino;
             this.splitContainer1.Panel1.Controls.Add(this.lblRutaDestino);
             this.splitContainer1.Panel1.Controls.Add(this.label2);
             this.splitContainer1.Panel1.Controls.Add(this.lblArchivosDestino);
@@ -113,6 +117,20 @@
             this.treeViewDestino.Size = new System.Drawing.Size(150, 46);
             this.treeViewDestino.TabIndex = 0;
             // 
+            // borrarDestinoToolStripMenuItem
+            // 
+            this.borrarDestinoToolStripMenuItem.Name = "borrarDestinoToolStripMenuItem";
+            this.borrarDestinoToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.borrarDestinoToolStripMenuItem.Text = "Borrar destino";
+            this.borrarDestinoToolStripMenuItem.Click += new System.EventHandler(this.borrarDestinoToolStripMenuItem_Click);
+            // 
+            // contextMenuDestino
+            // 
+            this.contextMenuDestino.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.borrarDestinoToolStripMenuItem});
+            this.contextMenuDestino.Name = "contextMenuDestino";
+            this.contextMenuDestino.Size = new System.Drawing.Size(149, 26);
+            // 
             // Destino
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -127,6 +145,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.contextMenuDestino.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -140,5 +159,7 @@
         private System.Windows.Forms.Label lblRutaDestino;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolTip toolTipControl;
+        private System.Windows.Forms.ToolStripMenuItem borrarDestinoToolStripMenuItem;
+        private System.Windows.Forms.ContextMenuStrip contextMenuDestino;
     }
 }

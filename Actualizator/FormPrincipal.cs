@@ -5,7 +5,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 using System.Xml;
-using System.Xml.Serialization;
 using Utilities.Clases.XML;
 
 namespace Actualizator
@@ -17,13 +16,47 @@ namespace Actualizator
         private int countArchivosDestino = 0;
         private int countArchivosOrigen = 0;
         private string rutaBackup;
-        private BindingList<Filtro> filtros;
+
         private bool hayFiltros = false;
         private bool hacerBackup = false;
+
+        public bool HacerBackup 
+        { 
+            get => hacerBackup;
+            set 
+            {
+                if (value != hacerBackup)
+                {
+                    hacerBackup = value;
+                    checkBoxBackup.Checked = hacerBackup;
+                    textBackup.Visible = hacerBackup;
+                    btnRutaBackup.Visible = hacerBackup;
+                }
+            }
+        }
+        public bool HayFiltros 
+        { 
+            get => hayFiltros;
+            set 
+            {
+                if(value != hayFiltros)
+                {
+                    hayFiltros = value;
+                    chkBoxFiltros.Checked = hayFiltros;
+                    btnModificarFiltros.Visible = hayFiltros;
+                    cmbBoxFiltros.Visible = hayFiltros;
+                }                
+            }
+        }
+
+        private bool addProyecto = false;
+
         private List<string> destinos = new List<string>();
-        private Proyecto nuevoProyecto;
         private Proyecto actualProyecto;
-        private List<Proyecto> proyectos = new List<Proyecto>();
+        private BindingList<Proyecto> proyectos = new BindingList<Proyecto>();
+        private BindingList<Filtro> filtros = new BindingList<Filtro>();
+
+        
 
         #endregion
 
@@ -42,23 +75,29 @@ namespace Actualizator
         private void CargarDatos()
         {
             rutaBackup = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+
             CargarProyectos();
 
-            filtros = new BindingList<Filtro>();
-            BindingSource bSource = new BindingSource { DataSource = filtros };
-            cmbBoxFiltros.DataSource = bSource;
+            textBackup.Text = rutaBackup;
+            cmbProyecto.DisplayMember = nameof(Proyecto.ProyectoName);
 
             ActualizarDatos();
         }
 
         private void ActualizarDatos()
         {
-            textBackup.Text = rutaBackup;
+            if (!string.IsNullOrEmpty(textOrigen.Text)) btnVerCarpetaOrigen.Visible = true;
+
             lblArchivosOrigen.Text = countArchivosOrigen.ToString();
-            //lblArchivosDestino.Text = CountArchivosDestino.ToString();
+
+            chkBoxFiltros.Checked = HayFiltros;
+            checkBoxBackup.Checked = HacerBackup;
 
             BindingSource bSource = new BindingSource { DataSource = filtros };
             cmbBoxFiltros.DataSource = bSource;
+
+            cmbProyecto.DataSource = proyectos;
+            cmbProyecto.Refresh();
         }
 
         private void ElegirRuta(TextBox txtBox, Button btn = null)
@@ -117,11 +156,11 @@ namespace Actualizator
         {
             FileInfo[] archivos = directory.GetFiles();
 
-            if (hayFiltros)
+            if (HayFiltros)
             {
                 archivos = FiltrarArchivos(archivos);
             }
-            
+
             foreach (FileInfo file in archivos)
             {
                 TreeNode fileNode = new TreeNode
@@ -130,10 +169,10 @@ namespace Actualizator
                 };
 
                 directoryNode.Nodes.Add(fileNode);
-            }            
+            }
         }
 
-        private int ActualizarTreeView(TextBox txtBox, TreeView treeView)
+        private int ActualizarTreeView(TextBox txtBox, TreeView treeView, string ruta = null)
         {
             int contador = 0;
 
@@ -141,7 +180,15 @@ namespace Actualizator
             {
                 if (txtBox.Text != null)
                 {
-                    DirectoryInfo dirInfo = new DirectoryInfo(txtBox.Text);
+                    DirectoryInfo dirInfo;
+                    if (ruta != null)
+                    {
+                        dirInfo = new DirectoryInfo(ruta);
+                    }
+                    else
+                    {
+                        dirInfo = new DirectoryInfo(txtBox.Text);
+                    }
 
                     if (dirInfo.Exists)
                     {
@@ -151,14 +198,14 @@ namespace Actualizator
                         PopulateTreeView(dirInfo, null, treeView);
 
                         var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
-                        if (hayFiltros)
+                        if (HayFiltros)
                         {
                             contadorTodos = FiltrarArchivos(contadorTodos);
                         }
                         contador = contadorTodos.Count();
                         ActualizarDatos();
                     }
-                }                
+                }
             }
             catch (Exception ex)
             {
@@ -173,7 +220,7 @@ namespace Actualizator
             try
             {
                 // Crear la ruta de carpeta
-                rutaBackup = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData), 
+                rutaBackup = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData),
                     DateTime.Now.ToString().Replace("/", "-").Replace(" ", "_").Replace(":", ""));
                 // Crear la carpeta
                 Directory.CreateDirectory(rutaBackup);
@@ -202,9 +249,9 @@ namespace Actualizator
                     FileInfo[] archivosOrigen = dirOrigen.GetFiles("*", SearchOption.AllDirectories);
                     FileInfo[] archivosDestino = dirDestino.GetFiles("*", SearchOption.AllDirectories);
 
-                    if (hayFiltros)  archivosOrigen = FiltrarArchivos(archivosOrigen); 
+                    if (HayFiltros) archivosOrigen = FiltrarArchivos(archivosOrigen);
 
-                    if (hacerBackup) CrerBackup(archivosOrigen);
+                    if (HacerBackup) CrerBackup(archivosOrigen);
 
                     foreach (FileInfo archivoOrigen in archivosOrigen)
                     {
@@ -255,19 +302,58 @@ namespace Actualizator
         {
             try
             {
-                nuevoProyecto = new Proyecto(cmbProyecto.Text, textOrigen.Text, destinos, rutaBackup, filtros);
-                proyectos.Add(nuevoProyecto);
-
-                string proyectoXML = SerializerXML.getObjectSerialized(proyectos);
-
-                XmlDocument doc = new XmlDocument();
-                doc.LoadXml(proyectoXML);
-                doc.Save("proyectos.xml");
-
-                if (ExisteProyecto())
+                if (!string.IsNullOrEmpty(cmbProyecto.Text.ToString()))
                 {
-                    LocalUtilities.WriteTextLog("Guardado proyecto XML " + " | Fecha: " + DateTime.Now.ToString());
-                    MessageBox.Show("Guardado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    ActualizarDestino();
+
+                    if (actualProyecto == null)                    
+                    {
+                        Guid guid = Guid.NewGuid();
+                        actualProyecto = new Proyecto(guid);
+                    }
+
+                    actualProyecto.ProyectoName = cmbProyecto.Text.ToString();
+                    actualProyecto.PathOrigen = textOrigen.Text;
+                    actualProyecto.PathDestino = destinos;
+                    actualProyecto.HacerBackup = HacerBackup;
+                    actualProyecto.PathBackup = rutaBackup;
+                    actualProyecto.FicherosExcluidos = filtros;
+                    actualProyecto.Filtrar = HayFiltros;
+
+                    if (proyectos.Any(x => x.Identifier == actualProyecto.Identifier))
+                    {
+                        foreach (var proyecto in proyectos.Where(proyecto => proyecto.Identifier == actualProyecto.Identifier))
+                        {
+                            proyecto.ProyectoName = actualProyecto.ProyectoName;
+                            proyecto.PathOrigen = actualProyecto.PathOrigen;
+                            proyecto.PathDestino = actualProyecto.PathDestino;
+                            proyecto.HacerBackup = actualProyecto.HacerBackup;
+                            proyecto.PathBackup = actualProyecto.PathBackup;
+                            proyecto.FicherosExcluidos = actualProyecto.FicherosExcluidos;
+                            proyecto.Filtrar = actualProyecto.Filtrar;
+                        }
+                    }
+                    else
+                    {
+                        proyectos.Add(actualProyecto);
+                    }                    
+
+                    string proyectoXML = SerializerXML.getObjectSerialized(proyectos);
+
+                    XmlDocument doc = new XmlDocument();
+                    doc.LoadXml(proyectoXML);
+                    doc.Save("proyectos.xml");
+
+                    if (ExisteProyecto())
+                    {
+                        addProyecto = false;
+                        LocalUtilities.WriteTextLog("Guardado proyecto XML " + " | Fecha: " + DateTime.Now.ToString());
+                        //MessageBox.Show("Guardado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    } 
+                }
+                else
+                {
+                    LocalUtilities.MensajeError("¡Indique un nombre para el proyecto!");
                 }
             }
             catch (Exception ex)
@@ -278,24 +364,134 @@ namespace Actualizator
 
         private void CargarProyectos()
         {
-            if (ExisteProyecto())
+            try
             {
-                XmlDocument doc = new XmlDocument();
-                doc.Load(Path.Combine(Environment.CurrentDirectory, "proyectos.xml"));
-
-                string resultado = doc.InnerXml;
-
-                if (resultado != null)
+                if (ExisteProyecto())
                 {
-                    var test = SerializerXML.Deserialize_Opcion1<List<Proyecto>>(resultado);
+                    XmlDocument doc = new XmlDocument();
+                    doc.Load(Path.Combine(Environment.CurrentDirectory, "proyectos.xml"));
+
+                    string resultado = doc.InnerXml;
+
+                    if (resultado != null)
+                    {
+                        proyectos = SerializerXML.Deserialize_Opcion1<BindingList<Proyecto>>(resultado);
+                        if (proyectos.Count() != 0)
+                        {
+                            cmbProyecto.DataSource = proyectos;
+                            cmbProyecto.DisplayMember = nameof(Proyecto.ProyectoName);
+                        }
+                    }
+                }
+                else
+                {
+                    NuevoProyecto();
                 }
             }
-        }        
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError("¡Archivo XML corrupto! \n" + LocalUtilities.getErrorException(ex));
+            }
+        }
+
+        private void ActualizarProyecto()
+        {
+            if (string.IsNullOrEmpty(actualProyecto?.ProyectoName))
+            {
+                NuevoProyecto();
+            }
+            else
+            {
+                filtros = new BindingList<Filtro>();
+                destinos = new List<string>();
+
+                cmbProyecto.Text = actualProyecto.ProyectoName;
+                textOrigen.Text = actualProyecto.PathOrigen;
+                treeViewOrigen.Nodes.Clear();
+                if (!string.IsNullOrEmpty(textOrigen.Text)) 
+                { 
+                    countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen); 
+                }
+                else
+                {
+                    countArchivosOrigen = 0;
+                }
+
+                foreach (string destino in actualProyecto.PathDestino)
+                {
+                    AddDestinoControl(destino);
+                }
+
+                HacerBackup = actualProyecto.HacerBackup;
+                if (HacerBackup) rutaBackup = actualProyecto.PathBackup;
+
+                HayFiltros = actualProyecto.Filtrar;
+                foreach (Filtro filtro in actualProyecto.FicherosExcluidos)
+                {
+                    filtros.Add(filtro);
+                }
+            }
+        }
+
+        private void NuevoProyecto()
+        {
+            cmbProyecto.Text = string.Empty;            
+            textOrigen.Text = string.Empty;
+            textDestino.Text = string.Empty;            
+            countArchivosOrigen = 0;                       
+            HacerBackup = false;
+            HayFiltros = false;
+            filtros = new BindingList<Filtro>();
+
+            destinos.Clear();
+            treeViewOrigen.Nodes.Clear();
+
+            LimpiarLayoutDestino();
+        }
 
         private bool ExisteProyecto()
         {
             return File.Exists(Path.Combine(Environment.CurrentDirectory, "proyectos.xml")); ;
         }
+
+        private void AddDestinoControl(string text)
+        {
+            Destino destinoControl = new Destino();
+            destinoControl.LabelContador = ActualizarTreeView(textDestino, destinoControl.TreeViewDestino, text);
+            destinoControl.RutaDestino = text;
+
+            tableLayoutDestino.Controls.Add(destinoControl);
+            destinos.Add(text);
+        }
+
+        private void VisibilidadFiltro()
+        {
+            btnModificarFiltros.Visible = chkBoxFiltros.Checked;
+            cmbBoxFiltros.Visible = chkBoxFiltros.Checked;
+            HayFiltros = chkBoxFiltros.Checked;
+        }
+
+        private void VisibilidadBackup()
+        {
+            textBackup.Visible = checkBoxBackup.Checked;
+            btnRutaBackup.Visible = checkBoxBackup.Checked;
+            HacerBackup = checkBoxBackup.Checked;
+        }
+
+        private void LimpiarLayoutDestino()
+        {
+            tableLayoutDestino.Controls.Clear();          
+        }
+
+        public void ActualizarDestino()
+        {
+            destinos = new List<string>();
+            foreach (Destino destino in tableLayoutDestino.Controls)
+            {
+                destinos.Add(destino.RutaDestino);
+            }
+        }
+
 
         #endregion
 
@@ -314,6 +510,11 @@ namespace Actualizator
         private void btnRutaBackup_Click(object sender, EventArgs e)
         {
             ElegirRuta(textBackup);
+
+            if (textBackup.Text != null)
+            {
+                rutaBackup = textBackup.Text;
+            }
         }
 
         private void btnVerCarpetaOrigen_Click(object sender, EventArgs e)
@@ -323,25 +524,15 @@ namespace Actualizator
 
         private void btnVerCarpetaDestino_Click(object sender, EventArgs e)
         {
-            if (textDestino.Text != null)
+            if (!string.IsNullOrEmpty(textDestino.Text))
             {
-                Destino destino = new Destino();
-                destino.LabelContador = ActualizarTreeView(textDestino, destino.TreeViewDestino);
-                destino.RutaDestino = textDestino.Text;
-
-                tableLayoutDestino.Controls.Add(destino);
-                destinos.Add(textDestino.Text);
+                AddDestinoControl(textDestino.Text);
             }
         }
 
         private void btnSincronizar_Click(object sender, EventArgs e)
         {
             SincronizarCarpetas();
-        }
-
-        private void rutaBackupToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
         }
 
         private void anadirToolStripMenuItem_Click(object sender, EventArgs e)
@@ -351,16 +542,12 @@ namespace Actualizator
 
         private void checkBoxBackup_CheckedChanged(object sender, EventArgs e)
         {
-            textBackup.Visible = checkBoxBackup.Checked;
-            btnRutaBackup.Visible = checkBoxBackup.Checked;
-            hacerBackup = checkBoxBackup.Checked;
+            VisibilidadBackup();
         }
 
         private void chkBoxFiltros_CheckedChanged(object sender, EventArgs e)
         {
-            btnModificarFiltros.Visible = chkBoxFiltros.Checked;
-            cmbBoxFiltros.Visible = chkBoxFiltros.Checked;
-            hayFiltros = chkBoxFiltros.Checked;
+            VisibilidadFiltro();
         }
 
         private void btnAddFiltros_Click(object sender, EventArgs e)
@@ -396,6 +583,42 @@ namespace Actualizator
         private void textBackup_MouseHover(object sender, EventArgs e)
         {
             toolTipControl.SetToolTip(textBackup, textBackup.Text);
+        }
+
+        private void cmbProyecto_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (!addProyecto)
+            {
+                LimpiarLayoutDestino();
+
+                actualProyecto = (Proyecto)cmbProyecto.SelectedItem;
+                ActualizarProyecto();
+                ActualizarDatos();
+            }
+            else
+            {
+                LocalUtilities.MensajeError("¡Guarde el proyecto actual!");
+            }
+        }
+
+        private void btnAddProyecto_Click(object sender, EventArgs e)
+        {
+            if (actualProyecto != null && !string.IsNullOrEmpty(actualProyecto.ProyectoName))
+            {
+                Guid guid = Guid.NewGuid();
+                actualProyecto = new Proyecto(guid);
+
+                // no añadir el proyecto aqui si no antes de guardar?
+                //proyectos.Add(proyecto);
+                addProyecto = true;
+
+                ActualizarProyecto();
+                ActualizarDatos();
+            }
+            else
+            {
+                LocalUtilities.MensajeError("¡Guarde el proyecto actual!");
+            }
         }
 
         #endregion

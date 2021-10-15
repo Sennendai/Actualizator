@@ -1,11 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Actualizator
@@ -53,6 +47,9 @@ namespace Actualizator
         public Destino()
         {
             InitializeComponent();
+            // para ajustar a la pagina los sucesivos controles
+            //this.Dock = DockStyle.Fill;
+            this.Margin = new Padding(1,3,0,3);
         }
 
         private void splitContainer1_Panel1_Click(object sender, EventArgs e)
@@ -72,6 +69,16 @@ namespace Actualizator
         private void lblRutaDestino_MouseHover(object sender, EventArgs e)
         {
             toolTipControl.SetToolTip(lblRutaDestino, lblRutaDestino.Text);
+        }
+
+        private void borrarDestinoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult dialogResult = MessageBox.Show("¿Quieres borrar el destino?", "Borrar", MessageBoxButtons.YesNo);
+            if (dialogResult == DialogResult.Yes)
+            {
+                TableLayoutPanel tableLayout = (TableLayoutPanel)this.Parent;
+                tableLayout.Controls.Remove(this);
+            }
         }
     }
 }

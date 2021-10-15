@@ -28,12 +28,15 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cmbBoxFiltros = new System.Windows.Forms.ComboBox();
             this.btnAddFiltros = new System.Windows.Forms.Button();
             this.txtBoxFiltro = new System.Windows.Forms.TextBox();
             this.dataGridFiltros = new System.Windows.Forms.DataGridView();
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
+            this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
+            this.label1 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFiltros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -41,14 +44,14 @@
             // 
             this.cmbBoxFiltros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxFiltros.FormattingEnabled = true;
-            this.cmbBoxFiltros.Location = new System.Drawing.Point(12, 51);
+            this.cmbBoxFiltros.Location = new System.Drawing.Point(12, 12);
             this.cmbBoxFiltros.Name = "cmbBoxFiltros";
             this.cmbBoxFiltros.Size = new System.Drawing.Size(176, 21);
             this.cmbBoxFiltros.TabIndex = 28;
             // 
             // btnAddFiltros
             // 
-            this.btnAddFiltros.Location = new System.Drawing.Point(194, 83);
+            this.btnAddFiltros.Location = new System.Drawing.Point(194, 44);
             this.btnAddFiltros.Name = "btnAddFiltros";
             this.btnAddFiltros.Size = new System.Drawing.Size(33, 21);
             this.btnAddFiltros.TabIndex = 27;
@@ -59,26 +62,24 @@
             // txtBoxFiltro
             // 
             this.txtBoxFiltro.AcceptsReturn = true;
-            this.txtBoxFiltro.Location = new System.Drawing.Point(12, 83);
+            this.txtBoxFiltro.Location = new System.Drawing.Point(12, 44);
             this.txtBoxFiltro.Name = "txtBoxFiltro";
             this.txtBoxFiltro.Size = new System.Drawing.Size(176, 20);
             this.txtBoxFiltro.TabIndex = 29;
-            //add the handler to the textbox
-            this.txtBoxFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(CheckEnterKeyPress);
+            this.txtBoxFiltro.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.CheckEnterKeyPress);
             // 
             // dataGridFiltros
             // 
             this.dataGridFiltros.AllowUserToAddRows = false;
             this.dataGridFiltros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridFiltros.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.dataGridFiltros.Location = new System.Drawing.Point(0, 118);
+            this.dataGridFiltros.Location = new System.Drawing.Point(0, 79);
             this.dataGridFiltros.Name = "dataGridFiltros";
             this.dataGridFiltros.Size = new System.Drawing.Size(299, 150);
             this.dataGridFiltros.TabIndex = 30;
             // 
             // btnAceptar
             // 
-            this.btnAceptar.Location = new System.Drawing.Point(12, 12);
+            this.btnAceptar.Location = new System.Drawing.Point(12, 278);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(110, 24);
             this.btnAceptar.TabIndex = 31;
@@ -88,7 +89,7 @@
             // 
             // btnCancelar
             // 
-            this.btnCancelar.Location = new System.Drawing.Point(177, 12);
+            this.btnCancelar.Location = new System.Drawing.Point(177, 278);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 24);
             this.btnCancelar.TabIndex = 32;
@@ -96,12 +97,23 @@
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(12, 249);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(257, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Pulse la tecla \'Supr\' para borrar un registro de la tabla";
+            // 
             // FormFiltros
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(299, 268);
+            this.ClientSize = new System.Drawing.Size(299, 314);
             this.ControlBox = false;
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.dataGridFiltros);
@@ -114,6 +126,7 @@
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Filtros";
+            this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FormFiltros_KeyPress);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFiltros)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -128,5 +141,7 @@
         private System.Windows.Forms.DataGridView dataGridFiltros;
         private System.Windows.Forms.Button btnAceptar;
         private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.ToolTip toolTipControl;
+        private System.Windows.Forms.Label label1;
     }
 }
