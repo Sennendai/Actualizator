@@ -9,7 +9,7 @@ namespace Actualizator
     public class Filtro
     {
         public Filtrado cabecera;
-        public string filtro;
+        public string filtro { get; set; }
         public string descripcion
         {
             get { return cabecera.ToString() + " - " + filtro; }

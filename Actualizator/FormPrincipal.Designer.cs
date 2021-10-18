@@ -30,6 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.btnRestaurarBackup = new System.Windows.Forms.Button();
             this.btnAddProyecto = new System.Windows.Forms.Button();
             this.btnPrevisualizar = new System.Windows.Forms.Button();
             this.cmbBoxFiltros = new System.Windows.Forms.ComboBox();
@@ -51,7 +52,6 @@
             this.textOrigen = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.GuardarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeViewOrigen = new System.Windows.Forms.TreeView();
@@ -64,6 +64,9 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.recargarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lblLog = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -90,6 +93,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.lblLog);
+            this.splitContainer1.Panel1.Controls.Add(this.btnActualizar);
+            this.splitContainer1.Panel1.Controls.Add(this.btnRestaurarBackup);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddProyecto);
             this.splitContainer1.Panel1.Controls.Add(this.btnPrevisualizar);
             this.splitContainer1.Panel1.Controls.Add(this.cmbBoxFiltros);
@@ -116,13 +122,24 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.splitter1);
-            this.splitContainer1.Size = new System.Drawing.Size(1160, 665);
-            this.splitContainer1.SplitterDistance = 178;
+            this.splitContainer1.Size = new System.Drawing.Size(1291, 665);
+            this.splitContainer1.SplitterDistance = 186;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // btnRestaurarBackup
+            // 
+            this.btnRestaurarBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurarBackup.Location = new System.Drawing.Point(986, 29);
+            this.btnRestaurarBackup.Name = "btnRestaurarBackup";
+            this.btnRestaurarBackup.Size = new System.Drawing.Size(137, 39);
+            this.btnRestaurarBackup.TabIndex = 29;
+            this.btnRestaurarBackup.Text = "Restaurar Backup";
+            this.btnRestaurarBackup.UseVisualStyleBackColor = true;
+            this.btnRestaurarBackup.Click += new System.EventHandler(this.btnRestaurarBackup_Click);
             // 
             // btnAddProyecto
             // 
-            this.btnAddProyecto.Location = new System.Drawing.Point(594, 30);
+            this.btnAddProyecto.Location = new System.Drawing.Point(590, 38);
             this.btnAddProyecto.Name = "btnAddProyecto";
             this.btnAddProyecto.Size = new System.Drawing.Size(33, 20);
             this.btnAddProyecto.TabIndex = 28;
@@ -133,18 +150,19 @@
             // btnPrevisualizar
             // 
             this.btnPrevisualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrevisualizar.Location = new System.Drawing.Point(998, 34);
+            this.btnPrevisualizar.Location = new System.Drawing.Point(1129, 30);
             this.btnPrevisualizar.Name = "btnPrevisualizar";
             this.btnPrevisualizar.Size = new System.Drawing.Size(137, 39);
             this.btnPrevisualizar.TabIndex = 27;
             this.btnPrevisualizar.Text = "Previsualizar";
             this.btnPrevisualizar.UseVisualStyleBackColor = true;
+            this.btnPrevisualizar.Click += new System.EventHandler(this.btnPrevisualizar_Click);
             // 
             // cmbBoxFiltros
             // 
             this.cmbBoxFiltros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBoxFiltros.FormattingEnabled = true;
-            this.cmbBoxFiltros.Location = new System.Drawing.Point(144, 138);
+            this.cmbBoxFiltros.Location = new System.Drawing.Point(140, 146);
             this.cmbBoxFiltros.Name = "cmbBoxFiltros";
             this.cmbBoxFiltros.Size = new System.Drawing.Size(176, 21);
             this.cmbBoxFiltros.TabIndex = 26;
@@ -152,7 +170,7 @@
             // 
             // btnModificarFiltros
             // 
-            this.btnModificarFiltros.Location = new System.Drawing.Point(326, 136);
+            this.btnModificarFiltros.Location = new System.Drawing.Point(322, 144);
             this.btnModificarFiltros.Name = "btnModificarFiltros";
             this.btnModificarFiltros.Size = new System.Drawing.Size(114, 24);
             this.btnModificarFiltros.TabIndex = 25;
@@ -164,7 +182,7 @@
             // chkBoxFiltros
             // 
             this.chkBoxFiltros.AutoSize = true;
-            this.chkBoxFiltros.Location = new System.Drawing.Point(24, 135);
+            this.chkBoxFiltros.Location = new System.Drawing.Point(20, 143);
             this.chkBoxFiltros.Name = "chkBoxFiltros";
             this.chkBoxFiltros.Size = new System.Drawing.Size(112, 17);
             this.chkBoxFiltros.TabIndex = 22;
@@ -175,7 +193,7 @@
             // checkBoxBackup
             // 
             this.checkBoxBackup.AutoSize = true;
-            this.checkBoxBackup.Location = new System.Drawing.Point(24, 112);
+            this.checkBoxBackup.Location = new System.Drawing.Point(20, 120);
             this.checkBoxBackup.Name = "checkBoxBackup";
             this.checkBoxBackup.Size = new System.Drawing.Size(63, 17);
             this.checkBoxBackup.TabIndex = 21;
@@ -185,7 +203,7 @@
             // 
             // textBackup
             // 
-            this.textBackup.Location = new System.Drawing.Point(144, 110);
+            this.textBackup.Location = new System.Drawing.Point(140, 118);
             this.textBackup.Name = "textBackup";
             this.textBackup.ReadOnly = true;
             this.textBackup.Size = new System.Drawing.Size(444, 20);
@@ -195,7 +213,7 @@
             // 
             // btnRutaBackup
             // 
-            this.btnRutaBackup.Location = new System.Drawing.Point(594, 109);
+            this.btnRutaBackup.Location = new System.Drawing.Point(590, 117);
             this.btnRutaBackup.Name = "btnRutaBackup";
             this.btnRutaBackup.Size = new System.Drawing.Size(33, 20);
             this.btnRutaBackup.TabIndex = 17;
@@ -206,9 +224,8 @@
             // 
             // textDestino
             // 
-            this.textDestino.Location = new System.Drawing.Point(144, 84);
+            this.textDestino.Location = new System.Drawing.Point(140, 92);
             this.textDestino.Name = "textDestino";
-            this.textDestino.ReadOnly = true;
             this.textDestino.Size = new System.Drawing.Size(444, 20);
             this.textDestino.TabIndex = 15;
             this.textDestino.MouseHover += new System.EventHandler(this.textDestino_MouseHover);
@@ -216,7 +233,7 @@
             // cmbProyecto
             // 
             this.cmbProyecto.FormattingEnabled = true;
-            this.cmbProyecto.Location = new System.Drawing.Point(144, 29);
+            this.cmbProyecto.Location = new System.Drawing.Point(140, 37);
             this.cmbProyecto.Name = "cmbProyecto";
             this.cmbProyecto.Size = new System.Drawing.Size(444, 21);
             this.cmbProyecto.TabIndex = 14;
@@ -225,7 +242,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(21, 29);
+            this.label5.Location = new System.Drawing.Point(17, 42);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
             this.label5.TabIndex = 13;
@@ -234,31 +251,29 @@
             // btnVerCarpetaDestino
             // 
             this.btnVerCarpetaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerCarpetaDestino.Location = new System.Drawing.Point(633, 85);
+            this.btnVerCarpetaDestino.Location = new System.Drawing.Point(629, 93);
             this.btnVerCarpetaDestino.Name = "btnVerCarpetaDestino";
             this.btnVerCarpetaDestino.Size = new System.Drawing.Size(137, 20);
             this.btnVerCarpetaDestino.TabIndex = 8;
             this.btnVerCarpetaDestino.Text = "Agregar ruta";
             this.btnVerCarpetaDestino.UseVisualStyleBackColor = true;
-            this.btnVerCarpetaDestino.Visible = false;
             this.btnVerCarpetaDestino.Click += new System.EventHandler(this.btnVerCarpetaDestino_Click);
             // 
             // btnVerCarpetaOrigen
             // 
             this.btnVerCarpetaOrigen.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerCarpetaOrigen.Location = new System.Drawing.Point(633, 55);
+            this.btnVerCarpetaOrigen.Location = new System.Drawing.Point(629, 63);
             this.btnVerCarpetaOrigen.Name = "btnVerCarpetaOrigen";
             this.btnVerCarpetaOrigen.Size = new System.Drawing.Size(137, 20);
             this.btnVerCarpetaOrigen.TabIndex = 7;
             this.btnVerCarpetaOrigen.Text = "Agregar ruta";
             this.btnVerCarpetaOrigen.UseVisualStyleBackColor = true;
-            this.btnVerCarpetaOrigen.Visible = false;
             this.btnVerCarpetaOrigen.Click += new System.EventHandler(this.btnVerCarpetaOrigen_Click);
             // 
             // btnSincronizar
             // 
             this.btnSincronizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSincronizar.Location = new System.Drawing.Point(998, 120);
+            this.btnSincronizar.Location = new System.Drawing.Point(1129, 120);
             this.btnSincronizar.Name = "btnSincronizar";
             this.btnSincronizar.Size = new System.Drawing.Size(137, 39);
             this.btnSincronizar.TabIndex = 6;
@@ -269,7 +284,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(21, 89);
+            this.label2.Location = new System.Drawing.Point(17, 97);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(43, 13);
             this.label2.TabIndex = 5;
@@ -278,7 +293,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 60);
+            this.label1.Location = new System.Drawing.Point(17, 68);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 13);
             this.label1.TabIndex = 4;
@@ -286,7 +301,7 @@
             // 
             // btnRutaDestino
             // 
-            this.btnRutaDestino.Location = new System.Drawing.Point(594, 83);
+            this.btnRutaDestino.Location = new System.Drawing.Point(590, 91);
             this.btnRutaDestino.Name = "btnRutaDestino";
             this.btnRutaDestino.Size = new System.Drawing.Size(33, 20);
             this.btnRutaDestino.TabIndex = 3;
@@ -296,7 +311,7 @@
             // 
             // btnRutaOrigen
             // 
-            this.btnRutaOrigen.Location = new System.Drawing.Point(594, 55);
+            this.btnRutaOrigen.Location = new System.Drawing.Point(590, 63);
             this.btnRutaOrigen.Name = "btnRutaOrigen";
             this.btnRutaOrigen.Size = new System.Drawing.Size(33, 20);
             this.btnRutaOrigen.TabIndex = 2;
@@ -306,40 +321,31 @@
             // 
             // textOrigen
             // 
-            this.textOrigen.Location = new System.Drawing.Point(144, 58);
+            this.textOrigen.Location = new System.Drawing.Point(140, 66);
             this.textOrigen.Name = "textOrigen";
-            this.textOrigen.ReadOnly = true;
             this.textOrigen.Size = new System.Drawing.Size(444, 20);
             this.textOrigen.TabIndex = 0;
             this.textOrigen.MouseHover += new System.EventHandler(this.textOrigen_MouseHover);
             // 
             // menuStrip1
             // 
-            this.menuStrip1.BackColor = System.Drawing.SystemColors.Control;
+            this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.menuToolStripMenuItem});
+            this.menuToolStripMenuItem,
+            this.recargarProyectoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1160, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(1291, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
             // 
             // menuToolStripMenuItem
             // 
-            this.menuToolStripMenuItem.BackColor = System.Drawing.SystemColors.Control;
-            this.menuToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.GuardarToolStripMenuItem});
+            this.menuToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlDark;
             this.menuToolStripMenuItem.Name = "menuToolStripMenuItem";
-            this.menuToolStripMenuItem.Size = new System.Drawing.Size(69, 20);
-            this.menuToolStripMenuItem.Text = "Opciones";
-            // 
-            // GuardarToolStripMenuItem
-            // 
-            this.GuardarToolStripMenuItem.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.GuardarToolStripMenuItem.Name = "GuardarToolStripMenuItem";
-            this.GuardarToolStripMenuItem.Size = new System.Drawing.Size(166, 22);
-            this.GuardarToolStripMenuItem.Text = "Guardar Proyecto";
-            this.GuardarToolStripMenuItem.Click += new System.EventHandler(this.anadirToolStripMenuItem_Click);
+            this.menuToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
+            this.menuToolStripMenuItem.Text = "Guardar";
+            this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
             // 
             // splitContainer2
             // 
@@ -354,8 +360,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(1157, 483);
-            this.splitContainer2.SplitterDistance = 554;
+            this.splitContainer2.Size = new System.Drawing.Size(1288, 475);
+            this.splitContainer2.SplitterDistance = 616;
             this.splitContainer2.TabIndex = 2;
             // 
             // tableLayoutPanel1
@@ -371,7 +377,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(554, 483);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(616, 475);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // treeViewOrigen
@@ -379,7 +385,7 @@
             this.treeViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewOrigen.Location = new System.Drawing.Point(3, 53);
             this.treeViewOrigen.Name = "treeViewOrigen";
-            this.treeViewOrigen.Size = new System.Drawing.Size(548, 427);
+            this.treeViewOrigen.Size = new System.Drawing.Size(610, 419);
             this.treeViewOrigen.TabIndex = 0;
             // 
             // groupBox1
@@ -389,7 +395,7 @@
             this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox1.Location = new System.Drawing.Point(3, 3);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(548, 44);
+            this.groupBox1.Size = new System.Drawing.Size(610, 44);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Origen";
@@ -428,8 +434,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutDestino);
-            this.splitContainer3.Size = new System.Drawing.Size(599, 483);
-            this.splitContainer3.SplitterDistance = 48;
+            this.splitContainer3.Size = new System.Drawing.Size(668, 475);
+            this.splitContainer3.SplitterDistance = 47;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBox2
@@ -437,7 +443,7 @@
             this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBox2.Location = new System.Drawing.Point(0, 0);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(599, 48);
+            this.groupBox2.Size = new System.Drawing.Size(668, 47);
             this.groupBox2.TabIndex = 2;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Destino";
@@ -452,14 +458,14 @@
             this.tableLayoutDestino.Name = "tableLayoutDestino";
             this.tableLayoutDestino.RowCount = 1;
             this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutDestino.Size = new System.Drawing.Size(599, 431);
+            this.tableLayoutDestino.Size = new System.Drawing.Size(668, 424);
             this.tableLayoutDestino.TabIndex = 1;
             // 
             // splitter1
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 483);
+            this.splitter1.Size = new System.Drawing.Size(3, 475);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -467,11 +473,39 @@
             // 
             this.folderBrowserDlg.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(843, 29);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(137, 39);
+            this.btnActualizar.TabIndex = 30;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // recargarProyectoToolStripMenuItem
+            // 
+            this.recargarProyectoToolStripMenuItem.Name = "recargarProyectoToolStripMenuItem";
+            this.recargarProyectoToolStripMenuItem.Size = new System.Drawing.Size(192, 20);
+            this.recargarProyectoToolStripMenuItem.Text = "Recargar configuracion Proyecto";
+            this.recargarProyectoToolStripMenuItem.Click += new System.EventHandler(this.recargarProyectoToolStripMenuItem_Click);
+            // 
+            // lblLog
+            // 
+            this.lblLog.AutoSize = true;
+            this.lblLog.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblLog.Location = new System.Drawing.Point(1074, 9);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(35, 13);
+            this.lblLog.TabIndex = 31;
+            this.lblLog.Text = "lblLog";
+            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1160, 665);
+            this.ClientSize = new System.Drawing.Size(1291, 665);
             this.Controls.Add(this.splitContainer1);
             this.Name = "FormPrincipal";
             this.ShowIcon = false;
@@ -516,7 +550,6 @@
         private System.Windows.Forms.FolderBrowserDialog folderBrowserDlg;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem menuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem GuardarToolStripMenuItem;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeViewOrigen;
@@ -535,6 +568,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutDestino;
         private System.Windows.Forms.Button btnAddProyecto;
+        private System.Windows.Forms.Button btnRestaurarBackup;
+        private System.Windows.Forms.Button btnActualizar;
+        private System.Windows.Forms.ToolStripMenuItem recargarProyectoToolStripMenuItem;
+        private System.Windows.Forms.Label lblLog;
     }
 }
 
