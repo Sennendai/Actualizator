@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.lblLog = new System.Windows.Forms.Label();
+            this.btnActualizar = new System.Windows.Forms.Button();
             this.btnRestaurarBackup = new System.Windows.Forms.Button();
             this.btnAddProyecto = new System.Windows.Forms.Button();
             this.btnPrevisualizar = new System.Windows.Forms.Button();
@@ -52,6 +55,7 @@
             this.textOrigen = new System.Windows.Forms.TextBox();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.menuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.recargarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeViewOrigen = new System.Windows.Forms.TreeView();
@@ -64,9 +68,8 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.recargarProyectoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lblLog = new System.Windows.Forms.Label();
+            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
+            this.btnCancelarAdd = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -93,6 +96,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.btnCancelarAdd);
+            this.splitContainer1.Panel1.Controls.Add(this.progressBar);
             this.splitContainer1.Panel1.Controls.Add(this.lblLog);
             this.splitContainer1.Panel1.Controls.Add(this.btnActualizar);
             this.splitContainer1.Panel1.Controls.Add(this.btnRestaurarBackup);
@@ -126,6 +131,37 @@
             this.splitContainer1.SplitterDistance = 186;
             this.splitContainer1.TabIndex = 1;
             // 
+            // progressBar
+            // 
+            this.progressBar.Location = new System.Drawing.Point(1129, 1);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(159, 23);
+            this.progressBar.TabIndex = 32;
+            // 
+            // lblLog
+            // 
+            this.lblLog.Anchor = System.Windows.Forms.AnchorStyles.Right;
+            this.lblLog.AutoSize = true;
+            this.lblLog.BackColor = System.Drawing.SystemColors.ControlDark;
+            this.lblLog.Location = new System.Drawing.Point(294, 9);
+            this.lblLog.MaximumSize = new System.Drawing.Size(900, 0);
+            this.lblLog.Name = "lblLog";
+            this.lblLog.Size = new System.Drawing.Size(35, 13);
+            this.lblLog.TabIndex = 31;
+            this.lblLog.Text = "lblLog";
+            this.lblLog.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // btnActualizar
+            // 
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.Location = new System.Drawing.Point(843, 29);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(137, 39);
+            this.btnActualizar.TabIndex = 30;
+            this.btnActualizar.Text = "Actualizar";
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
             // btnRestaurarBackup
             // 
             this.btnRestaurarBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -144,6 +180,7 @@
             this.btnAddProyecto.Size = new System.Drawing.Size(33, 20);
             this.btnAddProyecto.TabIndex = 28;
             this.btnAddProyecto.Text = "+";
+            this.toolTipControl.SetToolTip(this.btnAddProyecto, "Añadir proyecto");
             this.btnAddProyecto.UseVisualStyleBackColor = true;
             this.btnAddProyecto.Click += new System.EventHandler(this.btnAddProyecto_Click);
             // 
@@ -335,6 +372,7 @@
             this.recargarProyectoToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.menuStrip1.Size = new System.Drawing.Size(1291, 24);
             this.menuStrip1.TabIndex = 16;
             this.menuStrip1.Text = "menuStrip1";
@@ -346,6 +384,13 @@
             this.menuToolStripMenuItem.Size = new System.Drawing.Size(61, 20);
             this.menuToolStripMenuItem.Text = "Guardar";
             this.menuToolStripMenuItem.Click += new System.EventHandler(this.menuToolStripMenuItem_Click);
+            // 
+            // recargarProyectoToolStripMenuItem
+            // 
+            this.recargarProyectoToolStripMenuItem.Name = "recargarProyectoToolStripMenuItem";
+            this.recargarProyectoToolStripMenuItem.Size = new System.Drawing.Size(192, 20);
+            this.recargarProyectoToolStripMenuItem.Text = "Recargar configuracion Proyecto";
+            this.recargarProyectoToolStripMenuItem.Click += new System.EventHandler(this.recargarProyectoToolStripMenuItem_Click);
             // 
             // splitContainer2
             // 
@@ -450,7 +495,6 @@
             // 
             // tableLayoutDestino
             // 
-            this.tableLayoutDestino.AutoScroll = true;
             this.tableLayoutDestino.ColumnCount = 1;
             this.tableLayoutDestino.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutDestino.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -473,33 +517,22 @@
             // 
             this.folderBrowserDlg.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // btnActualizar
+            // backgroundWorker
             // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.Location = new System.Drawing.Point(843, 29);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(137, 39);
-            this.btnActualizar.TabIndex = 30;
-            this.btnActualizar.Text = "Actualizar";
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
+            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
             // 
-            // recargarProyectoToolStripMenuItem
+            // btnCancelarAdd
             // 
-            this.recargarProyectoToolStripMenuItem.Name = "recargarProyectoToolStripMenuItem";
-            this.recargarProyectoToolStripMenuItem.Size = new System.Drawing.Size(192, 20);
-            this.recargarProyectoToolStripMenuItem.Text = "Recargar configuracion Proyecto";
-            this.recargarProyectoToolStripMenuItem.Click += new System.EventHandler(this.recargarProyectoToolStripMenuItem_Click);
-            // 
-            // lblLog
-            // 
-            this.lblLog.AutoSize = true;
-            this.lblLog.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLog.Location = new System.Drawing.Point(1074, 9);
-            this.lblLog.Name = "lblLog";
-            this.lblLog.Size = new System.Drawing.Size(35, 13);
-            this.lblLog.TabIndex = 31;
-            this.lblLog.Text = "lblLog";
+            this.btnCancelarAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAdd.Location = new System.Drawing.Point(629, 39);
+            this.btnCancelarAdd.Name = "btnCancelarAdd";
+            this.btnCancelarAdd.Size = new System.Drawing.Size(137, 20);
+            this.btnCancelarAdd.TabIndex = 33;
+            this.btnCancelarAdd.Text = "Cancelar";
+            this.btnCancelarAdd.UseVisualStyleBackColor = true;
+            this.btnCancelarAdd.Visible = false;
+            this.btnCancelarAdd.Click += new System.EventHandler(this.btnCancelarAdd_Click);
             // 
             // FormPrincipal
             // 
@@ -572,6 +605,9 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ToolStripMenuItem recargarProyectoToolStripMenuItem;
         private System.Windows.Forms.Label lblLog;
+        private System.ComponentModel.BackgroundWorker backgroundWorker;
+        private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Button btnCancelarAdd;
     }
 }
 

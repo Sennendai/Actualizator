@@ -19,20 +19,21 @@ namespace Actualizator
             }
             if (string.IsNullOrEmpty(result))
             {
-                result = "Error.";
+                result = Resource.error;
             }
             return result;
         }
 
         public static void MensajeError(string mensaje)
         {
-            WriteTextLog(mensaje + " | Fecha: " + DateTime.Now.ToString());
-            MessageBox.Show(mensaje, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            WriteTextLog(mensaje + Resource.mensajeFecha + DateTime.Now.ToString());
+            MessageBox.Show(mensaje, Resource.error, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
-        public static void WriteTextLog(string text)
+        public static void WriteTextLog(string text, Label label = null)
         {
-            File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), "log.txt"), text + Environment.NewLine);
+            File.AppendAllText(Path.Combine(Directory.GetCurrentDirectory(), Resource.archivoLog), text + Environment.NewLine);
+            if (label != null) label.Text = text;
         }
 
     }

@@ -3,7 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.IO;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Threading;
 using System.Xml;
 using Utilities.Clases.XML;
 
@@ -20,7 +23,6 @@ namespace Actualizator
 
         private bool hayFiltros = false;
         private bool hacerBackup = false;
-
         public bool HacerBackup
         {
             get => hacerBackup;
@@ -51,11 +53,13 @@ namespace Actualizator
         }
 
         private bool addProyecto = false;
+        private bool addingProyecto = false;
 
         private List<string> destinos = new List<string>();
         private Proyecto actualProyecto;
         private BindingList<Proyecto> proyectos = new BindingList<Proyecto>();
         private BindingList<Filtro> filtros = new BindingList<Filtro>();
+        ArchivosTreeView archivosTreeView = new ArchivosTreeView();
 
         #endregion
 
@@ -77,6 +81,7 @@ namespace Actualizator
 
             CargarProyectos();
 
+            progressBar.MarqueeAnimationSpeed = 30;
             textBackup.Text = rutaBackup;
             cmbProyecto.DisplayMember = nameof(Proyecto.ProyectoName);
             lblLog.Text = Resource.saludo;
@@ -86,18 +91,24 @@ namespace Actualizator
 
         private void ActualizarDatos()
         {
-            if (!string.IsNullOrEmpty(textOrigen.Text)) btnVerCarpetaOrigen.Visible = true;
+            try
+            {
+                if (!string.IsNullOrEmpty(textOrigen.Text)) btnVerCarpetaOrigen.Visible = true;
 
-            lblArchivosOrigen.Text = countArchivosOrigen.ToString();
+                lblArchivosOrigen.Text = countArchivosOrigen.ToString();
 
-            chkBoxFiltros.Checked = HayFiltros;
-            checkBoxBackup.Checked = HacerBackup;
+                chkBoxFiltros.Checked = HayFiltros;
+                checkBoxBackup.Checked = HacerBackup;
 
-            BindingSource bSource = new BindingSource { DataSource = filtros };
-            cmbBoxFiltros.DataSource = bSource;
+                BindingSource bSource = new BindingSource { DataSource = filtros };
+                cmbBoxFiltros.DataSource = bSource;
 
-            cmbProyecto.DataSource = proyectos;
-            cmbProyecto.Refresh();
+                cmbProyecto.DataSource = proyectos;
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
+            }
         }
 
         private void ElegirRuta(TextBox txtBox, Button btn = null)
@@ -110,66 +121,148 @@ namespace Actualizator
             }
         }
 
-        /// <summary>
-        /// Rellena un TreeView dada una ruta de carpetas
-        /// </summary>
-        /// <param name="dirInfo">Ruta de la carpeta</param>
-        /// <param name="treeNode">Nodo del arbol</param>
-        /// <param name="treeView"></param>
-        private void PopulateTreeView(DirectoryInfo dirInfo, TreeNode treeNode, TreeView treeView = null)
-        {
-            // Rellena a nivel raiz
-            if (treeNode == null)
-            {
-                TreeNode directoryNodeRoot = new TreeNode
-                {
-                    Text = dirInfo.Name
-                };
 
-                treeView.Nodes.Add(directoryNodeRoot);
-                AddFilesNode(dirInfo, ref directoryNodeRoot);
+        private ArchivosTreeView GetArchivosTreeView(DirectoryInfo dirInfo)
+        {
+            ArchivosTreeView archivosTree = new ArchivosTreeView();
+            // Rellena a nivel raiz            
+            archivosTree.DirName = dirInfo.Name;
+            FileInfo[] archivos = dirInfo.GetFiles();
+
+            foreach (FileInfo archivo in archivos)
+            {
+                archivosTree.Archivos.Add(archivo.Name);
             }
 
             // Rellena las subcarpetas
             foreach (DirectoryInfo directory in dirInfo.GetDirectories())
             {
+                archivosTree.Subdir.Add(GetArchivosTreeView(directory));
+            }
+
+            return archivosTree;
+        }
+
+        /// <summary>
+        /// Devuelve archivos modificados dadas dos carpetas
+        /// </summary>
+        /// <param name="dirOrigen"></param>
+        /// <param name="dirDestino"></param>
+        /// <returns></returns>
+        private ArchivosTreeView GetArchivosModificadosTreeView(DirectoryInfo dirOrigen, DirectoryInfo dirDestino)
+        {
+            var archivosDestino = dirDestino.GetFiles();
+            ArchivosTreeView archivosTree = new ArchivosTreeView();
+
+            try
+            {                
+                // Rellena a nivel raiz            
+                archivosTree.DirName = dirOrigen.Name;
+                FileInfo[] archivos = dirOrigen.GetFiles();
+
+                foreach (FileInfo archivo in archivos)
+                {
+                    FileInfo archivoDestino = archivosDestino.Where(x => x.Name == archivo.Name).FirstOrDefault();
+                    if (archivoDestino != null)
+                    {
+                        // reemplaza si es un archivo modificado
+                        if (archivo.LastWriteTimeUtc != archivoDestino.LastWriteTimeUtc)
+                        {
+                            archivosTree.Archivos.Add(archivo.Name);
+                        }
+                    }
+                    else
+                    {
+                        // copia si es un archivo nuevo
+                        archivosTree.Archivos.Add(archivo.Name);
+                    }
+                }
+
+                // Rellena las subcarpetas
+                foreach (DirectoryInfo directory in dirOrigen.GetDirectories())
+                {
+                    archivosTree.Subdir.Add(GetArchivosModificadosTreeView(directory, dirDestino));
+                }
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
+            }
+
+            return archivosTree;
+        }
+
+        private void PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, TreeView treeView = null, bool notRoot = false)
+        {
+            TreeNode directoryNodeRoot = new TreeNode
+            {
+                Text = archivosTree.DirName
+            };
+
+            // Rellena a nivel raiz
+            if (treeNode == null)
+            {
+                treeView.Nodes.Add(directoryNodeRoot);
+
+                AddFilesStringNode(archivosTree.Archivos, ref directoryNodeRoot);
+            }
+
+            // Rellena las subcarpetas
+            foreach (var directory in archivosTree.Subdir)
+            {
                 TreeNode directoryNode = new TreeNode
                 {
-                    Text = directory.Name
+                    Text = directory.DirName
                 };
 
                 if (treeNode == null)
                 {
-                    treeView.Nodes.Add(directoryNode);
+                    directoryNodeRoot.Nodes.Add(directoryNode);
                 }
                 else
                 {
                     treeNode.Nodes.Add(directoryNode);
                 }
 
-                AddFilesNode(directory, ref directoryNode);
-                PopulateTreeView(directory, directoryNode);
+                AddFilesStringNode(directory.Archivos, ref directoryNode);
+                PopulateArchivoTreeView(directory, directoryNode, null, true);
             }
         }
 
-        private void AddFilesNode(DirectoryInfo directory, ref TreeNode directoryNode)
+        private void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode)
         {
-            FileInfo[] archivos = directory.GetFiles();
-
             if (HayFiltros)
             {
-                archivos = FiltrarArchivos(archivos);
+                archivos = FiltrarStringArchivos(archivos);
             }
 
-            foreach (FileInfo file in archivos)
+            foreach (string file in archivos)
             {
                 TreeNode fileNode = new TreeNode
                 {
-                    Text = file.Name
+                    Text = file
                 };
 
                 directoryNode.Nodes.Add(fileNode);
             }
+        }
+
+        private List<string> FiltrarStringArchivos(List<string> archivos)
+        {
+            foreach (Filtro filtro in filtros)
+            {
+                switch (filtro.cabecera)
+                {
+                    case Filtrado.TerminaPor:
+                        archivos = archivos.Where(x => !x.ToLower().EndsWith(filtro.filtro.ToLower())).ToList();
+                        break;
+                    case Filtrado.Completo:
+                        archivos = archivos.Where(x => !x.ToLower().Equals(filtro.filtro.ToLower())).ToList();
+                        break;
+                }
+            }
+
+            return archivos;
         }
 
         private int ActualizarTreeView(TextBox txtBox, TreeView treeView, string ruta = null)
@@ -194,8 +287,17 @@ namespace Actualizator
                     {
                         // Limpiar el treeView
                         treeView.Nodes.Clear();
+
+                        //Task.Factory.StartNew(() =>
+                        //{
+                        //    archivosTreeView = GetArchivosTreeView(dirInfo);
+                        //})
+
+
                         // Poblar el TreeView, recursivamente
-                        PopulateTreeView(dirInfo, null, treeView);
+                        //PopulateTreeView(dirInfo, null, treeView);
+                        archivosTreeView = GetArchivosTreeView(dirInfo);
+                        PopulateArchivoTreeView(archivosTreeView, null, treeView);
 
                         var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
                         if (HayFiltros)
@@ -209,13 +311,13 @@ namespace Actualizator
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
 
             return contador;
         }
 
-        private void CrerBackup(FileInfo[] archivosOrigen)
+        private void CrerBackup(ArchivosTreeView archivosOrigen, string rutaOrigen)
         {
             try
             {
@@ -225,15 +327,54 @@ namespace Actualizator
                 Directory.CreateDirectory(temporalRutaBackup);
                 lastRutaBackup = temporalRutaBackup;
                 // Copiar todos los archivos
-                foreach (FileInfo archivoOrigen in archivosOrigen)
+                CopiarArchivos(archivosOrigen, temporalRutaBackup, rutaOrigen);
+
+                LocalUtilities.WriteTextLog(Resource.mensajeBackup + temporalRutaBackup + Resource.mensajeFecha + DateTime.Now.ToString(), lblLog);
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
+            }
+        }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="archivosOrigen"></param>
+        /// <param name="rutaDestino"></param>
+        /// <param name="rutaOrigen"></param>
+        private void CopiarArchivos(ArchivosTreeView archivosOrigen, string rutaDestino, string rutaOrigen, bool notRoot = false)
+        {
+            try
+            {
+                if (HayFiltros) archivosOrigen.Archivos = FiltrarStringArchivos(archivosOrigen.Archivos);
+
+                string directoryRoot;
+                if (notRoot)
                 {
-                    File.Copy(archivoOrigen.FullName, Path.Combine(temporalRutaBackup, archivoOrigen.Name));
-                    LocalUtilities.WriteTextLog("Backup: " + temporalRutaBackup + " | Fecha: " + DateTime.Now.ToString());
+                    directoryRoot = Path.Combine(rutaDestino, archivosOrigen.DirName);
+                    Directory.CreateDirectory(directoryRoot);
+                }
+                else
+                {
+                    directoryRoot = rutaDestino;
+                }
+
+                // Copia nivel raiz
+                foreach (string archivo in archivosOrigen.Archivos)
+                {
+                    File.Copy(Path.Combine(rutaOrigen, archivo), Path.Combine(directoryRoot, archivo));
+                }
+
+                // Rellena las subcarpetas
+                foreach (ArchivosTreeView directory in archivosOrigen.Subdir)
+                {
+                    CopiarArchivos(directory, directoryRoot, Path.Combine(rutaOrigen, directory.DirName), true);
                 }
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -241,53 +382,38 @@ namespace Actualizator
         {
             try
             {
+                ActualizarDestino();
                 DirectoryInfo dirOrigen = new DirectoryInfo(textOrigen.Text);
                 List<DirectoryInfo> directoriesDestino = GetAllDestinos();
                 if (directoriesDestino == null || directoriesDestino.Count() == 0)
                 {
-                    LocalUtilities.MensajeError(Resource.comprobarDestino);
                     return;
                 }
 
                 if (dirOrigen.Exists)
                 {
-                    FileInfo[] archivosOrigen = dirOrigen.GetFiles("*", SearchOption.AllDirectories);
+                    ArchivosTreeView archivosOrigen = GetArchivosTreeView(dirOrigen);
 
-                    if (HayFiltros) archivosOrigen = FiltrarArchivos(archivosOrigen);
-
-                    if (HacerBackup) CrerBackup(archivosOrigen);
+                    if (HacerBackup) CrerBackup(archivosOrigen, dirOrigen.FullName);
 
                     foreach (DirectoryInfo dirDestino in directoriesDestino)
                     {
-                        FileInfo[] archivosDestino = dirDestino.GetFiles("*", SearchOption.AllDirectories);
-
-                        foreach (FileInfo archivoOrigen in archivosOrigen)
-                        {
-                            var archivoDestino = archivosDestino.Where(x => x.Name == archivoOrigen.Name).FirstOrDefault();
-                            // Copia al ser un archivo nuevo
-                            if (archivoDestino == null)
-                            {
-                                File.Copy(archivoOrigen.FullName, Path.Combine(dirDestino.FullName, archivoOrigen.Name));
-                            }
-                            // Reemplaza si ya existe y esta modificado
-                            else if (archivoDestino.LastWriteTimeUtc < archivoOrigen.LastWriteTimeUtc)
-                            {
-                                File.Copy(archivoOrigen.FullName, archivoDestino.FullName, true);
-                            }
-                        }
+                        ArchivosTreeView archivosModificados = GetArchivosModificadosTreeView(dirOrigen, dirDestino);
+                        CopiarArchivos(archivosModificados, dirDestino.FullName, dirOrigen.FullName);
                     }
 
                     GuardarProyecto();
+                    LocalUtilities.WriteTextLog(Resource.sincronizarCarpetas + DateTime.Now.ToString(), lblLog);
                 }
                 else
                 {
-                    LocalUtilities.MensajeError("¡Compruebe las rutas de las carpetas de origen!");
+                    LocalUtilities.MensajeError(Resource.comprobarOrigen);
                 }
 
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -364,10 +490,6 @@ namespace Actualizator
                             proyecto.LastPathBackup = actualProyecto.LastPathBackup;
                         }
                     }
-                    else
-                    {
-                        proyectos.Add(actualProyecto);
-                    }
 
                     string proyectoXML = SerializerXML.getObjectSerialized(proyectos);
 
@@ -378,18 +500,18 @@ namespace Actualizator
                     if (ExisteProyecto())
                     {
                         addProyecto = false;
-                        LocalUtilities.WriteTextLog("Guardado proyecto XML " + " | Fecha: " + DateTime.Now.ToString());
-                        //MessageBox.Show("Guardado con éxito", "Mensaje", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        btnCancelarAdd.Visible = false;
+                        LocalUtilities.WriteTextLog(Resource.guardadoXML + DateTime.Now.ToString(), lblLog);
                     }
                 }
                 else
                 {
-                    LocalUtilities.MensajeError("¡Indique un nombre para el proyecto!");
+                    LocalUtilities.MensajeError(Resource.nombreProyecto);
                 }
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError("Error: " + LocalUtilities.getErrorException(ex));
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -421,49 +543,58 @@ namespace Actualizator
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError("¡Archivo XML corrupto! \n" + LocalUtilities.getErrorException(ex));
+                LocalUtilities.MensajeError(Resource.xmlCorrupto + "\n" + LocalUtilities.getErrorException(ex));
             }
         }
 
         private void RecargarProyecto()
         {
-            if (string.IsNullOrEmpty(actualProyecto?.ProyectoName))
+            try
             {
-                NuevoProyecto();
+                if (addProyecto && string.IsNullOrEmpty(actualProyecto?.ProyectoName))
+                {
+                    NuevoProyecto();
+                }
+                else if (actualProyecto != null)
+                {
+                    filtros = new BindingList<Filtro>();
+                    destinos = new List<string>();
+
+                    HayFiltros = actualProyecto.Filtrar;
+                    if (actualProyecto?.FicherosExcluidos != null)
+                    {
+                        foreach (Filtro filtro in actualProyecto.FicherosExcluidos)
+                        {
+                            filtros.Add(filtro);
+                        }
+                    }
+                    if (string.IsNullOrEmpty(cmbProyecto.Text)) cmbProyecto.Text = actualProyecto?.ProyectoName;
+                    textOrigen.Text = actualProyecto?.PathOrigen;
+                    treeViewOrigen.Nodes.Clear();
+                    if (!string.IsNullOrEmpty(textOrigen.Text))
+                    {
+                        countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
+                    }
+                    else
+                    {
+                        countArchivosOrigen = 0;
+                    }
+
+                    LimpiarLayoutDestino();
+                    foreach (string destino in actualProyecto?.PathDestino)
+                    {
+                        AddDestinoControl(destino);
+                    }
+
+                    HacerBackup = actualProyecto.HacerBackup;
+                    rutaBackup = actualProyecto?.PathBackup;
+                    textBackup.Text = actualProyecto?.PathBackup;
+                    lastRutaBackup = actualProyecto?.LastPathBackup;
+                }
             }
-            else
+            catch (Exception ex)
             {
-                filtros = new BindingList<Filtro>();
-                destinos = new List<string>();
-
-                HayFiltros = actualProyecto.Filtrar;
-                foreach (Filtro filtro in actualProyecto.FicherosExcluidos)
-                {
-                    filtros.Add(filtro);
-                }
-
-                cmbProyecto.Text = actualProyecto.ProyectoName;
-                textOrigen.Text = actualProyecto.PathOrigen;
-                treeViewOrigen.Nodes.Clear();
-                if (!string.IsNullOrEmpty(textOrigen.Text))
-                {
-                    countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
-                }
-                else
-                {
-                    countArchivosOrigen = 0;
-                }
-
-                LimpiarLayoutDestino();
-                foreach (string destino in actualProyecto.PathDestino)
-                {
-                    AddDestinoControl(destino);
-                }
-
-                HacerBackup = actualProyecto.HacerBackup;
-                rutaBackup = actualProyecto.PathBackup;
-                textBackup.Text = actualProyecto.PathBackup;
-                lastRutaBackup = actualProyecto.LastPathBackup;
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -499,7 +630,7 @@ namespace Actualizator
 
         private void NuevoProyecto()
         {
-            cmbProyecto.Text = string.Empty;
+            cmbProyecto.Text = Resource.nuevoProyecto;
             textOrigen.Text = string.Empty;
             textDestino.Text = string.Empty;
             lastRutaBackup = string.Empty;
@@ -509,6 +640,7 @@ namespace Actualizator
             filtros = new BindingList<Filtro>();
 
             rutaBackup = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData);
+            textBackup.Text = rutaBackup;
 
             destinos.Clear();
             treeViewOrigen.Nodes.Clear();
@@ -563,11 +695,95 @@ namespace Actualizator
         {
             if (!string.IsNullOrEmpty(lastRutaBackup))
             {
+                DialogResult dialogResult = MessageBox.Show(Resource.mensajeRestaurarBackup, Resource.restaurar, MessageBoxButtons.YesNo);
+                if (dialogResult == DialogResult.Yes)
+                {
+                    DirectoryInfo dirOrigen = new DirectoryInfo(lastRutaBackup);
+                    List<DirectoryInfo> directoriesDestino = GetAllDestinos();
+                    if (directoriesDestino == null || directoriesDestino.Count() == 0)
+                    {
+                        LocalUtilities.MensajeError(Resource.comprobarDestino);
+                        return;
+                    }
 
+                    if (dirOrigen.Exists)
+                    {
+                        foreach (DirectoryInfo dirDestino in directoriesDestino)
+                        {
+                            CopiarArchivos(GetArchivosTreeView(dirOrigen), dirDestino.FullName, dirOrigen.FullName);
+                        }
+
+                        GuardarProyecto();
+                        LocalUtilities.WriteTextLog(Resource.restaurarBackup + DateTime.Now.ToString(), lblLog);
+                    }
+                    else
+                    {
+                        LocalUtilities.MensajeError(Resource.noLastBackup);
+                    }
+                }
             }
             else
             {
                 LocalUtilities.MensajeError(Resource.noLastBackup);
+            }
+        }
+
+        private void DoVoidWork(List<Action> funciones)
+        {
+            try
+            {
+                BackgroundWorker worker = new BackgroundWorker();
+
+                progressBar.Style = ProgressBarStyle.Marquee;
+
+                worker.DoWork += new DoWorkEventHandler((sender, e) =>
+                {
+                    Thread.Sleep(300);
+                    if (funciones.Count() != 0)
+                    {
+                        foreach (var funcion in funciones)
+                        {
+                            this.BeginInvoke(new Action(() => { funcion(); }));
+                        }
+                    }
+                });
+
+                worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((sender, e) =>
+                {
+                    if (e.Error == null)
+                    {
+                        progressBar.Style = ProgressBarStyle.Continuous;
+                    }
+                });
+
+                worker.RunWorkerAsync();
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
+            }
+        }
+
+        private void CancelarProyecto()
+        {
+            try
+            {
+                addProyecto = false;
+                IReadOnlyList<Proyecto> proyectoABorrar = proyectos.Where(x => x.Identifier == actualProyecto.Identifier).ToList();
+
+                foreach (var proyecto in proyectoABorrar)
+                {
+                    proyectos.Remove(proyecto);
+                }
+
+                cmbProyecto.DataSource = proyectos;
+                actualProyecto = (Proyecto)cmbProyecto.SelectedItem;
+                RecargarProyecto();
+                btnCancelarAdd.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -666,7 +882,7 @@ namespace Actualizator
 
         private void cmbProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!addProyecto)
+            if (!addProyecto || addingProyecto)
             {
                 LimpiarLayoutDestino();
 
@@ -676,7 +892,7 @@ namespace Actualizator
             }
             else
             {
-                LocalUtilities.MensajeError("¡Guarde el proyecto actual!");
+                LocalUtilities.MensajeError(Resource.alertaGuardarProyecto);
             }
         }
 
@@ -686,24 +902,25 @@ namespace Actualizator
             {
                 Guid guid = Guid.NewGuid();
                 actualProyecto = new Proyecto(guid);
-
-                // no añadir el proyecto aqui si no antes de guardar?
-                //proyectos.Add(proyecto);
                 addProyecto = true;
+                addingProyecto = true;
 
-                RecargarProyecto();
-                ActualizarDatos();
+                proyectos.Add(actualProyecto);
+                cmbProyecto.DataSource = proyectos;
+                if (actualProyecto != null) cmbProyecto.SelectedItem = actualProyecto;
+
+                btnCancelarAdd.Visible = true;
+                addingProyecto = false;
             }
             else
             {
-                LocalUtilities.MensajeError("¡Guarde el proyecto actual!");
+                LocalUtilities.MensajeError(Resource.alertaGuardarProyecto);
             }
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
             ActualizarProyecto();
-            ActualizarDatos();
         }
 
         private void btnRestaurarBackup_Click(object sender, EventArgs e)
@@ -719,15 +936,32 @@ namespace Actualizator
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GuardarProyecto();
-            ActualizarDatos();
+            ActualizarDatos();            
         }
-
-
-        #endregion
 
         private void recargarProyectoToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RecargarProyecto();
         }
+
+        private void btnCancelarAdd_Click(object sender, EventArgs e)
+        {
+            CancelarProyecto();
+        }
+
+        #endregion
+
+        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
+        {
+
+        }
+
+        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            progressBar.Value = e.ProgressPercentage;
+            progressBar.PerformStep();
+        }
+
+
     }
 }

@@ -73,11 +73,11 @@ namespace Actualizator
 
         private void borrarDestinoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DialogResult dialogResult = MessageBox.Show("¿Quieres borrar el destino?", "Borrar", MessageBoxButtons.YesNo);
+            DialogResult dialogResult = MessageBox.Show(Resource.mensajeBorrarDestino, Resource.borrar, MessageBoxButtons.YesNo);
             if (dialogResult == DialogResult.Yes)
             {
                 TableLayoutPanel tableLayout = (TableLayoutPanel)this.Parent;
-                tableLayout.Controls.Remove(this);
+                tableLayout.Controls.Remove(this);                
             }
         }
     }

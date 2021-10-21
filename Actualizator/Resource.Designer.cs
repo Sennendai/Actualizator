@@ -61,11 +61,38 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¡Guarde el proyecto actual!.
+        /// </summary>
+        internal static string alertaGuardarProyecto {
+            get {
+                return ResourceManager.GetString("alertaGuardarProyecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a log.txt.
+        /// </summary>
+        internal static string archivoLog {
+            get {
+                return ResourceManager.GetString("archivoLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a proyectos.xml.
         /// </summary>
         internal static string archivoProyecto {
             get {
                 return ResourceManager.GetString("archivoProyecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Borrar.
+        /// </summary>
+        internal static string borrar {
+            get {
+                return ResourceManager.GetString("borrar", resourceCulture);
             }
         }
         
@@ -79,6 +106,87 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¡Compruebe las rutas de las carpetas de origen!.
+        /// </summary>
+        internal static string comprobarOrigen {
+            get {
+                return ResourceManager.GetString("comprobarOrigen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error.
+        /// </summary>
+        internal static string error {
+            get {
+                return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Archivo XML guardado  | Fecha:.
+        /// </summary>
+        internal static string guardadoXML {
+            get {
+                return ResourceManager.GetString("guardadoXML", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Backup: .
+        /// </summary>
+        internal static string mensajeBackup {
+            get {
+                return ResourceManager.GetString("mensajeBackup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Quieres borrar el destino?.
+        /// </summary>
+        internal static string mensajeBorrarDestino {
+            get {
+                return ResourceManager.GetString("mensajeBorrarDestino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Error: .
+        /// </summary>
+        internal static string mensajeError {
+            get {
+                return ResourceManager.GetString("mensajeError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a  | Fecha: .
+        /// </summary>
+        internal static string mensajeFecha {
+            get {
+                return ResourceManager.GetString("mensajeFecha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Rellene el campo de filtro!.
+        /// </summary>
+        internal static string mensajeRellenarFiltro {
+            get {
+                return ResourceManager.GetString("mensajeRellenarFiltro", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¿Quieres restaurar el útimo backup?.
+        /// </summary>
+        internal static string mensajeRestaurarBackup {
+            get {
+                return ResourceManager.GetString("mensajeRestaurarBackup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¡No hay backup del proyecto seleccionado!.
         /// </summary>
         internal static string noLastBackup {
@@ -88,11 +196,65 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¡Hola!.
+        ///   Busca una cadena traducida similar a ¡Indique un nombre para el proyecto!.
+        /// </summary>
+        internal static string nombreProyecto {
+            get {
+                return ResourceManager.GetString("nombreProyecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nuevo Proyecto.
+        /// </summary>
+        internal static string nuevoProyecto {
+            get {
+                return ResourceManager.GetString("nuevoProyecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Restaurar.
+        /// </summary>
+        internal static string restaurar {
+            get {
+                return ResourceManager.GetString("restaurar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Backup restaurado  | Fecha:.
+        /// </summary>
+        internal static string restaurarBackup {
+            get {
+                return ResourceManager.GetString("restaurarBackup", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Guess who&apos;s back.
         /// </summary>
         internal static string saludo {
             get {
                 return ResourceManager.GetString("saludo", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Carpetas sincronizadas | Fecha:.
+        /// </summary>
+        internal static string sincronizarCarpetas {
+            get {
+                return ResourceManager.GetString("sincronizarCarpetas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Archivo XML corrupto!.
+        /// </summary>
+        internal static string xmlCorrupto {
+            get {
+                return ResourceManager.GetString("xmlCorrupto", resourceCulture);
             }
         }
     }
