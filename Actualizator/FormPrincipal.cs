@@ -1,8 +1,12 @@
-﻿using System;
+﻿using BackGroundWorked_ALG;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Security.AccessControl;
+using System.Security.Principal;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -61,6 +65,11 @@ namespace Actualizator
         private BindingList<Filtro> filtros = new BindingList<Filtro>();
         ArchivosTreeView archivosTreeView = new ArchivosTreeView();
 
+        ArchivosTreeView archivosOrigenArbol = new ArchivosTreeView();
+        ArchivosTreeView archivosDestinoArbol = new ArchivosTreeView();
+        DirectoryInfo dirArbolOrigen;
+        TreeView treeviewDestino;
+
         #endregion
 
         #region· CONSTRUCTOR
@@ -81,7 +90,6 @@ namespace Actualizator
 
             CargarProyectos();
 
-            progressBar.MarqueeAnimationSpeed = 30;
             textBackup.Text = rutaBackup;
             cmbProyecto.DisplayMember = nameof(Proyecto.ProyectoName);
             lblLog.Text = Resource.saludo;
@@ -121,26 +129,44 @@ namespace Actualizator
             }
         }
 
-
         private ArchivosTreeView GetArchivosTreeView(DirectoryInfo dirInfo)
         {
             ArchivosTreeView archivosTree = new ArchivosTreeView();
             // Rellena a nivel raiz            
-            archivosTree.DirName = dirInfo.Name;
-            FileInfo[] archivos = dirInfo.GetFiles();
-
-            foreach (FileInfo archivo in archivos)
+            try
             {
-                archivosTree.Archivos.Add(archivo.Name);
+                archivosTree.DirName = dirInfo.Name;
+                FileInfo[] archivos = dirInfo.GetFiles();
+
+                var test = dirInfo.GetAccessControl();
+
+                foreach (FileInfo archivo in archivos)
+                {
+                    archivosTree.Archivos.Add(archivo.Name);
+                }
+
+                // Rellena las subcarpetas
+                foreach (DirectoryInfo directory in dirInfo.GetDirectories())
+                {
+                    archivosTree.Subdir.Add(GetArchivosTreeView(directory));
+                }
             }
-
-            // Rellena las subcarpetas
-            foreach (DirectoryInfo directory in dirInfo.GetDirectories())
+            catch (Exception ex)
             {
-                archivosTree.Subdir.Add(GetArchivosTreeView(directory));
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
 
             return archivosTree;
+        }
+
+        private void GetArchivosOrigenArbol()
+        {            
+            archivosOrigenArbol = GetArchivosTreeView(dirArbolOrigen);
+        }
+
+        private void GetArchivoDestinoArbol()
+        {
+            archivosDestinoArbol = GetArchivosTreeView(dirArbolOrigen);
         }
 
         /// <summary>
@@ -155,7 +181,7 @@ namespace Actualizator
             ArchivosTreeView archivosTree = new ArchivosTreeView();
 
             try
-            {                
+            {
                 // Rellena a nivel raiz            
                 archivosTree.DirName = dirOrigen.Name;
                 FileInfo[] archivos = dirOrigen.GetFiles();
@@ -192,7 +218,7 @@ namespace Actualizator
             return archivosTree;
         }
 
-        private void PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, TreeView treeView = null, bool notRoot = false)
+        private TreeView PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, TreeView treeView = null, bool notRoot = false)
         {
             TreeNode directoryNodeRoot = new TreeNode
             {
@@ -227,6 +253,18 @@ namespace Actualizator
                 AddFilesStringNode(directory.Archivos, ref directoryNode);
                 PopulateArchivoTreeView(directory, directoryNode, null, true);
             }
+
+            return treeView;
+        }
+
+        private void PopulateArbolOrigen()
+        {
+            treeViewOrigen = PopulateArchivoTreeView(archivosOrigenArbol, null, treeViewOrigen);
+        }
+
+        private void PopulateArbolDestino()
+        {
+            treeviewDestino = PopulateArchivoTreeView(archivosDestinoArbol, null, treeviewDestino);
         }
 
         private void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode)
@@ -265,7 +303,7 @@ namespace Actualizator
             return archivos;
         }
 
-        private int ActualizarTreeView(TextBox txtBox, TreeView treeView, string ruta = null)
+        private int ActualizarTreeView(TextBox txtBox, TreeView treeView, bool origen, string ruta = null)
         {
             int contador = 0;
 
@@ -285,27 +323,59 @@ namespace Actualizator
 
                     if (dirInfo.Exists)
                     {
-                        // Limpiar el treeView
-                        treeView.Nodes.Clear();
+                        dirArbolOrigen = dirInfo;
 
-                        //Task.Factory.StartNew(() =>
-                        //{
-                        //    archivosTreeView = GetArchivosTreeView(dirInfo);
-                        //})
-
-
-                        // Poblar el TreeView, recursivamente
-                        //PopulateTreeView(dirInfo, null, treeView);
-                        archivosTreeView = GetArchivosTreeView(dirInfo);
-                        PopulateArchivoTreeView(archivosTreeView, null, treeView);
-
-                        var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
-                        if (HayFiltros)
+                        if (ComprobarAcceso(dirInfo))
                         {
-                            contadorTodos = FiltrarArchivos(contadorTodos);
+                            // Limpiar el treeView
+                            treeView.Nodes.Clear();
+
+                            // Poblar el TreeView
+                            MyProcessControl backWork = new MyProcessControl(this);
+                            backWork.TextoMostrar = Resource.extrayendoInfo;
+                            backWork.BackColor = Color.White;
+                            backWork.Enabled = true;
+                            backWork.Visible = true;
+                            backWork.TicsNum = 5;
+                            backWork.Height = 75;
+                            backWork.Width = 200;
+                            backWork.CuadroColorRelleno = Color.CornflowerBlue;
+                            backWork.Efecto = MyProcessControl.eEfecto.Kid;
+
+                            if (origen)
+                            {
+                                backWork.Proceso(GetArchivosOrigenArbol, PopulateArbolOrigen);
+                                backWork.Visible = false;
+                            }
+                            else
+                            {
+                                backWork.Proceso(GetArchivoDestinoArbol, PopulateArbolDestino);
+                                backWork.Visible = false;
+                            }
+
+                            var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
+                            if (HayFiltros)
+                            {
+                                contadorTodos = FiltrarArchivos(contadorTodos);
+                            }
+                            contador = contadorTodos.Count();
+                            ActualizarDatos();
                         }
-                        contador = contadorTodos.Count();
-                        ActualizarDatos();
+                        else
+                        {
+                            LocalUtilities.MensajeError(Resource.accessDenied);
+                        }
+                    }
+                    else
+                    {
+                        if (origen)
+                        {
+                            LocalUtilities.MensajeError(Resource.comprobarOrigen);
+                        }
+                        else
+                        {
+                            LocalUtilities.MensajeError(Resource.comprobarDestino);
+                        }
                     }
                 }
             }
@@ -315,6 +385,29 @@ namespace Actualizator
             }
 
             return contador;
+        }
+
+        private bool ComprobarAcceso(DirectoryInfo dirInfo)
+        {
+            bool access = true;
+
+            try
+            {
+                var test = dirInfo.GetAccessControl();                
+
+                foreach (DirectoryInfo directory in dirInfo.GetDirectories())
+                {
+                    access = ComprobarAcceso(directory);
+                    if (!access)
+                        break;
+                }
+            }
+            catch (UnauthorizedAccessException)
+            {
+                return false;
+            }
+
+            return access;
         }
 
         private void CrerBackup(ArchivosTreeView archivosOrigen, string rutaOrigen)
@@ -573,7 +666,7 @@ namespace Actualizator
                     treeViewOrigen.Nodes.Clear();
                     if (!string.IsNullOrEmpty(textOrigen.Text))
                     {
-                        countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
+                        countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen, true);
                     }
                     else
                     {
@@ -610,7 +703,7 @@ namespace Actualizator
             treeViewOrigen.Nodes.Clear();
             if (!string.IsNullOrEmpty(textOrigen.Text))
             {
-                countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
+                countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen, true);
             }
             else
             {
@@ -656,7 +749,9 @@ namespace Actualizator
         private void AddDestinoControl(string text, bool addDestino = true)
         {
             Destino destinoControl = new Destino();
-            destinoControl.LabelContador = ActualizarTreeView(textDestino, destinoControl.TreeViewDestino, text);
+            treeviewDestino = destinoControl.TreeViewDestino;
+            destinoControl.LabelContador = ActualizarTreeView(textDestino, treeviewDestino, false, text);
+            destinoControl.TreeViewDestino = treeviewDestino;
             destinoControl.RutaDestino = text;
 
             tableLayoutDestino.Controls.Add(destinoControl);
@@ -710,6 +805,7 @@ namespace Actualizator
                     {
                         foreach (DirectoryInfo dirDestino in directoriesDestino)
                         {
+                            //ComprobarAcceso(dirOrigen);
                             CopiarArchivos(GetArchivosTreeView(dirOrigen), dirDestino.FullName, dirOrigen.FullName);
                         }
 
@@ -725,42 +821,6 @@ namespace Actualizator
             else
             {
                 LocalUtilities.MensajeError(Resource.noLastBackup);
-            }
-        }
-
-        private void DoVoidWork(List<Action> funciones)
-        {
-            try
-            {
-                BackgroundWorker worker = new BackgroundWorker();
-
-                progressBar.Style = ProgressBarStyle.Marquee;
-
-                worker.DoWork += new DoWorkEventHandler((sender, e) =>
-                {
-                    Thread.Sleep(300);
-                    if (funciones.Count() != 0)
-                    {
-                        foreach (var funcion in funciones)
-                        {
-                            this.BeginInvoke(new Action(() => { funcion(); }));
-                        }
-                    }
-                });
-
-                worker.RunWorkerCompleted += new RunWorkerCompletedEventHandler((sender, e) =>
-                {
-                    if (e.Error == null)
-                    {
-                        progressBar.Style = ProgressBarStyle.Continuous;
-                    }
-                });
-
-                worker.RunWorkerAsync();
-            }
-            catch (Exception ex)
-            {
-                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
             }
         }
 
@@ -780,6 +840,18 @@ namespace Actualizator
                 actualProyecto = (Proyecto)cmbProyecto.SelectedItem;
                 RecargarProyecto();
                 btnCancelarAdd.Visible = false;
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(Resource.mensajeError + LocalUtilities.getErrorException(ex));
+            }
+        }
+
+        private void BorrarProyecto()
+        {
+            try
+            {
+
             }
             catch (Exception ex)
             {
@@ -813,7 +885,7 @@ namespace Actualizator
 
         private void btnVerCarpetaOrigen_Click(object sender, EventArgs e)
         {
-            countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen);
+            countArchivosOrigen = ActualizarTreeView(textOrigen, treeViewOrigen, true);
             ActualizarDatos();
         }
 
@@ -936,7 +1008,7 @@ namespace Actualizator
         private void menuToolStripMenuItem_Click(object sender, EventArgs e)
         {
             GuardarProyecto();
-            ActualizarDatos();            
+            ActualizarDatos();
         }
 
         private void recargarProyectoToolStripMenuItem_Click(object sender, EventArgs e)
@@ -949,18 +1021,19 @@ namespace Actualizator
             CancelarProyecto();
         }
 
+        private void borrarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (addProyecto)
+            {
+                CancelarProyecto();
+            }
+            else
+            {
+                BorrarProyecto();
+            }
+        }
+
         #endregion
-
-        private void backgroundWorker_DoWork(object sender, DoWorkEventArgs e)
-        {
-
-        }
-
-        private void backgroundWorker_ProgressChanged(object sender, ProgressChangedEventArgs e)
-        {
-            progressBar.Value = e.ProgressPercentage;
-            progressBar.PerformStep();
-        }
 
 
     }

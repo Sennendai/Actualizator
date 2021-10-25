@@ -30,7 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
-            this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.btnCancelarAdd = new System.Windows.Forms.Button();
             this.lblLog = new System.Windows.Forms.Label();
             this.btnActualizar = new System.Windows.Forms.Button();
             this.btnRestaurarBackup = new System.Windows.Forms.Button();
@@ -68,8 +68,7 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
-            this.backgroundWorker = new System.ComponentModel.BackgroundWorker();
-            this.btnCancelarAdd = new System.Windows.Forms.Button();
+            this.borrarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -97,7 +96,6 @@
             // splitContainer1.Panel1
             // 
             this.splitContainer1.Panel1.Controls.Add(this.btnCancelarAdd);
-            this.splitContainer1.Panel1.Controls.Add(this.progressBar);
             this.splitContainer1.Panel1.Controls.Add(this.lblLog);
             this.splitContainer1.Panel1.Controls.Add(this.btnActualizar);
             this.splitContainer1.Panel1.Controls.Add(this.btnRestaurarBackup);
@@ -131,19 +129,25 @@
             this.splitContainer1.SplitterDistance = 186;
             this.splitContainer1.TabIndex = 1;
             // 
-            // progressBar
+            // btnCancelarAdd
             // 
-            this.progressBar.Location = new System.Drawing.Point(1129, 1);
-            this.progressBar.Name = "progressBar";
-            this.progressBar.Size = new System.Drawing.Size(159, 23);
-            this.progressBar.TabIndex = 32;
+            this.btnCancelarAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnCancelarAdd.Location = new System.Drawing.Point(629, 39);
+            this.btnCancelarAdd.Name = "btnCancelarAdd";
+            this.btnCancelarAdd.Size = new System.Drawing.Size(137, 20);
+            this.btnCancelarAdd.TabIndex = 33;
+            this.btnCancelarAdd.Text = "Cancelar";
+            this.btnCancelarAdd.UseVisualStyleBackColor = true;
+            this.btnCancelarAdd.Visible = false;
+            this.btnCancelarAdd.Click += new System.EventHandler(this.btnCancelarAdd_Click);
             // 
             // lblLog
             // 
             this.lblLog.Anchor = System.Windows.Forms.AnchorStyles.Right;
             this.lblLog.AutoSize = true;
             this.lblLog.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.lblLog.Location = new System.Drawing.Point(294, 9);
+            this.lblLog.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblLog.Location = new System.Drawing.Point(368, 9);
             this.lblLog.MaximumSize = new System.Drawing.Size(900, 0);
             this.lblLog.Name = "lblLog";
             this.lblLog.Size = new System.Drawing.Size(35, 13);
@@ -369,7 +373,8 @@
             this.menuStrip1.BackColor = System.Drawing.SystemColors.ControlDark;
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.menuToolStripMenuItem,
-            this.recargarProyectoToolStripMenuItem});
+            this.recargarProyectoToolStripMenuItem,
+            this.borrarToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -517,22 +522,12 @@
             // 
             this.folderBrowserDlg.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // backgroundWorker
+            // borrarToolStripMenuItem
             // 
-            this.backgroundWorker.DoWork += new System.ComponentModel.DoWorkEventHandler(this.backgroundWorker_DoWork);
-            this.backgroundWorker.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.backgroundWorker_ProgressChanged);
-            // 
-            // btnCancelarAdd
-            // 
-            this.btnCancelarAdd.Font = new System.Drawing.Font("Microsoft Sans Serif", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnCancelarAdd.Location = new System.Drawing.Point(629, 39);
-            this.btnCancelarAdd.Name = "btnCancelarAdd";
-            this.btnCancelarAdd.Size = new System.Drawing.Size(137, 20);
-            this.btnCancelarAdd.TabIndex = 33;
-            this.btnCancelarAdd.Text = "Cancelar";
-            this.btnCancelarAdd.UseVisualStyleBackColor = true;
-            this.btnCancelarAdd.Visible = false;
-            this.btnCancelarAdd.Click += new System.EventHandler(this.btnCancelarAdd_Click);
+            this.borrarToolStripMenuItem.Name = "borrarToolStripMenuItem";
+            this.borrarToolStripMenuItem.Size = new System.Drawing.Size(101, 20);
+            this.borrarToolStripMenuItem.Text = "Borrar Proyecto";
+            this.borrarToolStripMenuItem.Click += new System.EventHandler(this.borrarToolStripMenuItem_Click);
             // 
             // FormPrincipal
             // 
@@ -605,9 +600,8 @@
         private System.Windows.Forms.Button btnActualizar;
         private System.Windows.Forms.ToolStripMenuItem recargarProyectoToolStripMenuItem;
         private System.Windows.Forms.Label lblLog;
-        private System.ComponentModel.BackgroundWorker backgroundWorker;
-        private System.Windows.Forms.ProgressBar progressBar;
         private System.Windows.Forms.Button btnCancelarAdd;
+        private System.Windows.Forms.ToolStripMenuItem borrarToolStripMenuItem;
     }
 }
 

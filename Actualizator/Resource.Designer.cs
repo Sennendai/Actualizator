@@ -61,6 +61,15 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¡Acceso denegado a la ruta especificada!.
+        /// </summary>
+        internal static string accessDenied {
+            get {
+                return ResourceManager.GetString("accessDenied", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a ¡Guarde el proyecto actual!.
         /// </summary>
         internal static string alertaGuardarProyecto {
@@ -106,7 +115,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¡Compruebe las rutas de las carpetas de origen!.
+        ///   Busca una cadena traducida similar a ¡Compruebe la ruta de la carpeta de origen!.
         /// </summary>
         internal static string comprobarOrigen {
             get {
@@ -120,6 +129,15 @@ namespace Actualizator {
         internal static string error {
             get {
                 return ResourceManager.GetString("error", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Extrayendo información....
+        /// </summary>
+        internal static string extrayendoInfo {
+            get {
+                return ResourceManager.GetString("extrayendoInfo", resourceCulture);
             }
         }
         
@@ -232,7 +250,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Guess who&apos;s back.
+        ///   Busca una cadena traducida similar a Look at you, a creature of bones and flesh.
         /// </summary>
         internal static string saludo {
             get {

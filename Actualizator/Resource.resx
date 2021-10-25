@@ -117,6 +117,9 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="accessDenied" xml:space="preserve">
+    <value>¡Acceso denegado a la ruta especificada!</value>
+  </data>
   <data name="alertaGuardarProyecto" xml:space="preserve">
     <value>¡Guarde el proyecto actual!</value>
   </data>
@@ -135,10 +138,13 @@
     <value>¡Compruebe las rutas de las carpetas de destino!</value>
   </data>
   <data name="comprobarOrigen" xml:space="preserve">
-    <value>¡Compruebe las rutas de las carpetas de origen!</value>
+    <value>¡Compruebe la ruta de la carpeta de origen!</value>
   </data>
   <data name="error" xml:space="preserve">
     <value>Error</value>
+  </data>
+  <data name="extrayendoInfo" xml:space="preserve">
+    <value>Extrayendo información...</value>
   </data>
   <data name="guardadoXML" xml:space="preserve">
     <value>Archivo XML guardado  | Fecha:</value>
@@ -177,7 +183,7 @@
     <value>Backup restaurado  | Fecha:</value>
   </data>
   <data name="saludo" xml:space="preserve">
-    <value>Guess who's back</value>
+    <value>Look at you, a creature of bones and flesh</value>
   </data>
   <data name="sincronizarCarpetas" xml:space="preserve">
     <value>Carpetas sincronizadas | Fecha:</value>
