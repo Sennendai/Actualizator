@@ -1,0 +1,904 @@
+Message -> La ruta de acceso no tiene un formato válido.
+Guardado proyecto XML  | Fecha: 11/10/2021 17:57:41
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 13/10/2021 10:30:25
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 13/10/2021 10:42:32
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 13/10/2021 10:43:02
+Guardado proyecto XML  | Fecha: 13/10/2021 16:55:43
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:12:01
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:13:12
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:15:56
+¡Indique un nombre para el proyecto! | Fecha: 13/10/2021 17:16:01
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:18:11
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:18:17
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:18:22
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:18:25
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:18:44
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:18:48
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:19:00
+¡Guarde el proyecto actual! | Fecha: 13/10/2021 17:19:05
+¡Indique un nombre para el proyecto! | Fecha: 13/10/2021 17:19:15
+¡Guarde el proyecto actual! | Fecha: 14/10/2021 13:09:31
+¡Guarde el proyecto actual! | Fecha: 14/10/2021 13:09:35
+¡Indique un nombre para el proyecto! | Fecha: 14/10/2021 13:09:48
+¡Guarde el proyecto actual! | Fecha: 14/10/2021 15:31:39
+Guardado proyecto XML  | Fecha: 14/10/2021 15:36:40
+¡Guarde el proyecto actual! | Fecha: 14/10/2021 15:37:37
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 10:07:47
+Guardado proyecto XML  | Fecha: 15/10/2021 10:08:48
+Guardado proyecto XML  | Fecha: 15/10/2021 10:10:49
+¡Guarde el proyecto actual! | Fecha: 15/10/2021 10:11:35
+¡Indique un nombre para el proyecto! | Fecha: 15/10/2021 10:11:42
+Guardado proyecto XML  | Fecha: 15/10/2021 10:17:31
+Guardado proyecto XML  | Fecha: 15/10/2021 10:23:55
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 10:26:25
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 10:46:21
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 10:46:24
+Guardado proyecto XML  | Fecha: 15/10/2021 10:59:11
+Guardado proyecto XML  | Fecha: 15/10/2021 11:03:44
+Guardado proyecto XML  | Fecha: 15/10/2021 11:12:40
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:13:19
+Guardado proyecto XML  | Fecha: 15/10/2021 11:13:36
+¡Guarde el proyecto actual! | Fecha: 15/10/2021 11:14:00
+¡Guarde el proyecto actual! | Fecha: 15/10/2021 11:14:04
+Guardado proyecto XML  | Fecha: 15/10/2021 11:15:40
+Guardado proyecto XML  | Fecha: 15/10/2021 11:16:16
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:16:20
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:16:28
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:17:16
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:19:52
+Guardado proyecto XML  | Fecha: 15/10/2021 11:21:32
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:24:10
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:28:43
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:28:46
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 15/10/2021 11:28:52
+Guardado proyecto XML  | Fecha: 15/10/2021 12:18:08
+Guardado proyecto XML  | Fecha: 15/10/2021 12:21:16
+Guardado proyecto XML  | Fecha: 15/10/2021 12:40:57
+Guardado proyecto XML  | Fecha: 15/10/2021 12:42:36
+Error: Message -> La etiqueta de apertura 'PathBackup' en la línea 10 posición 6 no coincide con la etiqueta de cierre de 'Proyecto'. línea 21, posición 5. | Fecha: 15/10/2021 12:49:43
+¡Indique un nombre para el proyecto! | Fecha: 15/10/2021 12:50:00
+Guardado proyecto XML  | Fecha: 15/10/2021 12:50:07
+¡Revise el archivo XML! 
+Message -> La etiqueta de apertura 'PathBackup' en la línea 7 posición 6 no coincide con la etiqueta de cierre de 'Proyecto'. línea 10, posición 5. | Fecha: 15/10/2021 12:52:08
+¡Archivo XML corrupto! 
+Message -> La etiqueta de apertura 'PathBackup' en la línea 7 posición 6 no coincide con la etiqueta de cierre de 'Proyecto'. línea 10, posición 5. | Fecha: 15/10/2021 12:55:34
+¡Archivo XML corrupto! 
+Message -> La etiqueta de apertura 'PathBackup' en la línea 7 posición 6 no coincide con la etiqueta de cierre de 'Proyecto'. línea 10, posición 5. | Fecha: 15/10/2021 12:59:45
+¡Archivo XML corrupto! 
+Message -> La etiqueta de apertura 'PathBackup' en la línea 7 posición 6 no coincide con la etiqueta de cierre de 'Proyecto'. línea 10, posición 5. | Fecha: 15/10/2021 13:00:54
+¡Indique un nombre para el proyecto! | Fecha: 15/10/2021 13:06:04
+¡Indique un nombre para el proyecto! | Fecha: 15/10/2021 13:06:08
+Guardado proyecto XML  | Fecha: 15/10/2021 13:06:22
+Guardado proyecto XML  | Fecha: 15/10/2021 13:06:36
+Guardado proyecto XML  | Fecha: 15/10/2021 13:08:02
+Guardado proyecto XML  | Fecha: 15/10/2021 13:48:03
+Guardado proyecto XML  | Fecha: 15/10/2021 13:48:13
+Guardado proyecto XML  | Fecha: 15/10/2021 14:18:36
+Guardado proyecto XML  | Fecha: 15/10/2021 14:18:39
+Guardado proyecto XML  | Fecha: 15/10/2021 14:19:04
+Guardado proyecto XML  | Fecha: 15/10/2021 14:19:16
+Guardado proyecto XML  | Fecha: 15/10/2021 14:19:49
+Guardado proyecto XML  | Fecha: 15/10/2021 14:20:21
+Guardado proyecto XML  | Fecha: 15/10/2021 14:42:17
+Guardado proyecto XML  | Fecha: 18/10/2021 13:49:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937 | Fecha: 18/10/2021 13:49:37
+Guardado proyecto XML  | Fecha: 18/10/2021 13:50:14
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_135129 | Fecha: 18/10/2021 13:51:31
+Guardado proyecto XML  | Fecha: 18/10/2021 16:03:49
+Guardado proyecto XML  | Fecha: 18/10/2021 16:18:37
+Guardado proyecto XML  | Fecha: 18/10/2021 16:20:37
+Guardado proyecto XML  | Fecha: 18/10/2021 16:21:37
+Guardado proyecto XML  | Fecha: 18/10/2021 16:23:00
+Guardado proyecto XML  | Fecha: 18/10/2021 16:23:39
+Guardado proyecto XML  | Fecha: 18/10/2021 16:24:29
+¡Guarde el proyecto actual! | Fecha: 18/10/2021 16:24:58
+¡Guarde el proyecto actual! | Fecha: 18/10/2021 16:25:01
+¡Guarde el proyecto actual! | Fecha: 18/10/2021 16:25:04
+Guardado proyecto XML  | Fecha: 18/10/2021 16:25:07
+¡Indique un nombre para el proyecto! | Fecha: 18/10/2021 16:25:27
+Guardado proyecto XML  | Fecha: 18/10/2021 16:25:34
+Guardado proyecto XML  | Fecha: 18/10/2021 16:25:51
+Guardado proyecto XML  | Fecha: 18/10/2021 16:26:00
+Guardado proyecto XML  | Fecha: 18/10/2021 16:26:42
+Guardado proyecto XML  | Fecha: 18/10/2021 16:27:51
+Guardado proyecto XML  | Fecha: 18/10/2021 16:28:32
+Guardado proyecto XML  | Fecha: 18/10/2021 16:29:26
+Guardado proyecto XML  | Fecha: 18/10/2021 16:38:03
+Guardado proyecto XML  | Fecha: 18/10/2021 16:38:14
+Guardado proyecto XML  | Fecha: 18/10/2021 16:39:40
+Guardado proyecto XML  | Fecha: 18/10/2021 16:41:16
+Guardado proyecto XML  | Fecha: 18/10/2021 16:42:19
+Guardado proyecto XML  | Fecha: 18/10/2021 16:43:57
+Guardado proyecto XML  | Fecha: 18/10/2021 16:44:26
+Guardado proyecto XML  | Fecha: 18/10/2021 16:46:27
+Guardado proyecto XML  | Fecha: 18/10/2021 16:47:12
+Guardado proyecto XML  | Fecha: 18/10/2021 16:47:23
+Guardado proyecto XML  | Fecha: 18/10/2021 16:51:39
+Guardado proyecto XML  | Fecha: 18/10/2021 16:51:56
+Guardado proyecto XML  | Fecha: 18/10/2021 16:52:11
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 18/10/2021 16:53:58
+Error: Message -> La ruta de acceso no tiene un formato válido. | Fecha: 18/10/2021 16:54:15
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_172322 | Fecha: 18/10/2021 17:23:23
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 18/10/2021 17:30:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:33
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173032 | Fecha: 18/10/2021 17:30:33
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173107 | Fecha: 18/10/2021 17:31:07
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173208 | Fecha: 18/10/2021 17:32:08
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173216 | Fecha: 18/10/2021 17:32:16
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_173225 | Fecha: 18/10/2021 17:32:28
+¡No hay backup del proyecto seleccionado! | Fecha: 18/10/2021 17:58:09
+Guardado proyecto XML  | Fecha: 18/10/2021 17:58:42
+Guardado proyecto XML  | Fecha:18/10/2021 18:02:49
+Guardado proyecto XML  | Fecha:18/10/2021 18:03:33
+Guardado proyecto XML  | Fecha:18/10/2021 18:05:05
+Guardado proyecto XML  | Fecha:18/10/2021 18:05:06
+Guardado proyecto XML  | Fecha:18/10/2021 18:06:18
+Guardado proyecto XML  | Fecha:18/10/2021 18:06:35
+Guardado proyecto XML  | Fecha:18/10/2021 18:08:42
+Guardado proyecto XML  | Fecha:18/10/2021 18:11:10
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118 | Fecha: 18/10/2021 18:11:21
+Error: Message -> El archivo 'C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181118\Actualizator.exe' ya existe. | Fecha: 18/10/2021 18:11:21
+Error: Message -> El archivo 'C:\Users\Cristian.Ramirez\Downloads\Nueva carpeta\Actualizator.exe' ya existe. | Fecha: 18/10/2021 18:11:26
+Guardado proyecto XML  | Fecha:18/10/2021 18:11:33
+Guardado proyecto XML  | Fecha:18/10/2021 18:11:37
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:38
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:39
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:39
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:39
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_181138 | Fecha: 18/10/2021 18:11:39
+Guardado proyecto XML  | Fecha:18/10/2021 18:11:39
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:18
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318 | Fecha: 18/10/2021 18:13:21
+Error: Message -> El archivo 'C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181318\Actualizator.exe' ya existe. | Fecha: 18/10/2021 18:13:21
+Error: Message -> El archivo 'C:\Users\Cristian.Ramirez\Downloads\prueba\Actualizator.exe' ya existe. | Fecha: 18/10/2021 18:13:26
+Guardado proyecto XML  | Fecha:18/10/2021 18:14:00
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181409 | Fecha: 18/10/2021 18:14:09
+Guardado proyecto XML  | Fecha:18/10/2021 18:14:10
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502 | Fecha: 18/10/2021 18:15:02
+Error: Message -> El archivo 'C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181502\Actualizator.exe' ya existe. | Fecha: 18/10/2021 18:15:02
+Guardado proyecto XML  | Fecha:18/10/2021 18:15:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528 | Fecha: 18/10/2021 18:15:29
+Error: Message -> El archivo 'C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181528\Actualizator.exe' ya existe. | Fecha: 18/10/2021 18:15:29
+Guardado proyecto XML  | Fecha:18/10/2021 18:16:50
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:02
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\18-10-2021_181902 | Fecha: 18/10/2021 18:19:04
+Guardado proyecto XML  | Fecha:18/10/2021 18:19:05
+Guardado proyecto XML  | Fecha:18/10/2021 18:19:32
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Backup: C:\Users\Cristian.Ramirez\AppData\Roaming\18-10-2021_134937\18-10-2021_182003 | Fecha: 18/10/2021 18:20:03
+Guardado proyecto XML  | Fecha:18/10/2021 18:20:03
+Archivo XML guardado  | Fecha:19/10/2021 9:49:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:03
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:04
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\19-10-2021_95003 | Fecha: 19/10/2021 9:50:05
+Archivo XML guardado  | Fecha:19/10/2021 9:50:05
+Backup restaurado  | Fecha:19/10/2021 9:50:05
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:44:47
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:45:13
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:45:28
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:46:06
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:46:06
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:54:29
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:54:40
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 12:54:53
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:29:35
+Error: Message -> La acción que se realiza en este control se está llamando desde el subproceso erróneo. Calcule las referencias al subproceso correcto utilizando Control.Invoke o Control.BeginInvoke para realizar esta acción. | Fecha: 19/10/2021 13:43:56
+Error: Message -> La acción que se realiza en este control se está llamando desde el subproceso erróneo. Calcule las referencias al subproceso correcto utilizando Control.Invoke o Control.BeginInvoke para realizar esta acción. | Fecha: 19/10/2021 13:47:11
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:42
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:42
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:42
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:42
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:42
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:44
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:49:44
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:50:25
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:50:48
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'btnVerCarpetaOrigen' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 13:55:29
+Error: Message -> Operación no válida a través de subprocesos: Se tuvo acceso al control 'progressBar' desde un subproceso distinto a aquel en que lo creó. | Fecha: 19/10/2021 16:39:05
+Error: Message -> La acción que se realiza en este control se está llamando desde el subproceso erróneo. Calcule las referencias al subproceso correcto utilizando Control.Invoke o Control.BeginInvoke para realizar esta acción. | Fecha: 19/10/2021 17:12:59
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:38
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154438 | Fecha: 20/10/2021 15:44:40
+Archivo XML guardado  | Fecha:20/10/2021 15:44:41
+Carpetas sincronizadas | Fecha:20/10/2021 15:44:41
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:25
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154725 | Fecha: 20/10/2021 15:47:28
+Archivo XML guardado  | Fecha:20/10/2021 15:47:28
+Carpetas sincronizadas | Fecha:20/10/2021 15:47:28
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:33
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_154733 | Fecha: 20/10/2021 15:47:34
+Error: Message -> No se pudo encontrar el archivo 'Actualizator.csproj'. | Fecha: 20/10/2021 16:10:47
+Archivo XML guardado  | Fecha:20/10/2021 16:10:52
+Carpetas sincronizadas | Fecha:20/10/2021 16:10:52
+Error: Message -> El archivo de destino "C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\20-10-2021_161632\Actualizator" es un directorio, no un archivo. | Fecha: 20/10/2021 16:17:08
+Archivo XML guardado  | Fecha:20/10/2021 16:17:10
+Carpetas sincronizadas | Fecha:20/10/2021 16:17:10
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe'. | Fecha: 20/10/2021 16:22:42
+Archivo XML guardado  | Fecha:20/10/2021 16:22:46
+Carpetas sincronizadas | Fecha:20/10/2021 16:22:46
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe.config'. | Fecha: 20/10/2021 16:29:12
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe.config'. | Fecha: 20/10/2021 16:29:18
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\log.txt'. | Fecha: 20/10/2021 16:29:29
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\log.txt'. | Fecha: 20/10/2021 16:29:31
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Microsoft.WindowsAPICodePack.Shell.xml'. | Fecha: 20/10/2021 16:29:41
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Microsoft.WindowsAPICodePack.Shell.xml'. | Fecha: 20/10/2021 16:29:43
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs'. | Fecha: 20/10/2021 16:29:56
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\.NETFramework,Version=v4.6.1.AssemblyAttributes.cs'. | Fecha: 20/10/2021 16:29:58
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe'. | Fecha: 20/10/2021 16:36:24
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe'. | Fecha: 20/10/2021 16:36:26
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator\Actualizator.csproj'. | Fecha: 20/10/2021 16:39:36
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator\Actualizator.csproj'. | Fecha: 20/10/2021 16:39:38
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator\Actualizator.csproj'. | Fecha: 20/10/2021 16:39:55
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator\Actualizator.csproj'. | Fecha: 20/10/2021 16:39:56
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\Cristian Personal\Cristian Personal\07122020175908.pdf'. | Fecha: 20/10/2021 16:42:34
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\Cristian Personal\Cristian Personal\07122020175908.pdf'. | Fecha: 20/10/2021 16:42:39
+Error: Message -> No se pudo encontrar el archivo 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\plantillas\Registro Agosto 2021.pdf'. | Fecha: 20/10/2021 16:46:07
+Error: Message -> No se pudo encontrar el archivo 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Documents\plantillas\Registro Agosto 2021.pdf'. | Fecha: 20/10/2021 16:48:22
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_165428 | Fecha: 20/10/2021 16:55:53
+Archivo XML guardado  | Fecha:20/10/2021 16:56:11
+Carpetas sincronizadas | Fecha:20/10/2021 16:56:11
+¡No hay backup del proyecto seleccionado! | Fecha: 20/10/2021 17:08:53
+Error: Message -> No se puede encontrar una parte de la ruta de acceso 'C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_171744\plantillas\cambios de fee tec'. | Fecha: 20/10/2021 17:17:44
+Archivo XML guardado  | Fecha:20/10/2021 17:17:47
+Carpetas sincronizadas | Fecha:20/10/2021 17:17:47
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_172235 | Fecha: 20/10/2021 17:25:56
+Archivo XML guardado  | Fecha:20/10/2021 17:26:05
+Carpetas sincronizadas | Fecha:20/10/2021 17:26:05
+Archivo XML guardado  | Fecha:20/10/2021 17:27:53
+Backup restaurado  | Fecha:20/10/2021 17:27:53
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_172846 | Fecha: 20/10/2021 17:28:46
+Archivo XML guardado  | Fecha:20/10/2021 17:28:46
+Carpetas sincronizadas | Fecha:20/10/2021 17:28:46
+Archivo XML guardado  | Fecha:20/10/2021 17:29:13
+Backup restaurado  | Fecha:20/10/2021 17:29:13
+¡No hay backup del proyecto seleccionado! | Fecha: 20/10/2021 17:29:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_172950 | Fecha: 20/10/2021 17:29:50
+Archivo XML guardado  | Fecha:20/10/2021 17:29:50
+Carpetas sincronizadas | Fecha:20/10/2021 17:29:50
+Archivo XML guardado  | Fecha:20/10/2021 17:30:33
+Backup restaurado  | Fecha:20/10/2021 17:30:33
+Archivo XML guardado  | Fecha:20/10/2021 17:42:19
+Backup restaurado  | Fecha:20/10/2021 17:42:19
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_174450 | Fecha: 20/10/2021 17:45:34
+Archivo XML guardado  | Fecha:20/10/2021 17:45:40
+Carpetas sincronizadas | Fecha:20/10/2021 17:45:40
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_174613 | Fecha: 20/10/2021 17:47:17
+Archivo XML guardado  | Fecha:20/10/2021 17:48:24
+Carpetas sincronizadas | Fecha:20/10/2021 17:48:24
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_174841 | Fecha: 20/10/2021 17:48:44
+Archivo XML guardado  | Fecha:20/10/2021 17:48:44
+Carpetas sincronizadas | Fecha:20/10/2021 17:48:44
+Archivo XML guardado  | Fecha:20/10/2021 17:49:21
+Backup restaurado  | Fecha:20/10/2021 17:49:21
+¡Guarde el proyecto actual! | Fecha: 20/10/2021 17:49:53
+Archivo XML guardado  | Fecha:20/10/2021 17:50:04
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe'. | Fecha: 20/10/2021 18:17:11
+Error: Message -> No se pudo encontrar el archivo 'C:\Program Files (x86)\GroupM\Actualizator\Actualizator\Actualizator.exe'. | Fecha: 20/10/2021 18:17:13
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_181720 | Fecha: 20/10/2021 18:17:20
+Archivo XML guardado  | Fecha:20/10/2021 18:17:21
+Carpetas sincronizadas | Fecha:20/10/2021 18:17:21
+Backup: C:\Users\Cristian.Ramirez\Downloads\prueba\20-10-2021_181730 | Fecha: 20/10/2021 18:17:30
+Archivo XML guardado  | Fecha:20/10/2021 18:17:30
+Carpetas sincronizadas | Fecha:20/10/2021 18:17:30
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:03:53
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:09:21
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:10:58
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:11:22
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:11:54
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:15:32
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:20:51
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:20:55
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:20:57
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:21:01
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:21:32
+Error: Message -> No se pudo encontrar el archivo 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Pictures\royal blue.PNG'. | Fecha: 21/10/2021 11:24:57
+Error: Message -> No se pudo encontrar el archivo 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Pictures\royal blue.PNG'. | Fecha: 21/10/2021 11:25:08
+Error: Message -> No se pudo encontrar el archivo 'C:\Users\Cristian.Ramirez\OneDrive - insidemedia.net\Pictures\royal blue.PNG'. | Fecha: 21/10/2021 11:25:51
+Archivo XML guardado  | Fecha:21/10/2021 11:30:51
+Backup: C:\Users\Cristian.Ramirez\Downloads\TestSyncDescarga\backapon\21-10-2021_113101 | Fecha: 21/10/2021 11:32:24
+Archivo XML guardado  | Fecha:21/10/2021 11:32:27
+Carpetas sincronizadas | Fecha:21/10/2021 11:32:27
+Archivo XML guardado  | Fecha:21/10/2021 11:33:22
+Backup restaurado  | Fecha:21/10/2021 11:33:22
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Users\Cristian.Ramirez\AppData\Local\Archivos temporales de Internet'. | Fecha: 21/10/2021 11:34:00
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 11:38:28
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 12:32:54
+¡Indique un nombre para el proyecto! | Fecha: 21/10/2021 12:32:56
+Archivo XML guardado  | Fecha:21/10/2021 12:33:03
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 12:52:31
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 12:52:58
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:41:46
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 13:46:10
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 13:46:16
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 21/10/2021 13:55:41
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:55:42
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 21/10/2021 13:55:50
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:55:53
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:57:15
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:57:31
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:57:35
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:58:17
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:59:37
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 13:59:46
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:25:49
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:26:02
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:28:54
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 21/10/2021 15:29:28
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:34:33
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:36:06
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:36:09
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:36:11
+¡Indique un nombre para el proyecto! | Fecha: 21/10/2021 15:36:14
+¡Indique un nombre para el proyecto! | Fecha: 21/10/2021 15:36:58
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:37:01
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:37:03
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:37:03
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:37:04
+¡Guarde el proyecto actual! | Fecha: 21/10/2021 15:37:04
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 21/10/2021 16:26:14
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:24:18
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:24:21
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:24:27
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:24:28
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:24:49
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:25:01
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 21/10/2021 18:26:39
+Archivo XML guardado  | Fecha:21/10/2021 18:30:23
+Carpetas sincronizadas | Fecha:21/10/2021 18:30:23
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 21/10/2021 18:31:04
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 21/10/2021 18:31:54
+¡Compruebe las rutas de las carpetas de origen! | Fecha: 22/10/2021 13:23:14
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 13:38:27
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 13:38:27
+Archivo XML guardado  | Fecha:22/10/2021 13:47:56
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 13:48:04
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 13:48:04
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 13:48:24
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 13:48:24
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 22/10/2021 14:07:33
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 22/10/2021 14:08:06
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 22/10/2021 14:08:33
+Error: Message -> Referencia a objeto no establecida como instancia de un objeto. | Fecha: 22/10/2021 14:09:28
+Error: Message -> El proceso no tiene el privilegio 'SeSecurityPrivilege' que se necesita para esta operación. | Fecha: 22/10/2021 14:19:10
+Error: Message -> El proceso no tiene el privilegio 'SeSecurityPrivilege' que se necesita para esta operación. | Fecha: 22/10/2021 14:21:31
+Error: Message -> Intento de realizar una operación no válida. | Fecha: 22/10/2021 14:30:50
+Error: Message -> Intento de realizar una operación no válida. | Fecha: 22/10/2021 14:31:14
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:31:47
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:31:51
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:42:26
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:42:26
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:42:44
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:42:44
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 14:52:30
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:52:38
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:52:38
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:55:13
+Error: Message -> Acceso denegado a la ruta de acceso 'C:\Program Files (x86)\BigFix Enterprise\BES Client'. | Fecha: 22/10/2021 14:55:13
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 14:56:22
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 14:57:42
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 15:00:00
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 15:00:08
+¡Acceso denegado a la ruta especificada! | Fecha: 22/10/2021 15:00:13
+¡Acceso denegado a la ruta especificada! | Fecha: 25/10/2021 16:22:13
+¡Guarde el proyecto actual! | Fecha: 25/10/2021 16:28:18
+¡Guarde el proyecto actual! | Fecha: 25/10/2021 16:28:23
+Error: Message -> No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'Icon'. | Fecha: 26/10/2021 10:04:19
+Error: Message -> No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'Icon'. | Fecha: 26/10/2021 10:04:25
+Error: Message -> No se puede obtener acceso al objeto desechado.
+Nombre del objeto: 'Icon'. | Fecha: 26/10/2021 10:04:35
+¡Guarde el proyecto actual! | Fecha: 26/10/2021 11:57:08
+¡Acceso denegado a la ruta especificada! | Fecha: 26/10/2021 11:58:11
+¡Acceso denegado a la ruta especificada! | Fecha: 26/10/2021 12:05:13
+¡Acceso denegado a la ruta especificada! | Fecha: 26/10/2021 12:05:28
+Archivo XML guardado  | Fecha:26/10/2021 12:11:34
+Archivo XML guardado  | Fecha:26/10/2021 12:11:51
+¡Acceso denegado a la ruta especificada! | Fecha: 26/10/2021 12:22:59
+¡Acceso denegado a la ruta especificada! | Fecha: 26/10/2021 12:23:04
+¡Compruebe la ruta de la carpeta de origen! | Fecha: 26/10/2021 12:56:07
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 12:56:09
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 12:57:13
+Archivo XML guardado  | Fecha:26/10/2021 12:58:14
+¡Compruebe la ruta de la carpeta de origen! | Fecha: 26/10/2021 12:58:17
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 12:58:19
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 12:58:23
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 12:58:24
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:01:02
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:01:02
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:01:04
+Archivo XML guardado  | Fecha:26/10/2021 13:01:07
+Archivo XML guardado  | Fecha:26/10/2021 13:01:16
+Archivo XML guardado  | Fecha:26/10/2021 13:04:58
+¡Compruebe la ruta de la carpeta de origen! | Fecha: 26/10/2021 13:04:59
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:05:00
+¡Compruebe la ruta de la carpeta de origen! | Fecha: 26/10/2021 13:05:02
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:05:03
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:07:32
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:07:50
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:07:55
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:10:19
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:10:20
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:10:29
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 26/10/2021 13:10:29
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 27/10/2021 11:44:16
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 27/10/2021 11:44:35
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 27/10/2021 11:46:22
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 27/10/2021 11:46:24
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 27/10/2021 11:46:52
+¡Compruebe las rutas de las carpetas de destino! | Fecha: 27/10/2021 11:46:56

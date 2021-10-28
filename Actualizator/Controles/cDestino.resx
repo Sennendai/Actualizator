@@ -117,78 +117,13 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="accessDenied" xml:space="preserve">
-    <value>¡Acceso denegado a la ruta especificada!</value>
-  </data>
-  <data name="alertaGuardarProyecto" xml:space="preserve">
-    <value>¡Guarde el proyecto actual!</value>
-  </data>
-  <data name="archivoLog" xml:space="preserve">
-    <value>log.txt</value>
-    <comment>Nombre del archivo donde se guarda el log</comment>
-  </data>
-  <data name="archivoProyecto" xml:space="preserve">
-    <value>proyectos.xml</value>
-    <comment>Nombre del archivo donde se guarda la configuracion del XML</comment>
-  </data>
-  <data name="borrar" xml:space="preserve">
-    <value>Borrar</value>
-  </data>
-  <data name="comprobarDestino" xml:space="preserve">
-    <value>¡Compruebe las rutas de las carpetas de destino!</value>
-  </data>
-  <data name="comprobarOrigen" xml:space="preserve">
-    <value>¡Compruebe la ruta de la carpeta de origen!</value>
-  </data>
-  <data name="error" xml:space="preserve">
-    <value>Error</value>
-  </data>
-  <data name="extrayendoInfo" xml:space="preserve">
-    <value>Extrayendo información...</value>
-  </data>
-  <data name="guardadoXML" xml:space="preserve">
-    <value>Archivo XML guardado  | Fecha:</value>
-  </data>
-  <data name="mensajeBackup" xml:space="preserve">
-    <value>Backup: </value>
-  </data>
-  <data name="mensajeBorrarDestino" xml:space="preserve">
-    <value>¿Quieres borrar el destino?</value>
-  </data>
-  <data name="mensajeError" xml:space="preserve">
-    <value>Error: </value>
-  </data>
-  <data name="mensajeFecha" xml:space="preserve">
-    <value> | Fecha: </value>
-  </data>
-  <data name="mensajeRellenarFiltro" xml:space="preserve">
-    <value>¡Rellene el campo de filtro!</value>
-  </data>
-  <data name="mensajeRestaurarBackup" xml:space="preserve">
-    <value>¿Quieres restaurar el útimo backup?</value>
-  </data>
-  <data name="noLastBackup" xml:space="preserve">
-    <value>¡No hay backup del proyecto seleccionado!</value>
-  </data>
-  <data name="nombreProyecto" xml:space="preserve">
-    <value>¡Indique un nombre para el proyecto!</value>
-  </data>
-  <data name="nuevoProyecto" xml:space="preserve">
-    <value>Nuevo Proyecto</value>
-  </data>
-  <data name="restaurar" xml:space="preserve">
-    <value>Restaurar</value>
-  </data>
-  <data name="restaurarBackup" xml:space="preserve">
-    <value>Backup restaurado  | Fecha:</value>
-  </data>
-  <data name="saludo" xml:space="preserve">
-    <value>Look at you, a creature of bones and flesh</value>
-  </data>
-  <data name="sincronizarCarpetas" xml:space="preserve">
-    <value>Carpetas sincronizadas | Fecha:</value>
-  </data>
-  <data name="xmlCorrupto" xml:space="preserve">
-    <value>¡Archivo XML corrupto!</value>
-  </data>
+  <metadata name="contextMenuDestino.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>148, 17</value>
+  </metadata>
+  <metadata name="toolTipControl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
+  <metadata name="toolTipControl.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>17, 17</value>
+  </metadata>
 </root>

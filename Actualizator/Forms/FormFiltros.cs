@@ -56,7 +56,7 @@ namespace Actualizator
             }
             else
             {
-                LocalUtilities.MensajeError(Resource.mensajeRellenarFiltro);
+                LocalUtilities.MensajeError(StringResource.mensajeRellenarFiltro);
             }
         }
 

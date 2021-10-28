@@ -22,14 +22,14 @@ namespace Actualizator {
     [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
-    internal class Resource {
+    internal class StringResource {
         
         private static global::System.Resources.ResourceManager resourceMan;
         
         private static global::System.Globalization.CultureInfo resourceCulture;
         
         [global::System.Diagnostics.CodeAnalysis.SuppressMessageAttribute("Microsoft.Performance", "CA1811:AvoidUncalledPrivateCode")]
-        internal Resource() {
+        internal StringResource() {
         }
         
         /// <summary>
@@ -39,7 +39,7 @@ namespace Actualizator {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Actualizator.Resource", typeof(Resource).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("Actualizator.StringResource", typeof(StringResource).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -70,7 +70,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¡Guarde el proyecto actual!.
+        ///   Busca una cadena traducida similar a ¡Guarde la configuración actual!.
         /// </summary>
         internal static string alertaGuardarProyecto {
             get {
@@ -97,11 +97,38 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a  borrada | Fecha: .
+        /// </summary>
+        internal static string borrado {
+            get {
+                return ResourceManager.GetString("borrado", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Borrar.
         /// </summary>
         internal static string borrar {
             get {
                 return ResourceManager.GetString("borrar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Cancelar.
+        /// </summary>
+        internal static string cancelar {
+            get {
+                return ResourceManager.GetString("cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a click para expandir.
+        /// </summary>
+        internal static string clickExpandir {
+            get {
+                return ResourceManager.GetString("clickExpandir", resourceCulture);
             }
         }
         
@@ -169,6 +196,15 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a ¿Esta seguro que quiere borrar la configuración?.
+        /// </summary>
+        internal static string mensajeBorrarProyecto {
+            get {
+                return ResourceManager.GetString("mensajeBorrarProyecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Error: .
         /// </summary>
         internal static string mensajeError {
@@ -205,7 +241,25 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¡No hay backup del proyecto seleccionado!.
+        ///   Busca una cadena traducida similar a Ya existe una configuracion con el mismo nombre.
+        /// </summary>
+        internal static string mismoNombre {
+            get {
+                return ResourceManager.GetString("mismoNombre", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡Introduce un ruta de destino!.
+        /// </summary>
+        internal static string noDestino {
+            get {
+                return ResourceManager.GetString("noDestino", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a ¡No hay backup de la configuración seleccionada!.
         /// </summary>
         internal static string noLastBackup {
             get {
@@ -214,7 +268,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a ¡Indique un nombre para el proyecto!.
+        ///   Busca una cadena traducida similar a ¡Indique un nombre para la configuración!.
         /// </summary>
         internal static string nombreProyecto {
             get {
@@ -223,11 +277,29 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Nuevo Proyecto.
+        ///   Busca una cadena traducida similar a ¡Introduce un ruta de origen.
+        /// </summary>
+        internal static string noOrigen {
+            get {
+                return ResourceManager.GetString("noOrigen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Nueva configuracion.
         /// </summary>
         internal static string nuevoProyecto {
             get {
                 return ResourceManager.GetString("nuevoProyecto", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Configuración.
+        /// </summary>
+        internal static string proyecto {
+            get {
+                return ResourceManager.GetString("proyecto", resourceCulture);
             }
         }
         
@@ -250,7 +322,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Look at you, a creature of bones and flesh.
+        ///   Busca una cadena traducida similar a .
         /// </summary>
         internal static string saludo {
             get {
