@@ -50,6 +50,5 @@ namespace Actualizator
             this.HacerBackup = HacerBackup;
             this.Filtrar = Filtrar;
         }
-
     }
 }

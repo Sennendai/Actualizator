@@ -215,4 +215,7 @@
   <data name="mismoNombre" xml:space="preserve">
     <value>Ya existe una configuracion con el mismo nombre</value>
   </data>
+  <data name="filtrosCount" xml:space="preserve">
+    <value>Filtros : </value>
+  </data>
 </root>

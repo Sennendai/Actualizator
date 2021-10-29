@@ -169,6 +169,15 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a Filtros : .
+        /// </summary>
+        internal static string filtrosCount {
+            get {
+                return ResourceManager.GetString("filtrosCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Archivo XML guardado  | Fecha:.
         /// </summary>
         internal static string guardadoXML {

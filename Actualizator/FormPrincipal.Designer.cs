@@ -31,9 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblFiltrosCount = new System.Windows.Forms.Label();
+            this.warningImage = new System.Windows.Forms.PictureBox();
+            this.chkBoxSobreescribir = new System.Windows.Forms.CheckBox();
+            this.txtProyecto = new System.Windows.Forms.TextBox();
+            this.btnPrevisualizar = new System.Windows.Forms.Button();
             this.lblLog = new System.Windows.Forms.Label();
+            this.btnBorrar = new System.Windows.Forms.Button();
+            this.btnRecargar = new System.Windows.Forms.Button();
+            this.btnGuardar = new System.Windows.Forms.Button();
             this.btnRutaOrigen = new System.Windows.Forms.Button();
-            this.cmbBoxFiltros = new System.Windows.Forms.ComboBox();
+            this.btnActualizar = new System.Windows.Forms.Button();
+            this.btnRestaurarBackup = new System.Windows.Forms.Button();
+            this.btnAddProyecto = new System.Windows.Forms.Button();
+            this.btnModificarFiltros = new System.Windows.Forms.Button();
             this.chkBoxFiltros = new System.Windows.Forms.CheckBox();
             this.checkBoxBackup = new System.Windows.Forms.CheckBox();
             this.textBackup = new System.Windows.Forms.TextBox();
@@ -41,6 +52,8 @@
             this.textDestino = new System.Windows.Forms.TextBox();
             this.cmbProyecto = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnVerCarpetaDestino = new System.Windows.Forms.Button();
+            this.btnSincronizar = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.btnRutaDestino = new System.Windows.Forms.Button();
@@ -57,21 +70,11 @@
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
-            this.btnPrevisualizar = new System.Windows.Forms.Button();
-            this.btnBorrar = new System.Windows.Forms.Button();
-            this.btnRecargar = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
-            this.btnActualizar = new System.Windows.Forms.Button();
-            this.btnRestaurarBackup = new System.Windows.Forms.Button();
-            this.btnAddProyecto = new System.Windows.Forms.Button();
-            this.btnModificarFiltros = new System.Windows.Forms.Button();
-            this.btnVerCarpetaDestino = new System.Windows.Forms.Button();
-            this.btnSincronizar = new System.Windows.Forms.Button();
-            this.txtProyecto = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.warningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
@@ -93,6 +96,9 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.lblFiltrosCount);
+            this.splitContainer1.Panel1.Controls.Add(this.warningImage);
+            this.splitContainer1.Panel1.Controls.Add(this.chkBoxSobreescribir);
             this.splitContainer1.Panel1.Controls.Add(this.txtProyecto);
             this.splitContainer1.Panel1.Controls.Add(this.btnPrevisualizar);
             this.splitContainer1.Panel1.Controls.Add(this.lblLog);
@@ -103,7 +109,6 @@
             this.splitContainer1.Panel1.Controls.Add(this.btnActualizar);
             this.splitContainer1.Panel1.Controls.Add(this.btnRestaurarBackup);
             this.splitContainer1.Panel1.Controls.Add(this.btnAddProyecto);
-            this.splitContainer1.Panel1.Controls.Add(this.cmbBoxFiltros);
             this.splitContainer1.Panel1.Controls.Add(this.btnModificarFiltros);
             this.splitContainer1.Panel1.Controls.Add(this.chkBoxFiltros);
             this.splitContainer1.Panel1.Controls.Add(this.checkBoxBackup);
@@ -128,6 +133,61 @@
             this.splitContainer1.SplitterDistance = 201;
             this.splitContainer1.TabIndex = 1;
             // 
+            // lblFiltrosCount
+            // 
+            this.lblFiltrosCount.AutoSize = true;
+            this.lblFiltrosCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFiltrosCount.Location = new System.Drawing.Point(272, 157);
+            this.lblFiltrosCount.Name = "lblFiltrosCount";
+            this.lblFiltrosCount.Size = new System.Drawing.Size(72, 13);
+            this.lblFiltrosCount.TabIndex = 16;
+            this.lblFiltrosCount.Text = "lblFiltrosCount";
+            this.lblFiltrosCount.Visible = false;
+            // 
+            // warningImage
+            // 
+            this.warningImage.Image = global::Actualizator.Properties.Resources.warning;
+            this.warningImage.Location = new System.Drawing.Point(673, 118);
+            this.warningImage.Name = "warningImage";
+            this.warningImage.Size = new System.Drawing.Size(16, 17);
+            this.warningImage.TabIndex = 15;
+            this.warningImage.TabStop = false;
+            this.warningImage.Visible = false;
+            // 
+            // chkBoxSobreescribir
+            // 
+            this.chkBoxSobreescribir.AutoSize = true;
+            this.chkBoxSobreescribir.Location = new System.Drawing.Point(695, 118);
+            this.chkBoxSobreescribir.Name = "chkBoxSobreescribir";
+            this.chkBoxSobreescribir.Size = new System.Drawing.Size(130, 17);
+            this.chkBoxSobreescribir.TabIndex = 14;
+            this.chkBoxSobreescribir.Text = "Sobreescribir archivos";
+            this.chkBoxSobreescribir.UseVisualStyleBackColor = true;
+            this.chkBoxSobreescribir.Visible = false;
+            this.chkBoxSobreescribir.CheckedChanged += new System.EventHandler(this.chkBoxSobreescribir_CheckedChanged);
+            // 
+            // txtProyecto
+            // 
+            this.txtProyecto.Location = new System.Drawing.Point(135, 38);
+            this.txtProyecto.Name = "txtProyecto";
+            this.txtProyecto.Size = new System.Drawing.Size(420, 20);
+            this.txtProyecto.TabIndex = 10;
+            this.txtProyecto.Visible = false;
+            // 
+            // btnPrevisualizar
+            // 
+            this.btnPrevisualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnPrevisualizar.BackgroundImage = global::Actualizator.Properties.Resources.view;
+            this.btnPrevisualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnPrevisualizar.Location = new System.Drawing.Point(671, 76);
+            this.btnPrevisualizar.Name = "btnPrevisualizar";
+            this.btnPrevisualizar.Size = new System.Drawing.Size(151, 36);
+            this.btnPrevisualizar.TabIndex = 0;
+            this.btnPrevisualizar.Text = "Previsualizar     sincronización";
+            this.btnPrevisualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnPrevisualizar.UseVisualStyleBackColor = true;
+            this.btnPrevisualizar.Visible = false;
+            // 
             // lblLog
             // 
             this.lblLog.AutoSize = true;
@@ -137,6 +197,45 @@
             this.lblLog.Size = new System.Drawing.Size(35, 13);
             this.lblLog.TabIndex = 0;
             this.lblLog.Text = "lblLog";
+            // 
+            // btnBorrar
+            // 
+            this.btnBorrar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnBorrar.Image = global::Actualizator.Properties.Resources.delete;
+            this.btnBorrar.Location = new System.Drawing.Point(80, 3);
+            this.btnBorrar.Name = "btnBorrar";
+            this.btnBorrar.Size = new System.Drawing.Size(30, 32);
+            this.btnBorrar.TabIndex = 0;
+            this.toolTipControl.SetToolTip(this.btnBorrar, "Borrar configuración");
+            this.btnBorrar.UseVisualStyleBackColor = false;
+            this.btnBorrar.Visible = false;
+            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
+            // 
+            // btnRecargar
+            // 
+            this.btnRecargar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnRecargar.ForeColor = System.Drawing.SystemColors.ControlDark;
+            this.btnRecargar.Image = global::Actualizator.Properties.Resources.document_refresh;
+            this.btnRecargar.Location = new System.Drawing.Point(41, 3);
+            this.btnRecargar.Name = "btnRecargar";
+            this.btnRecargar.Size = new System.Drawing.Size(33, 32);
+            this.btnRecargar.TabIndex = 0;
+            this.toolTipControl.SetToolTip(this.btnRecargar, "Recargar Configuración");
+            this.btnRecargar.UseVisualStyleBackColor = false;
+            this.btnRecargar.Visible = false;
+            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
+            // 
+            // btnGuardar
+            // 
+            this.btnGuardar.BackColor = System.Drawing.SystemColors.Control;
+            this.btnGuardar.Image = global::Actualizator.Properties.Resources.disk_blue;
+            this.btnGuardar.Location = new System.Drawing.Point(6, 3);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Size = new System.Drawing.Size(29, 32);
+            this.btnGuardar.TabIndex = 0;
+            this.toolTipControl.SetToolTip(this.btnGuardar, "Guardar configuración");
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
             // 
             // btnRutaOrigen
             // 
@@ -148,15 +247,60 @@
             this.btnRutaOrigen.UseVisualStyleBackColor = true;
             this.btnRutaOrigen.Click += new System.EventHandler(this.btnRutaOrigen_Click);
             // 
-            // cmbBoxFiltros
+            // btnActualizar
             // 
-            this.cmbBoxFiltros.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBoxFiltros.FormattingEnabled = true;
-            this.cmbBoxFiltros.Location = new System.Drawing.Point(135, 153);
-            this.cmbBoxFiltros.Name = "cmbBoxFiltros";
-            this.cmbBoxFiltros.Size = new System.Drawing.Size(176, 21);
-            this.cmbBoxFiltros.TabIndex = 0;
-            this.cmbBoxFiltros.Visible = false;
+            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnActualizar.BackgroundImage = global::Actualizator.Properties.Resources.refresh;
+            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnActualizar.Location = new System.Drawing.Point(673, 12);
+            this.btnActualizar.Name = "btnActualizar";
+            this.btnActualizar.Size = new System.Drawing.Size(151, 23);
+            this.btnActualizar.TabIndex = 9;
+            this.btnActualizar.Text = "Actualizar configuración";
+            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnActualizar.UseVisualStyleBackColor = true;
+            this.btnActualizar.Visible = false;
+            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
+            // 
+            // btnRestaurarBackup
+            // 
+            this.btnRestaurarBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnRestaurarBackup.BackgroundImage = global::Actualizator.Properties.Resources.recycle;
+            this.btnRestaurarBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnRestaurarBackup.Location = new System.Drawing.Point(673, 144);
+            this.btnRestaurarBackup.Name = "btnRestaurarBackup";
+            this.btnRestaurarBackup.Size = new System.Drawing.Size(151, 26);
+            this.btnRestaurarBackup.TabIndex = 0;
+            this.btnRestaurarBackup.Text = "Restaurar backup";
+            this.btnRestaurarBackup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRestaurarBackup.UseVisualStyleBackColor = true;
+            this.btnRestaurarBackup.Visible = false;
+            this.btnRestaurarBackup.Click += new System.EventHandler(this.btnRestaurarBackup_Click);
+            // 
+            // btnAddProyecto
+            // 
+            this.btnAddProyecto.Image = global::Actualizator.Properties.Resources.add;
+            this.btnAddProyecto.Location = new System.Drawing.Point(585, 37);
+            this.btnAddProyecto.Name = "btnAddProyecto";
+            this.btnAddProyecto.Size = new System.Drawing.Size(33, 25);
+            this.btnAddProyecto.TabIndex = 0;
+            this.toolTipControl.SetToolTip(this.btnAddProyecto, "Nueva Configuración");
+            this.btnAddProyecto.UseVisualStyleBackColor = true;
+            this.btnAddProyecto.Visible = false;
+            this.btnAddProyecto.Click += new System.EventHandler(this.btnAddProyecto_Click);
+            // 
+            // btnModificarFiltros
+            // 
+            this.btnModificarFiltros.BackgroundImage = global::Actualizator.Properties.Resources.gear;
+            this.btnModificarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnModificarFiltros.Location = new System.Drawing.Point(135, 151);
+            this.btnModificarFiltros.Name = "btnModificarFiltros";
+            this.btnModificarFiltros.Size = new System.Drawing.Size(131, 24);
+            this.btnModificarFiltros.TabIndex = 0;
+            this.btnModificarFiltros.Text = "Configurar filtros";
+            this.btnModificarFiltros.UseVisualStyleBackColor = true;
+            this.btnModificarFiltros.Visible = false;
+            this.btnModificarFiltros.Click += new System.EventHandler(this.btnAddFiltros_Click);
             // 
             // chkBoxFiltros
             // 
@@ -227,6 +371,34 @@
             this.label5.TabIndex = 13;
             this.label5.Text = "Configuración";
             // 
+            // btnVerCarpetaDestino
+            // 
+            this.btnVerCarpetaDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnVerCarpetaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnVerCarpetaDestino.Image = global::Actualizator.Properties.Resources.document_into;
+            this.btnVerCarpetaDestino.Location = new System.Drawing.Point(624, 90);
+            this.btnVerCarpetaDestino.Name = "btnVerCarpetaDestino";
+            this.btnVerCarpetaDestino.Size = new System.Drawing.Size(27, 22);
+            this.btnVerCarpetaDestino.TabIndex = 6;
+            this.toolTipControl.SetToolTip(this.btnVerCarpetaDestino, "Agregar destino");
+            this.btnVerCarpetaDestino.UseVisualStyleBackColor = true;
+            this.btnVerCarpetaDestino.Click += new System.EventHandler(this.btnVerCarpetaDestino_Click);
+            // 
+            // btnSincronizar
+            // 
+            this.btnSincronizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnSincronizar.BackgroundImage = global::Actualizator.Properties.Resources.document_exchange;
+            this.btnSincronizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.btnSincronizar.Location = new System.Drawing.Point(673, 42);
+            this.btnSincronizar.Name = "btnSincronizar";
+            this.btnSincronizar.Size = new System.Drawing.Size(151, 28);
+            this.btnSincronizar.TabIndex = 0;
+            this.btnSincronizar.Text = "Sincronizar carpetas";
+            this.btnSincronizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnSincronizar.UseVisualStyleBackColor = true;
+            this.btnSincronizar.Visible = false;
+            this.btnSincronizar.Click += new System.EventHandler(this.btnSincronizar_Click);
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -261,6 +433,7 @@
             this.textOrigen.Name = "textOrigen";
             this.textOrigen.Size = new System.Drawing.Size(444, 20);
             this.textOrigen.TabIndex = 2;
+            this.textOrigen.TextChanged += new System.EventHandler(this.textOrigen_TextChanged);
             this.textOrigen.MouseHover += new System.EventHandler(this.textOrigen_MouseHover);
             // 
             // splitContainer2
@@ -389,150 +562,6 @@
             // 
             this.folderBrowserDlg.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // btnPrevisualizar
-            // 
-            this.btnPrevisualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnPrevisualizar.BackgroundImage = global::Actualizator.Properties.Resources.view;
-            this.btnPrevisualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnPrevisualizar.Location = new System.Drawing.Point(671, 76);
-            this.btnPrevisualizar.Name = "btnPrevisualizar";
-            this.btnPrevisualizar.Size = new System.Drawing.Size(151, 36);
-            this.btnPrevisualizar.TabIndex = 0;
-            this.btnPrevisualizar.Text = "Previsualizar     sincronización";
-            this.btnPrevisualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnPrevisualizar.UseVisualStyleBackColor = true;
-            this.btnPrevisualizar.Visible = false;
-            // 
-            // btnBorrar
-            // 
-            this.btnBorrar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnBorrar.Image = global::Actualizator.Properties.Resources.delete;
-            this.btnBorrar.Location = new System.Drawing.Point(80, 3);
-            this.btnBorrar.Name = "btnBorrar";
-            this.btnBorrar.Size = new System.Drawing.Size(30, 32);
-            this.btnBorrar.TabIndex = 0;
-            this.toolTipControl.SetToolTip(this.btnBorrar, "Borrar configuración");
-            this.btnBorrar.UseVisualStyleBackColor = false;
-            this.btnBorrar.Visible = false;
-            this.btnBorrar.Click += new System.EventHandler(this.btnBorrar_Click);
-            // 
-            // btnRecargar
-            // 
-            this.btnRecargar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnRecargar.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnRecargar.Image = global::Actualizator.Properties.Resources.document_refresh;
-            this.btnRecargar.Location = new System.Drawing.Point(41, 3);
-            this.btnRecargar.Name = "btnRecargar";
-            this.btnRecargar.Size = new System.Drawing.Size(33, 32);
-            this.btnRecargar.TabIndex = 0;
-            this.toolTipControl.SetToolTip(this.btnRecargar, "Recargar Configuración");
-            this.btnRecargar.UseVisualStyleBackColor = false;
-            this.btnRecargar.Visible = false;
-            this.btnRecargar.Click += new System.EventHandler(this.btnRecargar_Click);
-            // 
-            // btnGuardar
-            // 
-            this.btnGuardar.BackColor = System.Drawing.SystemColors.Control;
-            this.btnGuardar.Image = global::Actualizator.Properties.Resources.disk_blue;
-            this.btnGuardar.Location = new System.Drawing.Point(6, 3);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(29, 32);
-            this.btnGuardar.TabIndex = 0;
-            this.toolTipControl.SetToolTip(this.btnGuardar, "Guardar configuración");
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
-            // btnActualizar
-            // 
-            this.btnActualizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnActualizar.BackgroundImage = global::Actualizator.Properties.Resources.refresh;
-            this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnActualizar.Location = new System.Drawing.Point(673, 12);
-            this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(151, 23);
-            this.btnActualizar.TabIndex = 9;
-            this.btnActualizar.Text = "Actualizar configuración";
-            this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnActualizar.UseVisualStyleBackColor = true;
-            this.btnActualizar.Visible = false;
-            this.btnActualizar.Click += new System.EventHandler(this.btnActualizar_Click);
-            // 
-            // btnRestaurarBackup
-            // 
-            this.btnRestaurarBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnRestaurarBackup.BackgroundImage = global::Actualizator.Properties.Resources.recycle;
-            this.btnRestaurarBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRestaurarBackup.Location = new System.Drawing.Point(673, 121);
-            this.btnRestaurarBackup.Name = "btnRestaurarBackup";
-            this.btnRestaurarBackup.Size = new System.Drawing.Size(151, 26);
-            this.btnRestaurarBackup.TabIndex = 0;
-            this.btnRestaurarBackup.Text = "Restaurar backup";
-            this.btnRestaurarBackup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRestaurarBackup.UseVisualStyleBackColor = true;
-            this.btnRestaurarBackup.Visible = false;
-            this.btnRestaurarBackup.Click += new System.EventHandler(this.btnRestaurarBackup_Click);
-            // 
-            // btnAddProyecto
-            // 
-            this.btnAddProyecto.Image = global::Actualizator.Properties.Resources.add;
-            this.btnAddProyecto.Location = new System.Drawing.Point(585, 37);
-            this.btnAddProyecto.Name = "btnAddProyecto";
-            this.btnAddProyecto.Size = new System.Drawing.Size(33, 25);
-            this.btnAddProyecto.TabIndex = 0;
-            this.toolTipControl.SetToolTip(this.btnAddProyecto, "Nueva Configuración");
-            this.btnAddProyecto.UseVisualStyleBackColor = true;
-            this.btnAddProyecto.Visible = false;
-            this.btnAddProyecto.Click += new System.EventHandler(this.btnAddProyecto_Click);
-            // 
-            // btnModificarFiltros
-            // 
-            this.btnModificarFiltros.BackgroundImage = global::Actualizator.Properties.Resources.gear;
-            this.btnModificarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnModificarFiltros.Location = new System.Drawing.Point(317, 151);
-            this.btnModificarFiltros.Name = "btnModificarFiltros";
-            this.btnModificarFiltros.Size = new System.Drawing.Size(131, 24);
-            this.btnModificarFiltros.TabIndex = 0;
-            this.btnModificarFiltros.Text = "Configurar filtros";
-            this.btnModificarFiltros.UseVisualStyleBackColor = true;
-            this.btnModificarFiltros.Visible = false;
-            this.btnModificarFiltros.Click += new System.EventHandler(this.btnAddFiltros_Click);
-            // 
-            // btnVerCarpetaDestino
-            // 
-            this.btnVerCarpetaDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnVerCarpetaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerCarpetaDestino.Image = global::Actualizator.Properties.Resources.document_into;
-            this.btnVerCarpetaDestino.Location = new System.Drawing.Point(624, 90);
-            this.btnVerCarpetaDestino.Name = "btnVerCarpetaDestino";
-            this.btnVerCarpetaDestino.Size = new System.Drawing.Size(27, 22);
-            this.btnVerCarpetaDestino.TabIndex = 6;
-            this.toolTipControl.SetToolTip(this.btnVerCarpetaDestino, "Agregar destino");
-            this.btnVerCarpetaDestino.UseVisualStyleBackColor = true;
-            this.btnVerCarpetaDestino.Click += new System.EventHandler(this.btnVerCarpetaDestino_Click);
-            // 
-            // btnSincronizar
-            // 
-            this.btnSincronizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSincronizar.BackgroundImage = global::Actualizator.Properties.Resources.document_exchange;
-            this.btnSincronizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnSincronizar.Location = new System.Drawing.Point(673, 42);
-            this.btnSincronizar.Name = "btnSincronizar";
-            this.btnSincronizar.Size = new System.Drawing.Size(151, 28);
-            this.btnSincronizar.TabIndex = 0;
-            this.btnSincronizar.Text = "Sincronizar carpetas";
-            this.btnSincronizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnSincronizar.UseVisualStyleBackColor = true;
-            this.btnSincronizar.Visible = false;
-            this.btnSincronizar.Click += new System.EventHandler(this.btnSincronizar_Click);
-            // 
-            // txtProyecto
-            // 
-            this.txtProyecto.Location = new System.Drawing.Point(135, 38);
-            this.txtProyecto.Name = "txtProyecto";
-            this.txtProyecto.Size = new System.Drawing.Size(420, 20);
-            this.txtProyecto.TabIndex = 10;
-            this.txtProyecto.Visible = false;
-            // 
             // FormPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -548,6 +577,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.warningImage)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
@@ -586,7 +616,6 @@
         private System.Windows.Forms.CheckBox checkBoxBackup;
         private System.Windows.Forms.TextBox textBackup;
         private System.Windows.Forms.Button btnRutaBackup;
-        private System.Windows.Forms.ComboBox cmbBoxFiltros;
         private System.Windows.Forms.Button btnModificarFiltros;
         private System.Windows.Forms.CheckBox chkBoxFiltros;
         private System.Windows.Forms.ToolTip toolTipControl;
@@ -603,6 +632,9 @@
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Button btnPrevisualizar;
         private System.Windows.Forms.TextBox txtProyecto;
+        private System.Windows.Forms.PictureBox warningImage;
+        private System.Windows.Forms.CheckBox chkBoxSobreescribir;
+        private System.Windows.Forms.Label lblFiltrosCount;
     }
 }
 
