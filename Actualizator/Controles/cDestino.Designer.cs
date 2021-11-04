@@ -50,6 +50,7 @@
             // 
             // splitContainer
             // 
+            this.splitContainer.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer.Location = new System.Drawing.Point(0, 0);
             this.splitContainer.Name = "splitContainer";
@@ -71,10 +72,9 @@
             // splitContainer.Panel2
             // 
             this.splitContainer.Panel2.Controls.Add(this.treeViewDestino);
-            this.splitContainer.Panel2Collapsed = true;
             this.splitContainer.Panel2MinSize = 0;
-            this.splitContainer.Size = new System.Drawing.Size(318, 117);
-            this.splitContainer.SplitterDistance = 80;
+            this.splitContainer.Size = new System.Drawing.Size(317, 156);
+            this.splitContainer.SplitterDistance = 93;
             this.splitContainer.TabIndex = 0;
             // 
             // contextMenuDestino
@@ -111,15 +111,15 @@
             this.chkBoxDestino.Name = "chkBoxDestino";
             this.chkBoxDestino.Size = new System.Drawing.Size(15, 14);
             this.chkBoxDestino.TabIndex = 39;
-            this.chkBoxDestino.ThreeState = true;
             this.chkBoxDestino.UseVisualStyleBackColor = true;
+            this.chkBoxDestino.CheckedChanged += new System.EventHandler(this.chkBoxDestino_CheckedChanged);
             // 
             // btnBorrarDestino
             // 
             this.btnBorrarDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnBorrarDestino.BackColor = System.Drawing.SystemColors.Control;
             this.btnBorrarDestino.Image = global::Actualizator.Properties.Resources.delete;
-            this.btnBorrarDestino.Location = new System.Drawing.Point(284, 3);
+            this.btnBorrarDestino.Location = new System.Drawing.Point(283, 3);
             this.btnBorrarDestino.Name = "btnBorrarDestino";
             this.btnBorrarDestino.Size = new System.Drawing.Size(30, 25);
             this.btnBorrarDestino.TabIndex = 38;
@@ -169,7 +169,7 @@
             this.treeViewDestino.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewDestino.Location = new System.Drawing.Point(0, 0);
             this.treeViewDestino.Name = "treeViewDestino";
-            this.treeViewDestino.Size = new System.Drawing.Size(150, 46);
+            this.treeViewDestino.Size = new System.Drawing.Size(317, 59);
             this.treeViewDestino.TabIndex = 0;
             // 
             // cDestino
@@ -179,7 +179,7 @@
             this.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.Controls.Add(this.splitContainer);
             this.Name = "cDestino";
-            this.Size = new System.Drawing.Size(317, 152);
+            this.Size = new System.Drawing.Size(317, 156);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel1.PerformLayout();
             this.splitContainer.Panel2.ResumeLayout(false);

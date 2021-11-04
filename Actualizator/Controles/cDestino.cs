@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
 
 namespace Actualizator
@@ -15,6 +16,18 @@ namespace Actualizator
                 if (value != treeViewDestino)
                 {
                     treeViewDestino = value;
+                }
+            }
+        }
+
+        public Button buttonBorrarDestino
+        {
+            get { return btnBorrarDestino; }
+            set
+            {
+                if (value != btnBorrarDestino)
+                {
+                    btnBorrarDestino = value;
                 }
             }
         }
@@ -45,21 +58,54 @@ namespace Actualizator
             }
         }
 
+        private List<string> rutasDestino;
+        public List<string> RutasDestino 
+        { 
+            get => rutasDestino;
+            set 
+            { 
+                if (value != rutasDestino)
+                {
+                    rutasDestino = value;
+
+                }                 
+            }
+        }
+                
+        public bool CheckDestino
+        {
+            get { return chkBoxDestino.Checked; }
+            set
+            {
+                if (value!= chkBoxDestino.Checked)
+                {
+                    chkBoxDestino.Checked = value;
+                }
+            }
+        }
+
         #endregion
 
         #region· CONSTRUCTOR
-        public cDestino()
+
+        public cDestino(List<string> rutasDestino)
         {
             InitializeComponent();
+            this.rutasDestino = rutasDestino;
+
             CargarDatos();
         }
+
         #endregion
+
+        #region· FUNCIONES
 
         private void CargarDatos()
         {
             this.Margin = new Padding(1, 3, 0, 3);
             this.ResizeRedraw = true;
             this.Dock = DockStyle.Fill;
+            this.splitContainer.Panel2Collapsed = true;
             splitContainer.Dock = DockStyle.Fill;
 
             lblExpandir.Text = StringResource.clickExpandir;
@@ -72,11 +118,13 @@ namespace Actualizator
             {
                 splitContainer.Dock = DockStyle.Fill;
                 lblExpandir.Text = string.Empty;
+                this.treeViewDestino.ExpandAll();
             }
             else
             {
                 splitContainer.Dock = DockStyle.Top;
                 lblExpandir.Text = StringResource.clickExpandir;
+                this.treeViewDestino.CollapseAll();
             }
         }
 
@@ -87,8 +135,11 @@ namespace Actualizator
             {
                 TableLayoutPanel tableLayout = (TableLayoutPanel)this.Parent;
                 tableLayout.Controls.Remove(this);
+                rutasDestino.Remove(RutaDestino);
             }
         }
+
+        #endregion
 
         #region· EVENTOS
 
@@ -117,8 +168,14 @@ namespace Actualizator
             ExpandirContraerPanel();
         }
 
+        private void chkBoxDestino_CheckedChanged(object sender, EventArgs e)
+        {
+            TableLayoutPanel tableLayout = (TableLayoutPanel)this.Parent;
+            tableLayout.Update();
+        }
+
         #endregion
-        
+
         // Para permitir que se pueda cambiar el tamaño del control
         // No funciona correctamente, hay algo que lo bloquea?
         //protected override CreateParams CreateParams

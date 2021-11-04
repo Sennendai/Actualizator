@@ -79,7 +79,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a log.txt.
+        ///   Busca una cadena traducida similar a Log.txt.
         /// </summary>
         internal static string archivoLog {
             get {
@@ -120,6 +120,15 @@ namespace Actualizator {
         internal static string cancelar {
             get {
                 return ResourceManager.GetString("cancelar", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a logs.
+        /// </summary>
+        internal static string carpetaLogs {
+            get {
+                return ResourceManager.GetString("carpetaLogs", resourceCulture);
             }
         }
         
@@ -304,6 +313,15 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a 3.
+        /// </summary>
+        internal static string numberLastBackUp {
+            get {
+                return ResourceManager.GetString("numberLastBackUp", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuración.
         /// </summary>
         internal static string proyecto {
@@ -345,6 +363,15 @@ namespace Actualizator {
         internal static string sincronizarCarpetas {
             get {
                 return ResourceManager.GetString("sincronizarCarpetas", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Busca una cadena traducida similar a Total archivos a mover: .
+        /// </summary>
+        internal static string totalArchivos {
+            get {
+                return ResourceManager.GetString("totalArchivos", resourceCulture);
             }
         }
         

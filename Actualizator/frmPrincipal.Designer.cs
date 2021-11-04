@@ -1,6 +1,6 @@
 ﻿namespace Actualizator
 {
-    partial class FormPrincipal
+    partial class frmPrincipal
     {
         /// <summary>
         /// Variable del diseñador necesaria.
@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormPrincipal));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.lblFiltrosCount = new System.Windows.Forms.Label();
             this.warningImage = new System.Windows.Forms.PictureBox();
@@ -61,11 +61,13 @@
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeViewOrigen = new System.Windows.Forms.TreeView();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.groupBoxOrigen = new System.Windows.Forms.GroupBox();
             this.lblArchivosOrigen = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.groupBoxDestino = new System.Windows.Forms.GroupBox();
+            this.lblCountDestinos = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
             this.tableLayoutDestino = new System.Windows.Forms.TableLayoutPanel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.folderBrowserDlg = new System.Windows.Forms.FolderBrowserDialog();
@@ -80,11 +82,12 @@
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.groupBox1.SuspendLayout();
+            this.groupBoxOrigen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).BeginInit();
             this.splitContainer3.Panel1.SuspendLayout();
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
+            this.groupBoxDestino.SuspendLayout();
             this.SuspendLayout();
             // 
             // splitContainer1
@@ -137,7 +140,7 @@
             // 
             this.lblFiltrosCount.AutoSize = true;
             this.lblFiltrosCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFiltrosCount.Location = new System.Drawing.Point(272, 157);
+            this.lblFiltrosCount.Location = new System.Drawing.Point(250, 157);
             this.lblFiltrosCount.Name = "lblFiltrosCount";
             this.lblFiltrosCount.Size = new System.Drawing.Size(72, 13);
             this.lblFiltrosCount.TabIndex = 16;
@@ -146,6 +149,7 @@
             // 
             // warningImage
             // 
+            this.warningImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.warningImage.Image = global::Actualizator.Properties.Resources.warning;
             this.warningImage.Location = new System.Drawing.Point(673, 118);
             this.warningImage.Name = "warningImage";
@@ -156,6 +160,7 @@
             // 
             // chkBoxSobreescribir
             // 
+            this.chkBoxSobreescribir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBoxSobreescribir.AutoSize = true;
             this.chkBoxSobreescribir.Location = new System.Drawing.Point(695, 118);
             this.chkBoxSobreescribir.Name = "chkBoxSobreescribir";
@@ -187,6 +192,7 @@
             this.btnPrevisualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrevisualizar.UseVisualStyleBackColor = true;
             this.btnPrevisualizar.Visible = false;
+            this.btnPrevisualizar.Click += new System.EventHandler(this.btnPrevisualizar_Click);
             // 
             // lblLog
             // 
@@ -215,7 +221,7 @@
             // 
             this.btnRecargar.BackColor = System.Drawing.SystemColors.Control;
             this.btnRecargar.ForeColor = System.Drawing.SystemColors.ControlDark;
-            this.btnRecargar.Image = global::Actualizator.Properties.Resources.document_refresh;
+            this.btnRecargar.Image = global::Actualizator.Properties.Resources.folder_refresh;
             this.btnRecargar.Location = new System.Drawing.Point(41, 3);
             this.btnRecargar.Name = "btnRecargar";
             this.btnRecargar.Size = new System.Drawing.Size(33, 32);
@@ -295,9 +301,10 @@
             this.btnModificarFiltros.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnModificarFiltros.Location = new System.Drawing.Point(135, 151);
             this.btnModificarFiltros.Name = "btnModificarFiltros";
-            this.btnModificarFiltros.Size = new System.Drawing.Size(131, 24);
+            this.btnModificarFiltros.Size = new System.Drawing.Size(109, 24);
             this.btnModificarFiltros.TabIndex = 0;
             this.btnModificarFiltros.Text = "Configurar filtros";
+            this.btnModificarFiltros.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnModificarFiltros.UseVisualStyleBackColor = true;
             this.btnModificarFiltros.Visible = false;
             this.btnModificarFiltros.Click += new System.EventHandler(this.btnAddFiltros_Click);
@@ -375,7 +382,7 @@
             // 
             this.btnVerCarpetaDestino.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnVerCarpetaDestino.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnVerCarpetaDestino.Image = global::Actualizator.Properties.Resources.document_into;
+            this.btnVerCarpetaDestino.Image = global::Actualizator.Properties.Resources.down_plus;
             this.btnVerCarpetaDestino.Location = new System.Drawing.Point(624, 90);
             this.btnVerCarpetaDestino.Name = "btnVerCarpetaDestino";
             this.btnVerCarpetaDestino.Size = new System.Drawing.Size(27, 22);
@@ -387,7 +394,7 @@
             // btnSincronizar
             // 
             this.btnSincronizar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnSincronizar.BackgroundImage = global::Actualizator.Properties.Resources.document_exchange;
+            this.btnSincronizar.BackgroundImage = global::Actualizator.Properties.Resources.folders;
             this.btnSincronizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSincronizar.Location = new System.Drawing.Point(673, 42);
             this.btnSincronizar.Name = "btnSincronizar";
@@ -459,7 +466,7 @@
             this.tableLayoutPanel1.ColumnCount = 1;
             this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.Controls.Add(this.treeViewOrigen, 0, 1);
-            this.tableLayoutPanel1.Controls.Add(this.groupBox1, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.groupBoxOrigen, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
@@ -477,18 +484,18 @@
             this.treeViewOrigen.Size = new System.Drawing.Size(390, 372);
             this.treeViewOrigen.TabIndex = 0;
             // 
-            // groupBox1
+            // groupBoxOrigen
             // 
-            this.groupBox1.Controls.Add(this.lblArchivosOrigen);
-            this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(3, 3);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(390, 44);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Origen";
-            this.groupBox1.UseCompatibleTextRendering = true;
+            this.groupBoxOrigen.Controls.Add(this.lblArchivosOrigen);
+            this.groupBoxOrigen.Controls.Add(this.label3);
+            this.groupBoxOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxOrigen.Location = new System.Drawing.Point(3, 3);
+            this.groupBoxOrigen.Name = "groupBoxOrigen";
+            this.groupBoxOrigen.Size = new System.Drawing.Size(390, 44);
+            this.groupBoxOrigen.TabIndex = 0;
+            this.groupBoxOrigen.TabStop = false;
+            this.groupBoxOrigen.Text = "Origen";
+            this.groupBoxOrigen.UseCompatibleTextRendering = true;
             // 
             // lblArchivosOrigen
             // 
@@ -518,7 +525,7 @@
             // 
             // splitContainer3.Panel1
             // 
-            this.splitContainer3.Panel1.Controls.Add(this.groupBox2);
+            this.splitContainer3.Panel1.Controls.Add(this.groupBoxDestino);
             // 
             // splitContainer3.Panel2
             // 
@@ -527,15 +534,37 @@
             this.splitContainer3.SplitterDistance = 48;
             this.splitContainer3.TabIndex = 0;
             // 
-            // groupBox2
+            // groupBoxDestino
             // 
-            this.groupBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox2.Location = new System.Drawing.Point(0, 0);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(431, 48);
-            this.groupBox2.TabIndex = 0;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Destino";
+            this.groupBoxDestino.Controls.Add(this.lblCountDestinos);
+            this.groupBoxDestino.Controls.Add(this.label6);
+            this.groupBoxDestino.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.groupBoxDestino.Location = new System.Drawing.Point(0, 0);
+            this.groupBoxDestino.Name = "groupBoxDestino";
+            this.groupBoxDestino.Size = new System.Drawing.Size(431, 48);
+            this.groupBoxDestino.TabIndex = 0;
+            this.groupBoxDestino.TabStop = false;
+            this.groupBoxDestino.Text = "Destino";
+            // 
+            // lblCountDestinos
+            // 
+            this.lblCountDestinos.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.lblCountDestinos.AutoSize = true;
+            this.lblCountDestinos.Location = new System.Drawing.Point(137, 19);
+            this.lblCountDestinos.Name = "lblCountDestinos";
+            this.lblCountDestinos.Size = new System.Drawing.Size(86, 13);
+            this.lblCountDestinos.TabIndex = 3;
+            this.lblCountDestinos.Text = "lblCountDestinos";
+            // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 19);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(125, 13);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Destinos seleccionados: ";
             // 
             // tableLayoutDestino
             // 
@@ -549,6 +578,8 @@
             this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutDestino.Size = new System.Drawing.Size(431, 376);
             this.tableLayoutDestino.TabIndex = 0;
+            this.tableLayoutDestino.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tableLayoutDestino_ControlAdded);
+            this.tableLayoutDestino.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.tableLayoutDestino_ControlRemoved);
             // 
             // splitter1
             // 
@@ -562,7 +593,7 @@
             // 
             this.folderBrowserDlg.RootFolder = System.Environment.SpecialFolder.MyComputer;
             // 
-            // FormPrincipal
+            // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -570,7 +601,7 @@
             this.Controls.Add(this.splitContainer1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "FormPrincipal";
+            this.Name = "frmPrincipal";
             this.Text = "Sincronizar carpetas";
             this.splitContainer1.Panel1.ResumeLayout(false);
             this.splitContainer1.Panel1.PerformLayout();
@@ -583,12 +614,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.groupBoxOrigen.ResumeLayout(false);
+            this.groupBoxOrigen.PerformLayout();
             this.splitContainer3.Panel1.ResumeLayout(false);
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
+            this.groupBoxDestino.ResumeLayout(false);
+            this.groupBoxDestino.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -610,7 +643,7 @@
         private System.Windows.Forms.SplitContainer splitContainer2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeViewOrigen;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox groupBoxOrigen;
         private System.Windows.Forms.Label lblArchivosOrigen;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox checkBoxBackup;
@@ -620,7 +653,7 @@
         private System.Windows.Forms.CheckBox chkBoxFiltros;
         private System.Windows.Forms.ToolTip toolTipControl;
         private System.Windows.Forms.SplitContainer splitContainer3;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox groupBoxDestino;
         private System.Windows.Forms.TableLayoutPanel tableLayoutDestino;
         private System.Windows.Forms.Button btnAddProyecto;
         private System.Windows.Forms.Button btnRestaurarBackup;
@@ -635,6 +668,8 @@
         private System.Windows.Forms.PictureBox warningImage;
         private System.Windows.Forms.CheckBox chkBoxSobreescribir;
         private System.Windows.Forms.Label lblFiltrosCount;
+        private System.Windows.Forms.Label lblCountDestinos;
+        private System.Windows.Forms.Label label6;
     }
 }
 

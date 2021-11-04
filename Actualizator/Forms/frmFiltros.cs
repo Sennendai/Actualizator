@@ -9,20 +9,23 @@ namespace Actualizator
     {
         public BindingList<Filtro> FiltrosADevolver = new BindingList<Filtro>();
         private string rutaOrigen;
+        private string proyectoName;
 
         #region CONSTRUCTOR             
 
-        public FormFiltros(string rutaOrigen)
+        public FormFiltros(string rutaOrigen, string proyectoName)
         {
             InitializeComponent();
             this.rutaOrigen = rutaOrigen;
+            this.proyectoName = proyectoName;
             CargarDatos();
         }
 
-        public FormFiltros(string rutaOrigen, BindingList<Filtro> Filtros)
+        public FormFiltros(string rutaOrigen, string proyectoName, BindingList<Filtro> Filtros)
         {
             InitializeComponent();
             this.rutaOrigen = rutaOrigen;
+            this.proyectoName = proyectoName;
             FiltrosADevolver = Filtros;
             CargarDatos();
         }
@@ -162,7 +165,7 @@ namespace Actualizator
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError(StringResource.mensajeError + LocalUtilities.getErrorException(ex));
+                LocalUtilities.MensajeError(StringResource.mensajeError + LocalUtilities.getErrorException(ex),proyectoName);
             }
         }
 

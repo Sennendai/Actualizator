@@ -35,5 +35,21 @@ namespace Actualizator
             }
         }
         public string DirName { get => dirName; set => dirName = value; }
+
+        /// <summary>
+        /// Devuelve el total de numeros de archivos del directorio y sus subcarpetas
+        /// </summary>
+        public int GetTotalArchivos()
+        {
+            int total = 0;
+
+            total += this.archivos.Count();
+            foreach (ArchivosTreeView dir in this.Subdir)
+            {
+                total += dir.GetTotalArchivos();
+            }
+
+            return total;
+        }
     }
 }
