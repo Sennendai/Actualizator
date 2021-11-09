@@ -169,7 +169,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Extrayendo información....
+        ///   Busca una cadena traducida similar a Estamos trabajando en ello....
         /// </summary>
         internal static string extrayendoInfo {
             get {

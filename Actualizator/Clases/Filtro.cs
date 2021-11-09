@@ -25,6 +25,6 @@ namespace Actualizator
     public enum Filtrado
     {
         TerminaPor = 0,
-        Completo = 1        
+        Completo = 1
     }
 }

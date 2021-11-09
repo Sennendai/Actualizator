@@ -11,7 +11,7 @@ namespace Actualizator
         [XmlElement("Identifier")]
         public Guid Identifier { get; set; }
         [XmlElement("ProyectoName")]
-        public string ProyectoName { get ; set; }        
+        public string ProyectoName { get; set; }
         [XmlElement("PathOrigen")]
         public string PathOrigen { get; set; }
         [XmlElement("PathDestino")]
@@ -29,7 +29,7 @@ namespace Actualizator
 
         public Proyecto()
         {
-            
+
         }
 
         public Proyecto(Guid Identifier)

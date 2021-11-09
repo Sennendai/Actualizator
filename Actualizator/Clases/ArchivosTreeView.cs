@@ -12,26 +12,26 @@ namespace Actualizator
         private List<string> archivos = new List<string>();
         private List<ArchivosTreeView> subdir = new List<ArchivosTreeView>();
 
-        public List<string> Archivos 
-        { 
+        public List<string> Archivos
+        {
             get => archivos;
-            set 
-            { 
-                if (archivos != value) 
-                { 
-                    archivos = value; 
-                }                   
+            set
+            {
+                if (archivos != value)
+                {
+                    archivos = value;
+                }
             }
         }
-        public List<ArchivosTreeView> Subdir 
-        { 
+        public List<ArchivosTreeView> Subdir
+        {
             get => subdir;
-            set 
-            { 
+            set
+            {
                 if (subdir != value)
                 {
                     subdir = value;
-                }                 
+                }
             }
         }
         public string DirName { get => dirName; set => dirName = value; }

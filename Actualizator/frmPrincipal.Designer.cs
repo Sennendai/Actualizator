@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.fatalWarningImage = new System.Windows.Forms.PictureBox();
+            this.chkBorrarDestino = new System.Windows.Forms.CheckBox();
             this.lblFiltrosCount = new System.Windows.Forms.Label();
             this.warningImage = new System.Windows.Forms.PictureBox();
             this.chkBoxSobreescribir = new System.Windows.Forms.CheckBox();
@@ -76,6 +78,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.fatalWarningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -99,6 +102,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.fatalWarningImage);
+            this.splitContainer1.Panel1.Controls.Add(this.chkBorrarDestino);
             this.splitContainer1.Panel1.Controls.Add(this.lblFiltrosCount);
             this.splitContainer1.Panel1.Controls.Add(this.warningImage);
             this.splitContainer1.Panel1.Controls.Add(this.chkBoxSobreescribir);
@@ -135,6 +140,30 @@
             this.splitContainer1.Size = new System.Drawing.Size(834, 633);
             this.splitContainer1.SplitterDistance = 201;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // fatalWarningImage
+            // 
+            this.fatalWarningImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.fatalWarningImage.Image = global::Actualizator.Properties.Resources.delete2;
+            this.fatalWarningImage.Location = new System.Drawing.Point(673, 141);
+            this.fatalWarningImage.Name = "fatalWarningImage";
+            this.fatalWarningImage.Size = new System.Drawing.Size(16, 17);
+            this.fatalWarningImage.TabIndex = 18;
+            this.fatalWarningImage.TabStop = false;
+            this.fatalWarningImage.Visible = false;
+            // 
+            // chkBorrarDestino
+            // 
+            this.chkBorrarDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkBorrarDestino.AutoSize = true;
+            this.chkBorrarDestino.Location = new System.Drawing.Point(695, 141);
+            this.chkBorrarDestino.Name = "chkBorrarDestino";
+            this.chkBorrarDestino.Size = new System.Drawing.Size(134, 17);
+            this.chkBorrarDestino.TabIndex = 17;
+            this.chkBorrarDestino.Text = "Borrar archivos destino";
+            this.chkBorrarDestino.UseVisualStyleBackColor = true;
+            this.chkBorrarDestino.Visible = false;
+            this.chkBorrarDestino.CheckedChanged += new System.EventHandler(this.chkBorrarDestino_CheckedChanged);
             // 
             // lblFiltrosCount
             // 
@@ -273,7 +302,7 @@
             this.btnRestaurarBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurarBackup.BackgroundImage = global::Actualizator.Properties.Resources.recycle;
             this.btnRestaurarBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRestaurarBackup.Location = new System.Drawing.Point(673, 144);
+            this.btnRestaurarBackup.Location = new System.Drawing.Point(671, 164);
             this.btnRestaurarBackup.Name = "btnRestaurarBackup";
             this.btnRestaurarBackup.Size = new System.Drawing.Size(151, 26);
             this.btnRestaurarBackup.TabIndex = 0;
@@ -358,6 +387,7 @@
             this.textDestino.Name = "textDestino";
             this.textDestino.Size = new System.Drawing.Size(444, 20);
             this.textDestino.TabIndex = 4;
+            this.textDestino.TextChanged += new System.EventHandler(this.textDestino_TextChanged);
             this.textDestino.MouseHover += new System.EventHandler(this.textDestino_MouseHover);
             // 
             // cmbProyecto
@@ -389,6 +419,7 @@
             this.btnVerCarpetaDestino.TabIndex = 6;
             this.toolTipControl.SetToolTip(this.btnVerCarpetaDestino, "Agregar destino");
             this.btnVerCarpetaDestino.UseVisualStyleBackColor = true;
+            this.btnVerCarpetaDestino.Visible = false;
             this.btnVerCarpetaDestino.Click += new System.EventHandler(this.btnVerCarpetaDestino_Click);
             // 
             // btnSincronizar
@@ -608,6 +639,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.fatalWarningImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warningImage)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -670,6 +702,8 @@
         private System.Windows.Forms.Label lblFiltrosCount;
         private System.Windows.Forms.Label lblCountDestinos;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.PictureBox fatalWarningImage;
+        private System.Windows.Forms.CheckBox chkBorrarDestino;
     }
 }
 

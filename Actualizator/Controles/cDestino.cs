@@ -59,25 +59,25 @@ namespace Actualizator
         }
 
         private List<string> rutasDestino;
-        public List<string> RutasDestino 
-        { 
+        public List<string> RutasDestino
+        {
             get => rutasDestino;
-            set 
-            { 
+            set
+            {
                 if (value != rutasDestino)
                 {
                     rutasDestino = value;
 
-                }                 
+                }
             }
         }
-                
+
         public bool CheckDestino
         {
             get { return chkBoxDestino.Checked; }
             set
             {
-                if (value!= chkBoxDestino.Checked)
+                if (value != chkBoxDestino.Checked)
                 {
                     chkBoxDestino.Checked = value;
                 }
@@ -171,6 +171,7 @@ namespace Actualizator
         private void chkBoxDestino_CheckedChanged(object sender, EventArgs e)
         {
             TableLayoutPanel tableLayout = (TableLayoutPanel)this.Parent;
+
             tableLayout.Update();
         }
 

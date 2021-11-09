@@ -6,11 +6,11 @@ using System.Windows.Forms;
 
 namespace Actualizator.Clases
 {
-    public class Arbol
+    public class ArbolUtilities
     {
         private static BindingList<Filtro> filtros;
-        public static BindingList<Filtro> Filtros 
-        { 
+        public static BindingList<Filtro> Filtros
+        {
             get { return filtros; }
             set
             {
@@ -18,7 +18,7 @@ namespace Actualizator.Clases
                 {
                     filtros = value;
                 }
-            } 
+            }
         }
 
         /// <summary>
@@ -69,7 +69,7 @@ namespace Actualizator.Clases
         /// <param name="archivos">lista de nodes a introducir</param>
         /// <param name="directoryNode">node a modificar</param>
         /// <param name="HayFiltros">indica si se usan filtros</param>
-        public static void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode, bool HayFiltros)
+        private static void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode, bool HayFiltros)
         {
             if (HayFiltros)
             {
@@ -111,8 +111,7 @@ namespace Actualizator.Clases
         }
 
         /// <summary>
-        /// No se usa
-        /// Para introducir un icono dentro del treeNode
+        /// Para introducir un icono dentro del treeNode, no se usa
         /// </summary>
         private void SetIconForNode(TreeNode node, int imageindex, Color color)
         {
@@ -126,6 +125,6 @@ namespace Actualizator.Clases
                     SetIconForNode(tn, imageindex, color);
             }
         }
-    
+
     }
 }

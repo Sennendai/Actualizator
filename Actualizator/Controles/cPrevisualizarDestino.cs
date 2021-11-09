@@ -56,7 +56,7 @@ namespace Actualizator.Controles
 
         private void CargarDatos()
         {
-            this.Dock = DockStyle.Fill;            
+            this.Dock = DockStyle.Fill;
             this.splitContainer.Panel2Collapsed = true;
         }
 

@@ -2,12 +2,10 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Actualizator.Clases
 {
-    public class Archivos
+    public class ArchivosUtilities
     {
 
         /// <summary>
@@ -121,6 +119,9 @@ namespace Actualizator.Clases
             return archivosTree;
         }
 
+        /// <summary>
+        /// Devuelve una lista de DirectoryInfo dada una lista de string con una ruta de carpeta
+        /// </summary>
         public static List<DirectoryInfo> GetAllDestinos(List<string> RutasDestino, Proyecto actualProyecto)
         {
             List<DirectoryInfo> allDestinos = new List<DirectoryInfo>();
@@ -139,5 +140,44 @@ namespace Actualizator.Clases
             return allDestinos;
         }
 
+        /// <summary>
+        /// Borra todo el contenido de las carpetas, incluidas subcarpetas
+        /// </summary>
+        /// <param name="directoriesDestino">Lista de carpetas</param>
+        public static void BorrarArchivos(List<DirectoryInfo> directoriesDestino)
+        {
+            foreach (DirectoryInfo directory in directoriesDestino)
+            {
+                foreach(DirectoryInfo subdirectories in directory.GetDirectories())
+                {
+                    subdirectories.Delete(true);
+                }
+                foreach(var file in directory.GetFiles())
+                {
+                    file.Delete();
+                }
+            }
+        }
+
+        /// <summary>
+        /// Conserva las 3 carpetas mas nuevas de la ruta especificada y borra el resto
+        /// </summary>
+        public static void ComprobarBackUpViejos(string rutaBackup)
+        {
+            DirectoryInfo dirBackUp = new DirectoryInfo(rutaBackup);
+            var directoriesBackUp = dirBackUp.GetDirectories();
+            if (directoriesBackUp.Count() > Int32.Parse(StringResource.numberLastBackUp))
+            {
+                directoriesBackUp.OrderByDescending(x => x.LastWriteTimeUtc).ToList();
+                for (int i = 1; i < directoriesBackUp.Length + 1; i++)
+                {
+                    if (i > Int32.Parse(StringResource.numberLastBackUp))
+                    {
+                        // borra recursivamente el directorio
+                        directoriesBackUp[i - 1].Delete(true);
+                    }
+                }
+            }
+        }
     }
 }

@@ -200,7 +200,7 @@
     <value>¡Indique un nombre para la configuración!</value>
   </data>
   <data name="extrayendoInfo" xml:space="preserve">
-    <value>Extrayendo información...</value>
+    <value>Estamos trabajando en ello...</value>
   </data>
   <data name="sincronizarCarpetas" xml:space="preserve">
     <value>Carpetas sincronizadas | Fecha:</value>
@@ -227,6 +227,6 @@
   </data>
   <data name="numberLastBackUp" xml:space="preserve">
     <value>3</value>
-    <comment>Indica el numero de backups que se quiere conservar</comment>
+    <comment>Indica el numero de backups que se quiere conservar, no es string pero...</comment>
   </data>
 </root>

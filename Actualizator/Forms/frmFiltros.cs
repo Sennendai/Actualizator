@@ -1,15 +1,21 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel;
-using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace Actualizator
 {
     public partial class FormFiltros : Form
     {
+        #region VARIABLES
+
         public BindingList<Filtro> FiltrosADevolver = new BindingList<Filtro>();
+        private List<Filtro> backupFiltros = new List<Filtro>();
         private string rutaOrigen;
         private string proyectoName;
+
+        #endregion
 
         #region CONSTRUCTOR             
 
@@ -27,6 +33,8 @@ namespace Actualizator
             this.rutaOrigen = rutaOrigen;
             this.proyectoName = proyectoName;
             FiltrosADevolver = Filtros;
+            backupFiltros = Filtros.ToList();
+
             CargarDatos();
         }
 
@@ -60,7 +68,7 @@ namespace Actualizator
                     {
                         cabecera = (Filtrado)cmbBoxFiltros.SelectedItem,
                         filtro = txtBoxFiltro.Text
-                    }; 
+                    };
                 }
                 else
                 {
@@ -71,7 +79,7 @@ namespace Actualizator
                     };
                 }
 
-                if (ComprobarFiltro(filtro))  FiltrosADevolver.Add(filtro);
+                if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
 
                 ActualizarDatos();
             }
@@ -79,7 +87,7 @@ namespace Actualizator
 
         private bool ComprobarFiltro(Filtro filtroNuevo)
         {
-            foreach(var filtroOriginal in FiltrosADevolver)
+            foreach (var filtroOriginal in FiltrosADevolver)
             {
                 if (filtroOriginal.filtro.Equals(filtroNuevo.filtro))
                 {
@@ -100,6 +108,7 @@ namespace Actualizator
 
         private void btnCancelar_Click(object sender, EventArgs e)
         {
+            FiltrosADevolver = new BindingList<Filtro>(backupFiltros);
             this.Close();
         }
 
@@ -111,7 +120,7 @@ namespace Actualizator
 
         private void CheckEnterKeyPress(object sender, System.Windows.Forms.KeyPressEventArgs e)
         {
-            if(e.KeyChar == (char)Keys.Enter)
+            if (e.KeyChar == (char)Keys.Enter)
             {
                 AddFiltro();
             }
@@ -141,7 +150,7 @@ namespace Actualizator
             else if (dataGridFiltros.SelectedCells?.Count != 0)
             {
                 foreach (DataGridViewTextBoxCell cell in dataGridFiltros.SelectedCells)
-                {                    
+                {
                     dataGridFiltros.Rows.RemoveAt(cell.RowIndex);
                 }
             }
@@ -156,16 +165,16 @@ namespace Actualizator
                     openFileDialog.InitialDirectory = rutaOrigen;
                     if (openFileDialog.ShowDialog() == DialogResult.OK)
                     {
-                        foreach(string file in openFileDialog.SafeFileNames)
-                        {                            
-                           AddFiltro(file);
+                        foreach (string file in openFileDialog.SafeFileNames)
+                        {
+                            AddFiltro(file);
                         }
                     }
                 }
             }
             catch (Exception ex)
             {
-                LocalUtilities.MensajeError(StringResource.mensajeError + LocalUtilities.getErrorException(ex),proyectoName);
+                LocalUtilities.MensajeError(StringResource.mensajeError + LocalUtilities.getErrorException(ex), proyectoName);
             }
         }
 

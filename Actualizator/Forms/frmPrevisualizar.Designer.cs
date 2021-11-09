@@ -113,7 +113,7 @@
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
-            this.Text = "frmPrevisualizar";
+            this.Text = "Previsualización";
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.frmPrevisualizar_KeyPress);
             this.splitContainer.Panel1.ResumeLayout(false);
             this.splitContainer.Panel2.ResumeLayout(false);
