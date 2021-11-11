@@ -226,8 +226,8 @@ namespace Actualizator
             {
                 if (HayFiltros)
                 {
-                    ArbolUtilities.Filtros = filtros;
-                    archivosOrigen.Archivos = ArbolUtilities.FiltrarStringArchivos(archivosOrigen.Archivos);
+                    ArchivosUtilities.Filtros = filtros;
+                    archivosOrigen.Archivos.FiltrarStringArchivos();
                 }
 
                 string directoryRoot;
@@ -307,7 +307,7 @@ namespace Actualizator
                             treeView.Nodes.Clear();
 
                             // Poblar el TreeView
-                            ArbolUtilities.Filtros = filtros;
+                            ArchivosUtilities.Filtros = filtros;
 
                             MyProcessControl backWork = new MyProcessControl(this);
                             backWork = LocalUtilities.ConfigurarProcessControl(backWork);
@@ -329,7 +329,8 @@ namespace Actualizator
                             var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
                             if (HayFiltros)
                             {
-                                contadorTodos = LocalUtilities.FiltrarArchivos(contadorTodos, filtros);
+                                ArchivosUtilities.Filtros = filtros;
+                                contadorTodos = ArchivosUtilities.FiltrarFileArchivos(contadorTodos);
                             }
                             contador = contadorTodos.Count();
                             ActualizarDatos();
@@ -1205,7 +1206,7 @@ namespace Actualizator
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
-        {
+        {            
             if (actualProyecto != null || !string.IsNullOrEmpty(textOrigen.Text)) ActualizarProyecto();
         }
 
@@ -1261,7 +1262,7 @@ namespace Actualizator
 
         private void btnPrevisualizar_Click(object sender, EventArgs e)
         {
-            ArbolUtilities.Filtros = filtros;
+            ArchivosUtilities.Filtros = filtros;
             ActualizarDestino(false, true);
 
             MyProcessControl backWork = new MyProcessControl(this);

@@ -89,30 +89,6 @@ namespace Actualizator
             return access;
         }
 
-        /// <summary>
-        /// Filtra una lista de archivos
-        /// </summary>
-        /// <param name="archivos">Lista de archivos</param>
-        /// <param name="filtros">Lista de filtros</param>
-        /// <returns></returns>
-        public static FileInfo[] FiltrarArchivos(FileInfo[] archivos, BindingList<Filtro> filtros)
-        {
-            foreach (Filtro filtro in filtros)
-            {
-                switch (filtro.cabecera)
-                {
-                    case Filtrado.TerminaPor:
-                        archivos = archivos.Where(x => !x.Name.ToLower().EndsWith(filtro.filtro.ToLower())).ToArray();
-                        break;
-                    case Filtrado.Completo:
-                        archivos = archivos.Where(x => !x.Name.ToLower().Equals(filtro.filtro.ToLower())).ToArray();
-                        break;
-                }
-            }
-
-            return archivos;
-        }
-
         public static Size ResizeTlpControl(TableLayoutPanel tableLayout)
         {
             int height = tableLayout.Size.Height;
@@ -128,6 +104,6 @@ namespace Actualizator
 
             return size;
         }
-
+         
     }
 }

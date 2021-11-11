@@ -1,12 +1,26 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.IO;
+using System.IO.Compression;
 using System.Linq;
 
 namespace Actualizator.Clases
 {
-    public class ArchivosUtilities
+    public static class ArchivosUtilities
     {
+        private static BindingList<Filtro> filtros;
+        public static BindingList<Filtro> Filtros
+        {
+            get { return filtros; }
+            set
+            {
+                if (value != filtros)
+                {
+                    filtros = value;
+                }
+            }
+        }
 
         /// <summary>
         /// Devuelve archivos modificados O NUEVOS dadas dos rutas, busca dentro de todas las subcarpetas
@@ -26,7 +40,7 @@ namespace Actualizator.Clases
                     // Rellena a nivel raiz
                     DirectoryInfo[] directories = dirDestino.GetDirectories();
 
-                    foreach (FileInfo archivo in archivos)
+                    foreach (FileInfo archivo in archivos.FiltrarFileArchivos())
                     {
                         //if (directories != null && (directories.Any(x => x.Name == dirOrigen.Name) || dirOrigen.Name.Equals(dirDestino.Name)))
                         
@@ -63,7 +77,7 @@ namespace Actualizator.Clases
                 }
                 else
                 {
-                    foreach (FileInfo archivo in archivos)
+                    foreach (FileInfo archivo in archivos.FiltrarFileArchivos())
                     {       
                         archivosTree.Archivos.Add(archivo.Name);
                     }
@@ -99,7 +113,7 @@ namespace Actualizator.Clases
 
                 var test = dirInfo.GetAccessControl();
 
-                foreach (FileInfo archivo in archivos)
+                foreach (FileInfo archivo in archivos.FiltrarFileArchivos())
                 {
                     archivosTree.Archivos.Add(archivo.Name);
                 }
@@ -117,6 +131,52 @@ namespace Actualizator.Clases
             }
 
             return archivosTree;
+        }
+
+        /// <summary>
+        /// Filtra una lista de string
+        /// </summary>
+        /// <param name="archivos">lista a devolver</param>
+        /// <returns></returns>
+        public static List<string> FiltrarStringArchivos(this List<string> archivos)
+        {
+            foreach (Filtro filtro in Filtros)
+            {
+                switch (filtro.cabecera)
+                {
+                    case Filtrado.TerminaPor:
+                        archivos = archivos.Where(x => !x.ToLower().EndsWith(filtro.filtro.ToLower())).ToList();
+                        break;
+                    case Filtrado.Completo:
+                        archivos = archivos.Where(x => !x.ToLower().Equals(filtro.filtro.ToLower())).ToList();
+                        break;
+                }
+            }
+
+            return archivos;
+        }
+
+        /// <summary>
+        /// Filtra un array de FileInfo
+        /// </summary>
+        /// <param name="archivos"></param>
+        /// <returns></returns>
+        public static FileInfo[] FiltrarFileArchivos(this FileInfo[] archivos)
+        {
+            foreach (Filtro filtro in Filtros)
+            {
+                switch (filtro.cabecera)
+                {
+                    case Filtrado.TerminaPor:
+                        archivos = archivos.Where(x => !x.Name.ToLower().EndsWith(filtro.filtro.ToLower())).ToArray();
+                        break;
+                    case Filtrado.Completo:
+                        archivos = archivos.Where(x => !x.Name.ToLower().Equals(filtro.filtro.ToLower())).ToArray();
+                        break;
+                }
+            }
+
+            return archivos;
         }
 
         /// <summary>
@@ -177,6 +237,46 @@ namespace Actualizator.Clases
                         directoriesBackUp[i - 1].Delete(true);
                     }
                 }
+            }
+        }
+
+        /// <summary>
+        /// Crea un archivo ZIP de los archivos proporcionados
+        /// </summary>
+        /// <param name="fileName">Ruta completa del archivo ZIP</param>
+        /// <param name="files">Archivos a añadir</param>
+        public static void CreateZipFile(string fileName, ArchivosTreeView files, string rutaDestino, Proyecto actualProyecto, ZipArchive originalZip = null)
+        {
+            try
+            {
+                // Create and open a new ZIP file
+                if (files.GetTotalArchivos() != 0)
+                {
+                    ZipArchive zip;
+
+                    if (originalZip != null) zip = originalZip;
+                    else zip = ZipFile.Open(fileName, ZipArchiveMode.Create);
+                    
+                    foreach (var file in files.Archivos)
+                    {
+                        // Add the entry for each file
+                        string rutaConCarpeta = Path.Combine(rutaDestino + "\\" + file);
+                        string fileConCarpeta = Path.Combine(files.DirName + "\\" + file);
+
+                        zip.CreateEntryFromFile(rutaConCarpeta, fileConCarpeta, CompressionLevel.Optimal);
+                    }
+                    foreach (var dir in files.Subdir)
+                    {
+                        CreateZipFile(fileName, dir, Path.Combine(rutaDestino + "\\" + dir.DirName), actualProyecto, zip);
+                    }
+                    // Dispose of the object when we are done
+                    if (originalZip == null) zip.Dispose();
+                }
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(StringResource.mensajeError + LocalUtilities.getErrorException(ex),
+                    actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto);
             }
         }
     }

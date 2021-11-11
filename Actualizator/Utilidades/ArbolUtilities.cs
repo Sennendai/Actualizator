@@ -8,19 +8,6 @@ namespace Actualizator.Clases
 {
     public class ArbolUtilities
     {
-        private static BindingList<Filtro> filtros;
-        public static BindingList<Filtro> Filtros
-        {
-            get { return filtros; }
-            set
-            {
-                if (value != filtros)
-                {
-                    filtros = value;
-                }
-            }
-        }
-
         /// <summary>
         /// Rellena un TreeView dado un objecto que contiene la estructura de los archivos
         /// </summary>
@@ -73,7 +60,7 @@ namespace Actualizator.Clases
         {
             if (HayFiltros)
             {
-                archivos = FiltrarStringArchivos(archivos);
+                archivos.FiltrarStringArchivos();
             }
 
             foreach (string file in archivos)
@@ -85,29 +72,6 @@ namespace Actualizator.Clases
 
                 directoryNode.Nodes.Add(fileNode);
             }
-        }
-
-        /// <summary>
-        /// Filtra una lista de string
-        /// </summary>
-        /// <param name="archivos">lista a devolver</param>
-        /// <returns></returns>
-        public static List<string> FiltrarStringArchivos(List<string> archivos)
-        {
-            foreach (Filtro filtro in Filtros)
-            {
-                switch (filtro.cabecera)
-                {
-                    case Filtrado.TerminaPor:
-                        archivos = archivos.Where(x => !x.ToLower().EndsWith(filtro.filtro.ToLower())).ToList();
-                        break;
-                    case Filtrado.Completo:
-                        archivos = archivos.Where(x => !x.ToLower().Equals(filtro.filtro.ToLower())).ToList();
-                        break;
-                }
-            }
-
-            return archivos;
         }
 
         /// <summary>
