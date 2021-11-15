@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 namespace Actualizator
@@ -173,6 +174,14 @@ namespace Actualizator
             TableLayoutPanel tableLayout = (TableLayoutPanel)this.Parent;
 
             tableLayout.Update();
+        }
+
+        private void abrirDestinoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(lblRutaDestino.Text))
+            {
+                Process.Start(StringResource.procesoExplorer, lblRutaDestino.Text);
+            }
         }
 
         #endregion

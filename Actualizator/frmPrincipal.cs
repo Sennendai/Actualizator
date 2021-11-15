@@ -1,10 +1,11 @@
 ﻿using Actualizator.Clases;
 using Actualizator.Forms;
 using BackGroundWorked_ALG;
+using Microsoft.WindowsAPICodePack.Dialogs;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
-using System.Drawing;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -59,6 +60,7 @@ namespace Actualizator
         private Proyecto actualProyecto;
         private BindingList<Proyecto> proyectos = new BindingList<Proyecto>();
         private BindingList<Filtro> filtros = new BindingList<Filtro>();
+        private BindingList<Filtro> filtrosIncluyentes = new BindingList<Filtro>();
 
         private ArchivosTreeView archivosOrigenArbol = new ArchivosTreeView();
         private ArchivosTreeView archivosDestinoArbol = new ArchivosTreeView();
@@ -68,6 +70,7 @@ namespace Actualizator
 
         #region· BOOLEANOS 
         private bool hayFiltros = false;
+        private bool hayFiltrosIncluyentes = false;
         private bool hacerBackup = false;
         private bool sobreescribir = false;
         private bool borrarArchivosDestino = false;
@@ -100,7 +103,21 @@ namespace Actualizator
                 }
             }
         }
-
+        public bool HayFiltrosIncluyentes
+        {
+            get => hayFiltrosIncluyentes;
+            set
+            {
+                if (value != hayFiltrosIncluyentes)
+                {
+                    hayFiltrosIncluyentes = value;
+                    chkBoxFiltrosIncluyentes.Checked = hayFiltrosIncluyentes;
+                    btnFiltrosIncluyentes.Visible = hayFiltrosIncluyentes;
+                    lblFiltrosIncluyentes.Visible = hayFiltrosIncluyentes;
+                    lblFiltrosIncluyentes.Text = StringResource.filtrosCount + filtrosIncluyentes.Count().ToString();
+                }
+            }
+        }
         private bool addProyecto = false;
         private bool modificandoProyecto = false;
         private bool destinoIntroducido = false;
@@ -145,9 +162,11 @@ namespace Actualizator
             try
             {
                 chkBoxFiltros.Checked = HayFiltros;
+                chkBoxFiltrosIncluyentes.Checked = HayFiltrosIncluyentes;
                 checkBoxBackup.Checked = HacerBackup;
 
-                lblFiltrosCount.Text = StringResource.filtrosCount + filtros.Count().ToString();
+                if (HayFiltros) lblFiltrosCount.Text = StringResource.filtrosCount + filtros.Count().ToString();
+                if (HayFiltrosIncluyentes) lblFiltrosIncluyentes.Text = StringResource.filtrosCount + filtrosIncluyentes.Count().ToString();
 
                 cmbProyecto.DataSource = proyectos;
                 if (actualProyecto != null && !addProyecto) cmbProyecto.SelectedItem = actualProyecto;
@@ -164,10 +183,14 @@ namespace Actualizator
         /// </summary>
         private void ElegirRuta(TextBox txtBox, Button btn = null)
         {
-            folderBrowserDlg.SelectedPath = txtBox.Text;
-            if (folderBrowserDlg.ShowDialog() == DialogResult.OK)
+            CommonOpenFileDialog dialog = new CommonOpenFileDialog
             {
-                txtBox.Text = folderBrowserDlg.SelectedPath;
+                InitialDirectory = txtBox.Text,
+                IsFolderPicker = true
+            };
+            if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+            {
+                txtBox.Text = dialog.FileName;
                 if (btn != null) { btn.Visible = true; }
             }
         }
@@ -176,7 +199,7 @@ namespace Actualizator
 
         private void GetArchivosOrigenArbol()
         {
-            archivosOrigenArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto);
+            archivosOrigenArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto, true);
         }
 
         /// <summary>
@@ -204,7 +227,7 @@ namespace Actualizator
 
                     // archivos a copiar, coge todo el origen si se quiere sobreescribir
                     ArchivosTreeView archivosACopiar;
-                    if (sobreescribir) archivosACopiar = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto);
+                    if (sobreescribir) archivosACopiar = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, true);
                     else archivosACopiar = ArchivosUtilities.GetArchivosModificadosTreeView(dirOrigen, dirDestino, actualProyecto);
 
                     CopiarArchivos(archivosACopiar, newDirDestino, dirOrigen.FullName);
@@ -228,6 +251,11 @@ namespace Actualizator
                 {
                     ArchivosUtilities.Filtros = filtros;
                     archivosOrigen.Archivos.FiltrarStringArchivos();
+                }
+                else if (HayFiltrosIncluyentes)
+                {
+                    ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
+                    archivosOrigen.Archivos.FiltrarStringArchivosIncluyente();
                 }
 
                 string directoryRoot;
@@ -267,13 +295,13 @@ namespace Actualizator
         private void PopulateArbolOrigen()
         {
             treeViewOrigen.Nodes.Clear();
-            treeViewOrigen = ArbolUtilities.PopulateArchivoTreeView(archivosOrigenArbol, null, HayFiltros, treeViewOrigen);
+            treeViewOrigen = ArbolUtilities.PopulateArchivoTreeView(archivosOrigenArbol, null, HayFiltros, HayFiltrosIncluyentes, treeViewOrigen);
             CountArchivosOrigen = archivosOrigenArbol.GetTotalArchivos();
         }
 
         private void PopulateArbolDestino()
         {
-            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, HayFiltros, treeviewDestino);
+            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, HayFiltros, HayFiltrosIncluyentes, treeviewDestino);
         }
 
         /// <summary>
@@ -308,30 +336,36 @@ namespace Actualizator
 
                             // Poblar el TreeView
                             ArchivosUtilities.Filtros = filtros;
+                            if (HayFiltrosIncluyentes) ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
 
                             MyProcessControl backWork = new MyProcessControl(this);
                             backWork = LocalUtilities.ConfigurarProcessControl(backWork);
 
+                            var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
                             if (origen)
                             {
                                 backWork.Proceso(GetArchivosOrigenArbol, PopulateArbolOrigen);
                                 backWork.Visible = false;
+                                if (HayFiltros)
+                                {
+                                    ArchivosUtilities.Filtros = filtros;
+                                    contadorTodos.FiltrarFileArchivos();
+                                }
+                                else if (HayFiltrosIncluyentes)
+                                {
+                                    ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
+                                    contadorTodos = contadorTodos.FiltrarFileArchivosIncluyente();
+                                }
                             }
                             else
                             {
-                                archivosDestinoArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto);
-                                treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, HayFiltros, treeviewDestino);
+                                archivosDestinoArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto, false);
+                                treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, false, false, treeviewDestino);
                                 //backWork.Proceso(GetArchivoDestinoArbol, PopulateArbolDestino);
                                 backWork.Visible = false;
                                 destinoIntroducido = true;
                             }
 
-                            var contadorTodos = dirInfo.GetFiles("*", SearchOption.AllDirectories);
-                            if (HayFiltros)
-                            {
-                                ArchivosUtilities.Filtros = filtros;
-                                contadorTodos = ArchivosUtilities.FiltrarFileArchivos(contadorTodos);
-                            }
                             contador = contadorTodos.Count();
                             ActualizarDatos();
                         }
@@ -406,7 +440,9 @@ namespace Actualizator
                         actualProyecto.HacerBackup = HacerBackup;
                         actualProyecto.PathBackup = rutaBackup;
                         actualProyecto.FicherosExcluidos = filtros;
+                        actualProyecto.FicherosIncluidos = filtrosIncluyentes;
                         actualProyecto.Filtrar = HayFiltros;
+                        actualProyecto.FiltrosIncluyentes = HayFiltrosIncluyentes;
                         actualProyecto.LastPathBackup = lastRutaBackup;
 
                         bool modificando = false;
@@ -421,7 +457,9 @@ namespace Actualizator
                                 proyecto.HacerBackup = actualProyecto.HacerBackup;
                                 proyecto.PathBackup = actualProyecto.PathBackup;
                                 proyecto.FicherosExcluidos = actualProyecto.FicherosExcluidos;
+                                proyecto.FicherosIncluidos = actualProyecto.FicherosIncluidos;
                                 proyecto.Filtrar = actualProyecto.Filtrar;
+                                proyecto.FiltrosIncluyentes = actualProyecto.FiltrosIncluyentes;
                                 proyecto.LastPathBackup = actualProyecto.LastPathBackup;
                             }
                         }
@@ -510,14 +548,23 @@ namespace Actualizator
                 else if (actualProyecto != null)
                 {
                     filtros = new BindingList<Filtro>();
+                    filtrosIncluyentes = new BindingList<Filtro>();
                     RutasDestinos = new List<string>();
 
                     HayFiltros = actualProyecto.Filtrar;
+                    HayFiltrosIncluyentes = actualProyecto.FiltrosIncluyentes;
                     if (actualProyecto?.FicherosExcluidos != null)
                     {
                         foreach (Filtro filtro in actualProyecto.FicherosExcluidos)
                         {
                             filtros.Add(filtro);
+                        }
+                    }
+                    if (actualProyecto?.FicherosIncluidos != null)
+                    {
+                        foreach (Filtro filtro in actualProyecto.FicherosIncluidos)
+                        {
+                            filtrosIncluyentes.Add(filtro);
                         }
                     }
                     if (string.IsNullOrEmpty(cmbProyecto.Text)) cmbProyecto.Text = actualProyecto?.ProyectoName;
@@ -612,6 +659,7 @@ namespace Actualizator
             HacerBackup = false;
             HayFiltros = false;
             filtros = new BindingList<Filtro>();
+            filtrosIncluyentes = new BindingList<Filtro>();
 
             rutaBackup = Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData);
             textBackup.Text = rutaBackup;
@@ -664,6 +712,23 @@ namespace Actualizator
             cmbProyecto.DataSource = null;
             cmbProyecto.DataSource = proyectos;
             cmbProyecto.DisplayMember = nameof(Proyecto.ProyectoName);
+        }
+
+        private void CopiarProyecto(Proyecto nuevoProyecto)
+        {
+            nuevoProyecto.ProyectoName = StringResource.nuevoProyecto + "_" + dateTimeFormateado;
+            nuevoProyecto.PathOrigen = actualProyecto.PathOrigen;
+            nuevoProyecto.PathDestino = actualProyecto.PathDestino;
+            nuevoProyecto.HacerBackup = actualProyecto.HacerBackup;
+            nuevoProyecto.PathBackup = actualProyecto.PathBackup;
+            nuevoProyecto.FicherosExcluidos = actualProyecto.FicherosExcluidos;
+            nuevoProyecto.FicherosIncluidos = actualProyecto.FicherosIncluidos;
+            nuevoProyecto.Filtrar = actualProyecto.Filtrar;
+            nuevoProyecto.FiltrosIncluyentes = actualProyecto.FiltrosIncluyentes;
+            nuevoProyecto.LastPathBackup = actualProyecto.LastPathBackup;
+
+            proyectos.Add(nuevoProyecto);
+            GuardarProyecto();
         }
 
         #endregion
@@ -726,6 +791,12 @@ namespace Actualizator
             HayFiltros = chkBoxFiltros.Checked;
         }
 
+        private void VisibilidadFiltroIncluyente()
+        {
+            btnFiltrosIncluyentes.Visible  = chkBoxFiltrosIncluyentes.Checked;
+            HayFiltrosIncluyentes = chkBoxFiltrosIncluyentes.Checked;
+        }
+
         private void VisibilidadBackup()
         {
             textBackup.Visible = checkBoxBackup.Checked;
@@ -741,12 +812,14 @@ namespace Actualizator
                 btnRecargar.Visible = true;
                 btnActualizar.Visible = true;
                 btnAddProyecto.Visible = true;
+                copiarProyecto.Visible = true;
             }
             else
             {
                 btnBorrar.Visible = false;
                 btnRecargar.Visible = false;
                 btnActualizar.Visible = false;
+                copiarProyecto.Visible = false;
                 if (!addProyecto) btnAddProyecto.Visible = false;
             }
         }
@@ -891,7 +964,7 @@ namespace Actualizator
 
                 if (dirOrigen.Exists)
                 {
-                    ArchivosTreeView archivosOrigen = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto);
+                    ArchivosTreeView archivosOrigen = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, true);
 
                     if (HacerBackup) CrerBackup(directoriesDestino, dirOrigen);
 
@@ -901,7 +974,7 @@ namespace Actualizator
                     {
                         foreach (DirectoryInfo dirDestino in directoriesDestino)
                         {
-                            ArchivosTreeView archivos = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto);
+                            ArchivosTreeView archivos = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, true);
                             CopiarArchivos(archivos, dirDestino.FullName, dirOrigen.FullName);
                         }
                     }
@@ -958,7 +1031,7 @@ namespace Actualizator
                                     string dirOrigenProyecto = Path.Combine(dirOrigen.FullName, dirDestino.Name);
                                     DirectoryInfo proyectoDirDestino = new DirectoryInfo(dirOrigenProyecto);
 
-                                    CopiarArchivos(ArchivosUtilities.GetArchivosTreeView(proyectoDirDestino, actualProyecto), dirDestino.FullName, dirOrigenProyecto);
+                                    CopiarArchivos(ArchivosUtilities.GetArchivosTreeView(proyectoDirDestino, actualProyecto, true), dirDestino.FullName, dirOrigenProyecto);
                                 }
                                 else
                                 {
@@ -985,6 +1058,17 @@ namespace Actualizator
             GuardarProyecto();
             LocalUtilities.WriteTextLog(StringResource.restaurarBackup + DateTime.Now.ToString(),
                 actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto, lblLog);
+        }
+
+        private void CargarPrevisualizar()
+        {
+            formPrevisualizar = new frmPrevisualizar(archivosOrigenArbol, textOrigen.Text, RutasDestinos, HayFiltros, HayFiltrosIncluyentes,
+                actualProyecto, sobreescribir || borrarArchivosDestino);
+        }
+
+        private void MostrarPrevisualizar()
+        {
+            formPrevisualizar.ShowDialog();
         }
 
         #endregion
@@ -1049,7 +1133,22 @@ namespace Actualizator
 
         private void chkBoxFiltros_CheckedChanged(object sender, EventArgs e)
         {
+            if (chkBoxFiltros.Checked)
+            {
+                chkBoxFiltrosIncluyentes.Checked = false;
+            }
+
             VisibilidadFiltro();
+        }
+
+        private void chkBoxFiltrosIncluyentes_CheckedChanged(object sender, EventArgs e)
+        {
+            if (chkBoxFiltrosIncluyentes.Checked)
+            {
+                chkBoxFiltros.Checked = false;
+            }
+
+            VisibilidadFiltroIncluyente();
         }
 
         private void chkBoxSobreescribir_CheckedChanged(object sender, EventArgs e)
@@ -1153,7 +1252,7 @@ namespace Actualizator
                 control.Size = LocalUtilities.ResizeTlpControl(tableLayoutDestino);
             }
         }
-
+         
         #endregion
 
         #region· CLICKS
@@ -1288,7 +1387,8 @@ namespace Actualizator
 
         private void btnPrevisualizar_Click(object sender, EventArgs e)
         {
-            ArchivosUtilities.Filtros = filtros;
+            if (HayFiltros) ArchivosUtilities.Filtros = filtros;
+            else if (HayFiltrosIncluyentes) ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
             ActualizarDestino(false, true);
 
             MyProcessControl backWork = new MyProcessControl(this);
@@ -1298,19 +1398,48 @@ namespace Actualizator
             backWork.Visible = false;
         }
 
-        private void CargarPrevisualizar()
+        private void btnFiltrosIncluyentes_Click(object sender, EventArgs e)
         {
-            formPrevisualizar = new frmPrevisualizar(archivosOrigenArbol, textOrigen.Text, RutasDestinos, HayFiltros, actualProyecto, sobreescribir || borrarArchivosDestino);
+            FormFiltros formFiltros;
+            if (filtrosIncluyentes?.Count() > 0)
+            {
+                formFiltros = new FormFiltros(textOrigen.Text, actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto, filtrosIncluyentes);
+            }
+            else
+            {
+                formFiltros = new FormFiltros(textOrigen.Text, actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto);
+            }
+
+            formFiltros.ShowDialog();
+            filtrosIncluyentes = formFiltros.FiltrosADevolver;
+            if (formFiltros.DialogResult == DialogResult.OK)
+            {
+                ActualizarDatos();
+            }
         }
 
-        private void MostrarPrevisualizar()
+        private void abrirCarpetaOrigenToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            formPrevisualizar.ShowDialog();
+            if (!string.IsNullOrEmpty(textOrigen.Text))
+            {
+                Process.Start(StringResource.procesoExplorer, textOrigen.Text);
+            }
+        }
+
+        private void copiarProyecto_Click(object sender, EventArgs e)
+        {
+            if (actualProyecto!= null)
+            {
+                Guid guid = Guid.NewGuid();
+                Proyecto nuevoProyecto = new Proyecto(guid);
+                CopiarProyecto(nuevoProyecto);
+            }
         }
 
         #endregion
 
         #endregion
-               
+
+
     }
 }

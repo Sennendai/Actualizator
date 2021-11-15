@@ -322,6 +322,15 @@ namespace Actualizator {
         }
         
         /// <summary>
+        ///   Busca una cadena traducida similar a explorer.exe.
+        /// </summary>
+        internal static string procesoExplorer {
+            get {
+                return ResourceManager.GetString("procesoExplorer", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Busca una cadena traducida similar a Configuración.
         /// </summary>
         internal static string proyecto {
@@ -349,7 +358,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a .
+        ///   Busca una cadena traducida similar a Aloha.
         /// </summary>
         internal static string saludo {
             get {

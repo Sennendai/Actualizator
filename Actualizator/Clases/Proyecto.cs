@@ -22,10 +22,14 @@ namespace Actualizator
         public string LastPathBackup { get; set; }
         [XmlElement("FicherosExcluidos")]
         public BindingList<Filtro> FicherosExcluidos { get; set; }
+        [XmlElement("FicherosIncluidos")]
+        public BindingList<Filtro> FicherosIncluidos { get; set; }
         [XmlElement("HacerBackup")]
         public bool HacerBackup { get; set; }
         [XmlElement("Filtrar")]
         public bool Filtrar { get; set; }
+        [XmlElement("FiltrosIncluyentes")]
+        public bool FiltrosIncluyentes { get; set; }
 
         public Proyecto()
         {
@@ -38,7 +42,7 @@ namespace Actualizator
         }
 
         public Proyecto(Guid Identifier, string ProyectoName, string PathOrigen, List<string> PathDestino, string PathBackup, string LastPathBackup,
-            BindingList<Filtro> FicherosExcluidos, bool HacerBackup, bool Filtrar)
+            BindingList<Filtro> FicherosExcluidos, BindingList<Filtro> FicherosIncluidos, bool HacerBackup, bool Filtrar)
         {
             this.Identifier = Identifier;
             this.ProyectoName = ProyectoName;
@@ -47,6 +51,7 @@ namespace Actualizator
             this.PathBackup = PathBackup;
             this.LastPathBackup = LastPathBackup;
             this.FicherosExcluidos = FicherosExcluidos;
+            this.FicherosIncluidos = FicherosIncluidos;
             this.HacerBackup = HacerBackup;
             this.Filtrar = Filtrar;
         }

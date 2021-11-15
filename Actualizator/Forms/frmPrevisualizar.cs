@@ -15,6 +15,7 @@ namespace Actualizator.Forms
         private string origen;
         private ArchivosTreeView archivosOrigen;
         private bool HayFiltros;
+        private bool HayFiltrosIncluyentes;
         private Proyecto actualProyecto;
         private bool sobreescribir;
         private TreeView treeviewDestino = new TreeView();
@@ -28,13 +29,15 @@ namespace Actualizator.Forms
             InitializeComponent();
         }
 
-        public frmPrevisualizar(ArchivosTreeView archivosOrigen, string origen, List<string> destinos, bool HayFiltros, Proyecto actualProyecto, bool sobreescribir)
+        public frmPrevisualizar(ArchivosTreeView archivosOrigen, string origen, List<string> destinos, bool HayFiltros, bool HayFiltrosIncluyentes,
+            Proyecto actualProyecto, bool sobreescribir)
         {
             InitializeComponent();
             this.origen = origen;
             this.archivosOrigen = archivosOrigen;
             this.destinos = destinos;
             this.HayFiltros = HayFiltros;
+            this.HayFiltrosIncluyentes = HayFiltrosIncluyentes;
             this.actualProyecto = actualProyecto;
             this.sobreescribir = sobreescribir;
 
@@ -47,7 +50,7 @@ namespace Actualizator.Forms
 
         private void CargarDatos()
         {
-            ArbolUtilities.PopulateArchivoTreeView(archivosOrigen, null, HayFiltros, treeViewOrigen);
+            ArbolUtilities.PopulateArchivoTreeView(archivosOrigen, null, HayFiltros, HayFiltrosIncluyentes, treeViewOrigen);
             treeViewOrigen.ExpandAll();
 
             DirectoryInfo dirOrigen = new DirectoryInfo(origen);
@@ -56,7 +59,7 @@ namespace Actualizator.Forms
             foreach (DirectoryInfo dirDestino in dirDestinos)
             {
                 ArchivosTreeView archivos;
-                if (sobreescribir) archivos = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto);
+                if (sobreescribir) archivos = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, false);
                 else archivos = ArchivosUtilities.GetArchivosModificadosTreeView(dirOrigen, dirDestino, actualProyecto);
 
                 AddDestinoControl(dirDestino.FullName, archivos);
@@ -67,7 +70,7 @@ namespace Actualizator.Forms
         {
             cPrevisualizarDestino destinoControl = new cPrevisualizarDestino();
             treeviewDestino = destinoControl.TreeViewDestino;
-            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosModificados, null, HayFiltros, treeviewDestino);
+            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosModificados, null, HayFiltros, HayFiltrosIncluyentes, treeviewDestino);
 
             destinoControl.TreeViewDestino = treeviewDestino;
             destinoControl.RutaDestino = rutaDestino;

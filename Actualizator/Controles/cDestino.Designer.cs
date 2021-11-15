@@ -32,6 +32,7 @@
             this.splitContainer = new System.Windows.Forms.SplitContainer();
             this.contextMenuDestino = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.borrarDestinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.abrirDestinoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lblExpandir = new System.Windows.Forms.Label();
             this.chkBoxDestino = new System.Windows.Forms.CheckBox();
             this.btnBorrarDestino = new System.Windows.Forms.Button();
@@ -80,16 +81,25 @@
             // contextMenuDestino
             // 
             this.contextMenuDestino.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.borrarDestinoToolStripMenuItem});
+            this.borrarDestinoToolStripMenuItem,
+            this.abrirDestinoToolStripMenuItem});
+            this.contextMenuDestino.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.contextMenuDestino.Name = "contextMenuDestino";
-            this.contextMenuDestino.Size = new System.Drawing.Size(149, 26);
+            this.contextMenuDestino.Size = new System.Drawing.Size(185, 70);
             // 
             // borrarDestinoToolStripMenuItem
             // 
             this.borrarDestinoToolStripMenuItem.Name = "borrarDestinoToolStripMenuItem";
-            this.borrarDestinoToolStripMenuItem.Size = new System.Drawing.Size(148, 22);
+            this.borrarDestinoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
             this.borrarDestinoToolStripMenuItem.Text = "Borrar destino";
             this.borrarDestinoToolStripMenuItem.Click += new System.EventHandler(this.borrarDestinoToolStripMenuItem_Click);
+            // 
+            // abrirDestinoToolStripMenuItem
+            // 
+            this.abrirDestinoToolStripMenuItem.Name = "abrirDestinoToolStripMenuItem";
+            this.abrirDestinoToolStripMenuItem.Size = new System.Drawing.Size(184, 22);
+            this.abrirDestinoToolStripMenuItem.Text = "Abrir carpeta destino";
+            this.abrirDestinoToolStripMenuItem.Click += new System.EventHandler(this.abrirDestinoToolStripMenuItem_Click);
             // 
             // lblExpandir
             // 
@@ -204,5 +214,6 @@
         private System.Windows.Forms.Button btnBorrarDestino;
         private System.Windows.Forms.CheckBox chkBoxDestino;
         private System.Windows.Forms.Label lblExpandir;
+        private System.Windows.Forms.ToolStripMenuItem abrirDestinoToolStripMenuItem;
     }
 }

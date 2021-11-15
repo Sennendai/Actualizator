@@ -9,7 +9,7 @@ namespace Actualizator.Clases
 {
     public static class ArchivosUtilities
     {
-        private static BindingList<Filtro> filtros;
+        private static BindingList<Filtro> filtros = new BindingList<Filtro>();
         public static BindingList<Filtro> Filtros
         {
             get { return filtros; }
@@ -18,6 +18,18 @@ namespace Actualizator.Clases
                 if (value != filtros)
                 {
                     filtros = value;
+                }
+            }
+        }
+        private static BindingList<Filtro> filtrosIncluyentes = new BindingList<Filtro>();
+        public static BindingList<Filtro> FiltrosIncluyentes
+        {
+            get { return filtrosIncluyentes; }
+            set
+            {
+                if (value != filtrosIncluyentes)
+                {
+                    filtrosIncluyentes = value;
                 }
             }
         }
@@ -40,7 +52,10 @@ namespace Actualizator.Clases
                     // Rellena a nivel raiz
                     DirectoryInfo[] directories = dirDestino.GetDirectories();
 
-                    foreach (FileInfo archivo in archivos.FiltrarFileArchivos())
+                    if (Filtros.Count != 0) archivos.FiltrarFileArchivos();
+                    else if (FiltrosIncluyentes.Count() != 0) archivos = archivos.FiltrarFileArchivosIncluyente();
+
+                    foreach (FileInfo archivo in archivos)
                     {
                         //if (directories != null && (directories.Any(x => x.Name == dirOrigen.Name) || dirOrigen.Name.Equals(dirDestino.Name)))
                         
@@ -77,7 +92,10 @@ namespace Actualizator.Clases
                 }
                 else
                 {
-                    foreach (FileInfo archivo in archivos.FiltrarFileArchivos())
+                    if (Filtros.Count != 0) archivos.FiltrarFileArchivos();
+                    else if (FiltrosIncluyentes.Count() != 0) archivos = archivos.FiltrarFileArchivosIncluyente();
+
+                    foreach (FileInfo archivo in archivos)
                     {       
                         archivosTree.Archivos.Add(archivo.Name);
                     }
@@ -102,7 +120,7 @@ namespace Actualizator.Clases
         /// Dado un DirectoryInfo crea un objecto con la estructura de los directorios y subdiresctorios con sus respectivos archivos  
         /// </summary>
         /// <returns></returns>
-        public static ArchivosTreeView GetArchivosTreeView(DirectoryInfo dirInfo, Proyecto actualProyecto)
+        public static ArchivosTreeView GetArchivosTreeView(DirectoryInfo dirInfo, Proyecto actualProyecto, bool hayFiltrosIncluyentes)
         {
             ArchivosTreeView archivosTree = new ArchivosTreeView();
             // Rellena a nivel raiz            
@@ -110,6 +128,8 @@ namespace Actualizator.Clases
             {
                 archivosTree.DirName = dirInfo.Name;
                 FileInfo[] archivos = dirInfo.GetFiles();
+
+                if (hayFiltrosIncluyentes && FiltrosIncluyentes.Count()!=0) archivos = archivos.FiltrarFileArchivosIncluyente();
 
                 var test = dirInfo.GetAccessControl();
 
@@ -121,7 +141,7 @@ namespace Actualizator.Clases
                 // Rellena las subcarpetas
                 foreach (DirectoryInfo directory in dirInfo.GetDirectories())
                 {
-                    archivosTree.Subdir.Add(GetArchivosTreeView(directory, actualProyecto));
+                    archivosTree.Subdir.Add(GetArchivosTreeView(directory, actualProyecto, hayFiltrosIncluyentes));
                 }
             }
             catch (Exception ex)
@@ -134,7 +154,7 @@ namespace Actualizator.Clases
         }
 
         /// <summary>
-        /// Filtra una lista de string
+        /// Filtra una lista de string de forma excluyente
         /// </summary>
         /// <param name="archivos">lista a devolver</param>
         /// <returns></returns>
@@ -157,10 +177,42 @@ namespace Actualizator.Clases
         }
 
         /// <summary>
+        /// Filtra una lista de string de forma incluyente
+        /// </summary>
+        /// <returns>lista filtrada</returns>
+        public static List<string> FiltrarStringArchivosIncluyente(this List<string> archivos)
+        {
+            List<string> archivosADevolder = new List<string>();
+
+            foreach (Filtro filtro in FiltrosIncluyentes)
+            {
+                switch (filtro.cabecera)
+                {
+                    case Filtrado.TerminaPor:
+                        var archivosTerminaPor = archivos.Where(x => x.ToLower().EndsWith(filtro.filtro.ToLower())).ToList();
+                        foreach(var archivo in archivosTerminaPor)
+                        {
+                            archivosADevolder.Add(archivo);
+                        }
+
+                        break;
+                    case Filtrado.Completo:
+                        var archivosCompleto = archivos.Where(x => x.ToLower().Equals(filtro.filtro.ToLower())).ToList();
+                        foreach (var archivo in archivosCompleto)
+                        {
+                            archivosADevolder.Add(archivo);
+                        }
+                        break;
+                }
+            }
+
+            return archivosADevolder;
+        }
+
+        /// <summary>
         /// Filtra un array de FileInfo
         /// </summary>
-        /// <param name="archivos"></param>
-        /// <returns></returns>
+        /// <param name="archivos">archivos a devolver</param>
         public static FileInfo[] FiltrarFileArchivos(this FileInfo[] archivos)
         {
             foreach (Filtro filtro in Filtros)
@@ -177,6 +229,38 @@ namespace Actualizator.Clases
             }
 
             return archivos;
+        }
+
+        /// <summary>
+        /// Filtra un array de FileInfo de forma incluyente
+        /// </summary>
+        public static FileInfo[] FiltrarFileArchivosIncluyente(this FileInfo[] archivos)
+        {
+            List<FileInfo> archivosaDevolver = new List<FileInfo>();
+
+            foreach (Filtro filtro in FiltrosIncluyentes)
+            {
+                switch (filtro.cabecera)
+                {
+                    case Filtrado.TerminaPor:
+                        var archivosFiltradosTermina = archivos.Where(x => x.Name.ToLower().EndsWith(filtro.filtro.ToLower())).ToList();
+                        foreach (var archivo in archivosFiltradosTermina)
+                        {
+                            archivosaDevolver.Add(archivo);
+                        }
+                        
+                        break;
+                    case Filtrado.Completo:
+                        var archivosFiltradosCompleto = archivos.Where(x => x.Name.ToLower().Equals(filtro.filtro.ToLower())).ToArray();
+                        foreach (var archivo in archivosFiltradosCompleto)
+                        {
+                            archivosaDevolver.Add(archivo);
+                        }
+                        break;
+                }
+            }
+
+            return archivosaDevolver.ToArray();
         }
 
         /// <summary>

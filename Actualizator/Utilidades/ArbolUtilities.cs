@@ -11,7 +11,8 @@ namespace Actualizator.Clases
         /// <summary>
         /// Rellena un TreeView dado un objecto que contiene la estructura de los archivos
         /// </summary>
-        public static TreeView PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, bool HayFiltros, TreeView treeView = null, bool notRoot = false)
+        public static TreeView PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, bool? HayFiltros = null, bool? HayFiltrosIncluyentes = null,
+            TreeView treeView = null, bool notRoot = false)
         {
             TreeNode directoryNodeRoot = new TreeNode
             {
@@ -23,7 +24,7 @@ namespace Actualizator.Clases
             {
                 treeView.Nodes.Add(directoryNodeRoot);
 
-                AddFilesStringNode(archivosTree.Archivos, ref directoryNodeRoot, HayFiltros);
+                AddFilesStringNode(archivosTree.Archivos, ref directoryNodeRoot, HayFiltros, HayFiltrosIncluyentes);
             }
 
             // Rellena las subcarpetas
@@ -43,8 +44,8 @@ namespace Actualizator.Clases
                     treeNode.Nodes.Add(directoryNode);
                 }
 
-                AddFilesStringNode(directory.Archivos, ref directoryNode, HayFiltros);
-                PopulateArchivoTreeView(directory, directoryNode, HayFiltros, null, true);
+                AddFilesStringNode(directory.Archivos, ref directoryNode, HayFiltros, HayFiltrosIncluyentes);
+                PopulateArchivoTreeView(directory, directoryNode, HayFiltros, HayFiltrosIncluyentes, null, true);
             }
 
             return treeView;
@@ -56,11 +57,15 @@ namespace Actualizator.Clases
         /// <param name="archivos">lista de nodes a introducir</param>
         /// <param name="directoryNode">node a modificar</param>
         /// <param name="HayFiltros">indica si se usan filtros</param>
-        private static void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode, bool HayFiltros)
+        private static void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode, bool? HayFiltros, bool? HayFiltrosIncluyentes)
         {
-            if (HayFiltros)
+            if (HayFiltros == true)
             {
                 archivos.FiltrarStringArchivos();
+            }
+            else if (HayFiltrosIncluyentes == true)
+            {
+                archivos = archivos.FiltrarStringArchivosIncluyente();
             }
 
             foreach (string file in archivos)

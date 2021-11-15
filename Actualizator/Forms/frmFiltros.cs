@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Microsoft.WindowsAPICodePack.Dialogs;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
@@ -96,15 +98,34 @@ namespace Actualizator
                 }
                 else
                 {
-                    filtro = new Filtro()
+                    if (Directory.Exists(archivo))
                     {
-                        cabecera = Filtrado.Completo,
-                        filtro = archivo,
-                        descripcion = "Completo - " + archivo
-                    };
-                }
+                        DirectoryInfo dirArchivos = new DirectoryInfo(archivo);
+                        var archivosDir = dirArchivos.GetFiles("*", SearchOption.AllDirectories);
+                        foreach(var archivoDir in archivosDir)
+                        {
+                            filtro = new Filtro()
+                            {
+                                cabecera = Filtrado.Completo,
+                                filtro = archivoDir.Name,
+                                descripcion = "Completo - " + archivoDir.Name
+                            };
 
-                if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
+                            if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
+                        }
+                    }
+                    else
+                    {
+                        filtro = new Filtro()
+                        {
+                            cabecera = Filtrado.Completo,
+                            filtro = archivo,
+                            descripcion = "Completo - " + archivo
+                        };
+
+                        if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
+                    }                    
+                }
 
                 ActualizarDatos();
             }

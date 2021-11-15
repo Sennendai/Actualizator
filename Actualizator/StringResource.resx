@@ -173,7 +173,7 @@
     <value>Configuración</value>
   </data>
   <data name="saludo" xml:space="preserve">
-    <value />
+    <value>Aloha</value>
   </data>
   <data name="mensajeRestaurarBackup" xml:space="preserve">
     <value>¿Quieres restaurar el útimo backup?</value>
@@ -228,5 +228,8 @@
   <data name="numberLastBackUp" xml:space="preserve">
     <value>3</value>
     <comment>Indica el numero de backups que se quiere conservar, no es string pero...</comment>
+  </data>
+  <data name="procesoExplorer" xml:space="preserve">
+    <value>explorer.exe</value>
   </data>
 </root>

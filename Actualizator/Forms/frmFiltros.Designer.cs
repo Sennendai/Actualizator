@@ -37,10 +37,10 @@
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
             this.btnAbrirOrigen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
-            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.btnBorrarFiltro = new System.Windows.Forms.Button();
             this.btnAddFiltros = new System.Windows.Forms.Button();
             this.cmbBoxConfigs = new System.Windows.Forms.ComboBox();
+            this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFiltros)).BeginInit();
             this.SuspendLayout();
             // 
@@ -119,11 +119,6 @@
             this.label1.TabIndex = 33;
             this.label1.Text = "Pulse la tecla \'Supr\' para borrar un registro de la tabla";
             // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "openFileDialog1";
-            this.openFileDialog.Multiselect = true;
-            // 
             // btnBorrarFiltro
             // 
             this.btnBorrarFiltro.BackgroundImage = global::Actualizator.Properties.Resources.delete;
@@ -154,7 +149,13 @@
             this.cmbBoxConfigs.Name = "cmbBoxConfigs";
             this.cmbBoxConfigs.Size = new System.Drawing.Size(150, 21);
             this.cmbBoxConfigs.TabIndex = 36;
+            this.cmbBoxConfigs.Visible = false;
             this.cmbBoxConfigs.SelectedIndexChanged += new System.EventHandler(this.cmbBoxConfigs_SelectedIndexChanged);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "archivos";
+            this.openFileDialog.Multiselect = true;
             // 
             // FormFiltros
             // 
@@ -197,7 +198,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btnBorrarFiltro;
         private System.Windows.Forms.Button btnAbrirOrigen;
-        private System.Windows.Forms.OpenFileDialog openFileDialog;
         private System.Windows.Forms.ComboBox cmbBoxConfigs;
+        private System.Windows.Forms.OpenFileDialog openFileDialog;
     }
 }
