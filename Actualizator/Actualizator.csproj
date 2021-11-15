@@ -253,6 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="folders.ico" />
+    <None Include="Resources\document_add.png" />
     <Content Include="XML\plantilla.xml" />
     <None Include="Resources\delete2.png" />
     <None Include="Resources\hand_yellow_card.png" />

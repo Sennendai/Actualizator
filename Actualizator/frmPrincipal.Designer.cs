@@ -31,6 +31,8 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.addDocumentImage = new System.Windows.Forms.PictureBox();
+            this.chkCopiarArchivos = new System.Windows.Forms.CheckBox();
             this.fatalWarningImage = new System.Windows.Forms.PictureBox();
             this.chkBorrarDestino = new System.Windows.Forms.CheckBox();
             this.lblFiltrosCount = new System.Windows.Forms.Label();
@@ -78,6 +80,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.addDocumentImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatalWarningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.warningImage)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
@@ -102,6 +105,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.addDocumentImage);
+            this.splitContainer1.Panel1.Controls.Add(this.chkCopiarArchivos);
             this.splitContainer1.Panel1.Controls.Add(this.fatalWarningImage);
             this.splitContainer1.Panel1.Controls.Add(this.chkBorrarDestino);
             this.splitContainer1.Panel1.Controls.Add(this.lblFiltrosCount);
@@ -137,15 +142,42 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
             this.splitContainer1.Panel2.Controls.Add(this.splitter1);
-            this.splitContainer1.Size = new System.Drawing.Size(834, 633);
-            this.splitContainer1.SplitterDistance = 201;
+            this.splitContainer1.Size = new System.Drawing.Size(834, 675);
+            this.splitContainer1.SplitterDistance = 227;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // addDocumentImage
+            // 
+            this.addDocumentImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.addDocumentImage.Image = global::Actualizator.Properties.Resources.document_add;
+            this.addDocumentImage.Location = new System.Drawing.Point(671, 118);
+            this.addDocumentImage.Name = "addDocumentImage";
+            this.addDocumentImage.Size = new System.Drawing.Size(16, 17);
+            this.addDocumentImage.TabIndex = 20;
+            this.addDocumentImage.TabStop = false;
+            this.addDocumentImage.Visible = false;
+            // 
+            // chkCopiarArchivos
+            // 
+            this.chkCopiarArchivos.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.chkCopiarArchivos.AutoSize = true;
+            this.chkCopiarArchivos.Checked = true;
+            this.chkCopiarArchivos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCopiarArchivos.Enabled = false;
+            this.chkCopiarArchivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chkCopiarArchivos.Location = new System.Drawing.Point(693, 118);
+            this.chkCopiarArchivos.Name = "chkCopiarArchivos";
+            this.chkCopiarArchivos.Size = new System.Drawing.Size(137, 17);
+            this.chkCopiarArchivos.TabIndex = 19;
+            this.chkCopiarArchivos.Text = "Copiar archivos nuevos";
+            this.chkCopiarArchivos.UseVisualStyleBackColor = true;
+            this.chkCopiarArchivos.Visible = false;
             // 
             // fatalWarningImage
             // 
             this.fatalWarningImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.fatalWarningImage.Image = global::Actualizator.Properties.Resources.delete2;
-            this.fatalWarningImage.Location = new System.Drawing.Point(673, 141);
+            this.fatalWarningImage.Location = new System.Drawing.Point(671, 164);
             this.fatalWarningImage.Name = "fatalWarningImage";
             this.fatalWarningImage.Size = new System.Drawing.Size(16, 17);
             this.fatalWarningImage.TabIndex = 18;
@@ -156,7 +188,7 @@
             // 
             this.chkBorrarDestino.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBorrarDestino.AutoSize = true;
-            this.chkBorrarDestino.Location = new System.Drawing.Point(695, 141);
+            this.chkBorrarDestino.Location = new System.Drawing.Point(693, 164);
             this.chkBorrarDestino.Name = "chkBorrarDestino";
             this.chkBorrarDestino.Size = new System.Drawing.Size(134, 17);
             this.chkBorrarDestino.TabIndex = 17;
@@ -180,7 +212,7 @@
             // 
             this.warningImage.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.warningImage.Image = global::Actualizator.Properties.Resources.warning;
-            this.warningImage.Location = new System.Drawing.Point(673, 118);
+            this.warningImage.Location = new System.Drawing.Point(671, 141);
             this.warningImage.Name = "warningImage";
             this.warningImage.Size = new System.Drawing.Size(16, 17);
             this.warningImage.TabIndex = 15;
@@ -191,7 +223,7 @@
             // 
             this.chkBoxSobreescribir.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.chkBoxSobreescribir.AutoSize = true;
-            this.chkBoxSobreescribir.Location = new System.Drawing.Point(695, 118);
+            this.chkBoxSobreescribir.Location = new System.Drawing.Point(693, 141);
             this.chkBoxSobreescribir.Name = "chkBoxSobreescribir";
             this.chkBoxSobreescribir.Size = new System.Drawing.Size(130, 17);
             this.chkBoxSobreescribir.TabIndex = 14;
@@ -302,7 +334,7 @@
             this.btnRestaurarBackup.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnRestaurarBackup.BackgroundImage = global::Actualizator.Properties.Resources.recycle;
             this.btnRestaurarBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRestaurarBackup.Location = new System.Drawing.Point(671, 164);
+            this.btnRestaurarBackup.Location = new System.Drawing.Point(671, 185);
             this.btnRestaurarBackup.Name = "btnRestaurarBackup";
             this.btnRestaurarBackup.Size = new System.Drawing.Size(151, 26);
             this.btnRestaurarBackup.TabIndex = 0;
@@ -487,7 +519,7 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(831, 428);
+            this.splitContainer2.Size = new System.Drawing.Size(831, 444);
             this.splitContainer2.SplitterDistance = 396;
             this.splitContainer2.TabIndex = 2;
             // 
@@ -504,7 +536,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(396, 428);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(396, 444);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // treeViewOrigen
@@ -512,7 +544,7 @@
             this.treeViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewOrigen.Location = new System.Drawing.Point(3, 53);
             this.treeViewOrigen.Name = "treeViewOrigen";
-            this.treeViewOrigen.Size = new System.Drawing.Size(390, 372);
+            this.treeViewOrigen.Size = new System.Drawing.Size(390, 388);
             this.treeViewOrigen.TabIndex = 0;
             // 
             // groupBoxOrigen
@@ -561,8 +593,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutDestino);
-            this.splitContainer3.Size = new System.Drawing.Size(431, 428);
-            this.splitContainer3.SplitterDistance = 48;
+            this.splitContainer3.Size = new System.Drawing.Size(431, 444);
+            this.splitContainer3.SplitterDistance = 49;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBoxDestino
@@ -572,7 +604,7 @@
             this.groupBoxDestino.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxDestino.Location = new System.Drawing.Point(0, 0);
             this.groupBoxDestino.Name = "groupBoxDestino";
-            this.groupBoxDestino.Size = new System.Drawing.Size(431, 48);
+            this.groupBoxDestino.Size = new System.Drawing.Size(431, 49);
             this.groupBoxDestino.TabIndex = 0;
             this.groupBoxDestino.TabStop = false;
             this.groupBoxDestino.Text = "Destino";
@@ -581,7 +613,7 @@
             // 
             this.lblCountDestinos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCountDestinos.AutoSize = true;
-            this.lblCountDestinos.Location = new System.Drawing.Point(137, 19);
+            this.lblCountDestinos.Location = new System.Drawing.Point(137, 20);
             this.lblCountDestinos.Name = "lblCountDestinos";
             this.lblCountDestinos.Size = new System.Drawing.Size(86, 13);
             this.lblCountDestinos.TabIndex = 3;
@@ -591,7 +623,7 @@
             // 
             this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 19);
+            this.label6.Location = new System.Drawing.Point(6, 20);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(125, 13);
             this.label6.TabIndex = 2;
@@ -607,7 +639,7 @@
             this.tableLayoutDestino.Name = "tableLayoutDestino";
             this.tableLayoutDestino.RowCount = 1;
             this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutDestino.Size = new System.Drawing.Size(431, 376);
+            this.tableLayoutDestino.Size = new System.Drawing.Size(431, 391);
             this.tableLayoutDestino.TabIndex = 0;
             this.tableLayoutDestino.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tableLayoutDestino_ControlAdded);
             this.tableLayoutDestino.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.tableLayoutDestino_ControlRemoved);
@@ -616,7 +648,7 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 428);
+            this.splitter1.Size = new System.Drawing.Size(3, 444);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
@@ -628,7 +660,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(834, 633);
+            this.ClientSize = new System.Drawing.Size(834, 675);
             this.Controls.Add(this.splitContainer1);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
@@ -639,6 +671,7 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.addDocumentImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fatalWarningImage)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.warningImage)).EndInit();
             this.splitContainer2.Panel1.ResumeLayout(false);
@@ -704,6 +737,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.PictureBox fatalWarningImage;
         private System.Windows.Forms.CheckBox chkBorrarDestino;
+        private System.Windows.Forms.PictureBox addDocumentImage;
+        private System.Windows.Forms.CheckBox chkCopiarArchivos;
     }
 }
 

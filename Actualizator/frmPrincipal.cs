@@ -398,7 +398,11 @@ namespace Actualizator
                     {
                         actualProyecto.ProyectoName = cmbProyecto.Text;
                         actualProyecto.PathOrigen = textOrigen.Text;
-                        actualProyecto.PathDestino = RutasDestinos;
+
+                        // Si solo hay una ruta de destino se añade
+                        if (RutasDestinos.Count() != 0) actualProyecto.PathDestino = RutasDestinos;
+                        else if (!string.IsNullOrEmpty(textDestino.Text)) actualProyecto.PathDestino.Add(textDestino.Text);
+
                         actualProyecto.HacerBackup = HacerBackup;
                         actualProyecto.PathBackup = rutaBackup;
                         actualProyecto.FicherosExcluidos = filtros;
@@ -569,7 +573,11 @@ namespace Actualizator
                 actualProyecto.Filtrar = HayFiltros;
                 actualProyecto.ProyectoName = cmbProyecto.Text;
                 actualProyecto.PathOrigen = textOrigen.Text;
-                actualProyecto.PathDestino = RutasDestinos;
+
+                // Si solo hay una ruta de destino se añade
+                if (RutasDestinos.Count() != 0) actualProyecto.PathDestino = RutasDestinos;
+                else if (!string.IsNullOrEmpty(textDestino.Text)) actualProyecto.PathDestino.Add(textDestino.Text);
+
                 actualProyecto.HacerBackup = HacerBackup;
                 actualProyecto.PathBackup = rutaBackup;
             }
@@ -727,7 +735,7 @@ namespace Actualizator
 
         private void VisibilidadBotonesControl()
         {
-            if (actualProyecto != null && proyectos.Count() != 0 && !addProyecto)
+            if (actualProyecto != null && proyectos.Count() != 0)
             {
                 btnBorrar.Visible = true;
                 btnRecargar.Visible = true;
@@ -776,6 +784,8 @@ namespace Actualizator
                 btnPrevisualizar.Visible = true;
                 chkBoxSobreescribir.Visible = true;
                 chkBorrarDestino.Visible = true;
+                chkCopiarArchivos.Visible = true;
+                addDocumentImage.Visible = true;
             }
             else
             {
@@ -784,6 +794,8 @@ namespace Actualizator
                 btnPrevisualizar.Visible = false;
                 chkBoxSobreescribir.Visible = false;
                 chkBorrarDestino.Visible = false;
+                chkCopiarArchivos.Visible = false;
+                addDocumentImage.Visible = false;
             }
         }
 
@@ -1046,13 +1058,18 @@ namespace Actualizator
             {
                 sobreescribir = true;
                 warningImage.Visible = true;
+                chkCopiarArchivos.Checked = false;
+                addDocumentImage.Visible = false;
+                chkBorrarDestino.Checked = false;
+                fatalWarningImage.Visible = false;
             }
             else
             {
                 sobreescribir = false;
                 warningImage.Visible = false;
+                chkCopiarArchivos.Checked = true;
+                addDocumentImage.Visible = true;
             }
-
         }
 
         private void chkBorrarDestino_CheckedChanged(object sender, EventArgs e)
@@ -1061,11 +1078,20 @@ namespace Actualizator
             {
                 borrarArchivosDestino = true;
                 fatalWarningImage.Visible = true;
+                chkBoxSobreescribir.Checked = false;
+                warningImage.Visible = false;
+                chkCopiarArchivos.Checked = false;
+                addDocumentImage.Visible = false;
             }
             else
             {
                 borrarArchivosDestino = false;
                 fatalWarningImage.Visible = false;
+                if (!chkBoxSobreescribir.Checked)
+                {
+                    chkCopiarArchivos.Checked = true;
+                    addDocumentImage.Visible = true;
+                }                
             }
         }
 
@@ -1285,6 +1311,6 @@ namespace Actualizator
         #endregion
 
         #endregion
-
+               
     }
 }

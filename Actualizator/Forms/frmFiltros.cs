@@ -11,6 +11,7 @@ namespace Actualizator
         #region VARIABLES
 
         public BindingList<Filtro> FiltrosADevolver = new BindingList<Filtro>();
+        private Dictionary<string, BindingList<List<Filtro>>> FiltrosComunes = new Dictionary<string, BindingList<List<Filtro>>>();
         private List<Filtro> backupFiltros = new List<Filtro>();
         private string rutaOrigen;
         private string proyectoName;
@@ -45,6 +46,7 @@ namespace Actualizator
         private void CargarDatos()
         {
             cmbBoxFiltros.DataSource = Enum.GetValues(typeof(Filtrado));
+            CargarFiltrosComunes();
             ActualizarDatos();
         }
 
@@ -54,6 +56,27 @@ namespace Actualizator
             source.DataSource = FiltrosADevolver;
 
             dataGridFiltros.DataSource = source;
+        }
+
+        private void CargarFiltrosComunes()
+        {
+            //FiltrosComunes.Add("Filtros comunes",new BindingList<List<Filtro>> { new List<Filtro> 
+            //                    { new Filtro { descripcion = "Filtros comunes", filtro = string.Empty } } });
+            //FiltrosComunes.Add(".dll, .pdb", new BindingList<List<Filtro>> {  new List<Filtro> 
+            //                    { new Filtro { cabecera = Filtrado.TerminaPor, descripcion = ".dll, .pdb", filtro = ".dll" },
+            //                     new Filtro { cabecera = Filtrado.TerminaPor, descripcion = ".dll, .pdb", filtro = ".pdb" }} });
+            //FiltrosComunes.Add(".xml, .config", new BindingList<List<Filtro>> { new List<Filtro> 
+            //                    { new Filtro { cabecera = Filtrado.TerminaPor, descripcion = ".xml, .config", filtro = ".xml" } } });
+
+            List<Filtro> listaDeFiltros = new List<Filtro>();
+
+
+
+            BindingSource source = new BindingSource();
+            source.DataSource = listaDeFiltros;
+
+            cmbBoxConfigs.DataSource = source;
+            cmbBoxConfigs.DisplayMember = nameof(Filtro.descripcion);
         }
 
         private void AddFiltro(string archivo = null)
@@ -67,7 +90,8 @@ namespace Actualizator
                     filtro = new Filtro()
                     {
                         cabecera = (Filtrado)cmbBoxFiltros.SelectedItem,
-                        filtro = txtBoxFiltro.Text
+                        filtro = txtBoxFiltro.Text,
+                        descripcion = cmbBoxFiltros.SelectedItem.ToString() + " - " + txtBoxFiltro.Text
                     };
                 }
                 else
@@ -75,7 +99,8 @@ namespace Actualizator
                     filtro = new Filtro()
                     {
                         cabecera = Filtrado.Completo,
-                        filtro = archivo
+                        filtro = archivo,
+                        descripcion = "Completo - " + archivo
                     };
                 }
 
@@ -178,6 +203,12 @@ namespace Actualizator
             }
         }
 
+        private void cmbBoxConfigs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
         #endregion
+
     }
 }

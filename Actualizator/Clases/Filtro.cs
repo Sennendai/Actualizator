@@ -10,16 +10,21 @@ namespace Actualizator
     {
         public Filtrado cabecera;
         public string filtro { get; set; }
-        public string descripcion
-        {
-            get { return cabecera.ToString() + " - " + filtro; }
-        }
+        public string descripcion { get; set; }
 
-        public override string ToString()
-        {
-            return descripcion;
-        }
+        //public string descripcion
+        //{
+        //    get
+        //    {
+        //        return cabecera.ToString() + " - " + filtro;
+        //    }
+        //    set { }
+        //}
 
+        //public override string ToString()
+        //{
+        //    return descripcion;
+        //}
     }
 
     public enum Filtrado
