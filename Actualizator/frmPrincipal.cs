@@ -21,6 +21,7 @@ namespace Actualizator
         #region· - VARIABLES
 
         private int countArchivosOrigen = 0;
+        private int lastSelectedIndex = 0;
         public int CountArchivosOrigen
         {
             get { return countArchivosOrigen; }
@@ -199,7 +200,7 @@ namespace Actualizator
 
         private void GetArchivosOrigenArbol()
         {
-            archivosOrigenArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto, true);
+            archivosOrigenArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto, HayFiltrosIncluyentes);
         }
 
         /// <summary>
@@ -227,7 +228,7 @@ namespace Actualizator
 
                     // archivos a copiar, coge todo el origen si se quiere sobreescribir
                     ArchivosTreeView archivosACopiar;
-                    if (sobreescribir) archivosACopiar = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, true);
+                    if (sobreescribir) archivosACopiar = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, HayFiltrosIncluyentes);
                     else archivosACopiar = ArchivosUtilities.GetArchivosModificadosTreeView(dirOrigen, dirDestino, actualProyecto);
 
                     CopiarArchivos(archivosACopiar, newDirDestino, dirOrigen.FullName);
@@ -567,18 +568,6 @@ namespace Actualizator
                             filtrosIncluyentes.Add(filtro);
                         }
                     }
-                    if (string.IsNullOrEmpty(cmbProyecto.Text)) cmbProyecto.Text = actualProyecto?.ProyectoName;
-                    textOrigen.Text = actualProyecto?.PathOrigen;
-                    treeViewOrigen.Nodes.Clear();
-                    if (!string.IsNullOrEmpty(textOrigen.Text))
-                    {
-                        ActualizarTreeView(textOrigen, treeViewOrigen, true);
-                    }
-                    else
-                    {
-                        CountArchivosOrigen = 0;
-                    }
-
                     LimpiarLayoutDestino();
                     if (actualProyecto?.PathDestino?.Count() != 0)
                     {
@@ -600,6 +589,18 @@ namespace Actualizator
                     rutaBackup = actualProyecto?.PathBackup;
                     textBackup.Text = actualProyecto?.PathBackup;
                     lastRutaBackup = actualProyecto?.LastPathBackup;
+
+                    if (string.IsNullOrEmpty(cmbProyecto.Text)) cmbProyecto.Text = actualProyecto?.ProyectoName;
+                    textOrigen.Text = actualProyecto?.PathOrigen;
+                    treeViewOrigen.Nodes.Clear();
+                    if (!string.IsNullOrEmpty(textOrigen.Text))
+                    {
+                        ActualizarTreeView(textOrigen, treeViewOrigen, true);
+                    }
+                    else
+                    {
+                        CountArchivosOrigen = 0;
+                    }
 
                     VisibilidadesTodas();
                 }
@@ -812,14 +813,14 @@ namespace Actualizator
                 btnRecargar.Visible = true;
                 btnActualizar.Visible = true;
                 btnAddProyecto.Visible = true;
-                copiarProyecto.Visible = true;
+                btnCopiarProyecto.Visible = true;
             }
             else
             {
                 btnBorrar.Visible = false;
                 btnRecargar.Visible = false;
                 btnActualizar.Visible = false;
-                copiarProyecto.Visible = false;
+                btnCopiarProyecto.Visible = false;
                 if (!addProyecto) btnAddProyecto.Visible = false;
             }
         }
@@ -850,7 +851,7 @@ namespace Actualizator
 
         private void VisibilidadManipularArchivos()
         {
-            if (treeViewOrigen.Nodes.Count != 0 && RutasDestinos.Count() != 0)
+            if (!string.IsNullOrEmpty(textOrigen.Text) && RutasDestinos.Count() != 0)
             {
                 btnActualizar.Visible = true;
                 btnSincronizar.Visible = true;
@@ -858,7 +859,7 @@ namespace Actualizator
                 chkBoxSobreescribir.Visible = true;
                 chkBorrarDestino.Visible = true;
                 chkCopiarArchivos.Visible = true;
-                addDocumentImage.Visible = true;
+                if(!chkBoxSobreescribir.Checked && !chkBorrarDestino.Checked) addDocumentImage.Visible = true;
             }
             else
             {
@@ -964,7 +965,7 @@ namespace Actualizator
 
                 if (dirOrigen.Exists)
                 {
-                    ArchivosTreeView archivosOrigen = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, true);
+                    ArchivosTreeView archivosOrigen = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, HayFiltrosIncluyentes);
 
                     if (HacerBackup) CrerBackup(directoriesDestino, dirOrigen);
 
@@ -974,7 +975,7 @@ namespace Actualizator
                     {
                         foreach (DirectoryInfo dirDestino in directoriesDestino)
                         {
-                            ArchivosTreeView archivos = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, true);
+                            ArchivosTreeView archivos = ArchivosUtilities.GetArchivosTreeView(dirOrigen, actualProyecto, false);
                             CopiarArchivos(archivos, dirDestino.FullName, dirOrigen.FullName);
                         }
                     }
@@ -1031,7 +1032,7 @@ namespace Actualizator
                                     string dirOrigenProyecto = Path.Combine(dirOrigen.FullName, dirDestino.Name);
                                     DirectoryInfo proyectoDirDestino = new DirectoryInfo(dirOrigenProyecto);
 
-                                    CopiarArchivos(ArchivosUtilities.GetArchivosTreeView(proyectoDirDestino, actualProyecto, true), dirDestino.FullName, dirOrigenProyecto);
+                                    CopiarArchivos(ArchivosUtilities.GetArchivosTreeView(proyectoDirDestino, actualProyecto, HayFiltrosIncluyentes), dirDestino.FullName, dirOrigenProyecto);
                                 }
                                 else
                                 {
@@ -1200,24 +1201,27 @@ namespace Actualizator
 
         private void cmbProyecto_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (!addProyecto || modificandoProyecto)
+            if (cmbProyecto.SelectedIndex != lastSelectedIndex)
             {
-                if (!iniciando)
+                lastSelectedIndex = cmbProyecto.SelectedIndex;
+                if (!addProyecto || modificandoProyecto)
                 {
-                    LimpiarLayoutDestino();
-
-                    actualProyecto = (Proyecto)cmbProyecto.SelectedItem;
-                    RecargarProyecto();
-                    ActualizarDatos();
+                    if (!iniciando)
+                    {
+                        LimpiarLayoutDestino();
+                        actualProyecto = (Proyecto)cmbProyecto.SelectedItem;
+                        RecargarProyecto();
+                        ActualizarDatos();
+                    }
+                    else
+                    {
+                        ActualizarDatos();
+                    }
                 }
                 else
                 {
-                    ActualizarDatos();
-                }
-            }
-            else
-            {
-                LocalUtilities.MensajeInfo(StringResource.alertaGuardarProyecto, actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto);
+                    LocalUtilities.MensajeInfo(StringResource.alertaGuardarProyecto, actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto);
+                } 
             }
         }
 
@@ -1333,6 +1337,7 @@ namespace Actualizator
         private void btnActualizar_Click(object sender, EventArgs e)
         {            
             if (actualProyecto != null || !string.IsNullOrEmpty(textOrigen.Text)) ActualizarProyecto();
+            VisibilidadesTodas();
         }
 
         private void btnRestaurarBackup_Click(object sender, EventArgs e)
@@ -1426,9 +1431,9 @@ namespace Actualizator
             }
         }
 
-        private void copiarProyecto_Click(object sender, EventArgs e)
+        private void btnCopiarProyecto_Click(object sender, EventArgs e)
         {
-            if (actualProyecto!= null)
+            if (actualProyecto != null)
             {
                 Guid guid = Guid.NewGuid();
                 Proyecto nuevoProyecto = new Proyecto(guid);
@@ -1439,7 +1444,6 @@ namespace Actualizator
         #endregion
 
         #endregion
-
 
     }
 }

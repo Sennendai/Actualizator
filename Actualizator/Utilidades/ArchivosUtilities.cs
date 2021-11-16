@@ -119,7 +119,7 @@ namespace Actualizator.Clases
         /// <summary>
         /// Dado un DirectoryInfo crea un objecto con la estructura de los directorios y subdiresctorios con sus respectivos archivos  
         /// </summary>
-        /// <returns></returns>
+        /// <param name="hayFiltrosIncluyentes">indica si hay filtro incluyente</param>
         public static ArchivosTreeView GetArchivosTreeView(DirectoryInfo dirInfo, Proyecto actualProyecto, bool hayFiltrosIncluyentes)
         {
             ArchivosTreeView archivosTree = new ArchivosTreeView();

@@ -203,6 +203,16 @@ namespace Actualizator.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap folder_document {
+            get {
+                object obj = ResourceManager.GetObject("folder_document", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap folder_refresh {
             get {
                 object obj = ResourceManager.GetObject("folder_refresh", resourceCulture);

@@ -229,6 +229,34 @@ namespace Actualizator
 
         }
 
+        private void btnAddCarpeta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (!string.IsNullOrEmpty(rutaOrigen))
+                {
+                    CommonOpenFileDialog dialog = new CommonOpenFileDialog
+                    {
+                        InitialDirectory = rutaOrigen,
+                        IsFolderPicker = true
+                    };
+                    if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
+                    {
+                        DirectoryInfo dirInfo = new DirectoryInfo(dialog.FileName);
+                        var files = dirInfo.GetFiles("*", SearchOption.AllDirectories);
+                        foreach (var file in files)
+                        {
+                            AddFiltro(file.Name);
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                LocalUtilities.MensajeError(StringResource.mensajeError + LocalUtilities.getErrorException(ex), proyectoName);
+            }
+        }
+
         #endregion
 
     }
