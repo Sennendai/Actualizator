@@ -95,6 +95,8 @@ namespace Actualizator
                         filtro = txtBoxFiltro.Text,
                         descripcion = cmbBoxFiltros.SelectedItem.ToString() + " - " + txtBoxFiltro.Text
                     };
+
+                    if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
                 }
                 else
                 {
