@@ -358,7 +358,7 @@ namespace Actualizator {
         }
         
         /// <summary>
-        ///   Busca una cadena traducida similar a Aloha.
+        ///   Busca una cadena traducida similar a Per Aspera Ad Astra.
         /// </summary>
         internal static string saludo {
             get {

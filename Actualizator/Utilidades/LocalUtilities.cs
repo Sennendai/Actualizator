@@ -104,6 +104,6 @@ namespace Actualizator
 
             return size;
         }
-         
+
     }
 }

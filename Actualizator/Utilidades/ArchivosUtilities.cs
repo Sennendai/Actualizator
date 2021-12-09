@@ -45,7 +45,7 @@ namespace Actualizator.Clases
             {
                 archivosTree.DirName = dirOrigen.Name;
                 FileInfo[] archivos = dirOrigen.GetFiles();
-                
+
                 // Si no hay dirDestino siginifica que la estrucutra de carpetas es distinta en el destino, por lo tanto copia todo
                 if (dirDestino != null)
                 {
@@ -58,7 +58,7 @@ namespace Actualizator.Clases
                     foreach (FileInfo archivo in archivos)
                     {
                         //if (directories != null && (directories.Any(x => x.Name == dirOrigen.Name) || dirOrigen.Name.Equals(dirDestino.Name)))
-                        
+
                         FileInfo[] nuevosArchivosDestino = dirDestino.GetFiles();
                         FileInfo archivoDestino = nuevosArchivosDestino.Where(x => x.Name == archivo.Name).FirstOrDefault();
                         if (archivoDestino != null)
@@ -68,7 +68,7 @@ namespace Actualizator.Clases
                             {
                                 archivosTree.Archivos.Add(archivo.Name);
                             }
-                        }                        
+                        }
                         else
                         {
                             // copia si es un archivo nuevo
@@ -88,7 +88,7 @@ namespace Actualizator.Clases
                         {
                             archivosTree.Subdir.Add(GetArchivosModificadosTreeView(directoryOrigen, null, actualProyecto));
                         }
-                    } 
+                    }
                 }
                 else
                 {
@@ -96,7 +96,7 @@ namespace Actualizator.Clases
                     if (FiltrosIncluyentes.Count() != 0) archivos = archivos.FiltrarFileArchivosIncluyente();
 
                     foreach (FileInfo archivo in archivos)
-                    {       
+                    {
                         archivosTree.Archivos.Add(archivo.Name);
                     }
 
@@ -104,7 +104,7 @@ namespace Actualizator.Clases
                     foreach (DirectoryInfo directoryOrigen in dirOrigen.GetDirectories())
                     {
                         archivosTree.Subdir.Add(GetArchivosModificadosTreeView(directoryOrigen, null, actualProyecto));
-                    } 
+                    }
                 }
             }
             catch (Exception ex)
@@ -129,7 +129,7 @@ namespace Actualizator.Clases
                 archivosTree.DirName = dirInfo.Name;
                 FileInfo[] archivos = dirInfo.GetFiles();
 
-                if (hayFiltrosIncluyentes && FiltrosIncluyentes.Count()!=0) archivos = archivos.FiltrarFileArchivosIncluyente();
+                if (hayFiltrosIncluyentes && FiltrosIncluyentes.Count() != 0) archivos = archivos.FiltrarFileArchivosIncluyente();
 
                 var test = dirInfo.GetAccessControl();
 
@@ -167,13 +167,13 @@ namespace Actualizator.Clases
                         foreach (var filtro in filtroObjecto.Filtros)
                         {
                             archivos = archivos.Where(x => !x.Name.ToLower().EndsWith(filtro.ToLower())).ToArray();
-                        }                        
+                        }
                         break;
                     case Filtrado.Completo:
                         foreach (var filtro in filtroObjecto.Filtros)
                         {
                             archivos = archivos.Where(x => !x.Name.ToLower().Equals(filtro.ToLower())).ToArray();
-                        }                            
+                        }
                         break;
                     case Filtrado.Ruta:
                         foreach (var filtro in filtroObjecto.Filtros)
@@ -203,8 +203,8 @@ namespace Actualizator.Clases
                             foreach (var archivo in archivosFiltradosTermina)
                             {
                                 archivosaDevolver.Add(archivo);
-                            } 
-                        }                        
+                            }
+                        }
                         break;
                     case Filtrado.Completo:
                         foreach (var filtro in filtroObjecto.Filtros)
@@ -213,7 +213,7 @@ namespace Actualizator.Clases
                             foreach (var archivo in archivosFiltradosCompleto)
                             {
                                 archivosaDevolver.Add(archivo);
-                            } 
+                            }
                         }
                         break;
                     case Filtrado.Ruta:
@@ -260,11 +260,11 @@ namespace Actualizator.Clases
         {
             foreach (DirectoryInfo directory in directoriesDestino)
             {
-                foreach(DirectoryInfo subdirectories in directory.GetDirectories())
+                foreach (DirectoryInfo subdirectories in directory.GetDirectories())
                 {
                     subdirectories.Delete(true);
                 }
-                foreach(var file in directory.GetFiles())
+                foreach (var file in directory.GetFiles())
                 {
                     file.Delete();
                 }
@@ -308,7 +308,7 @@ namespace Actualizator.Clases
 
                     if (originalZip != null) zip = originalZip;
                     else zip = ZipFile.Open(fileName, ZipArchiveMode.Create);
-                    
+
                     foreach (var file in files.Archivos)
                     {
                         // Add the entry for each file

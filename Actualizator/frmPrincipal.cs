@@ -784,7 +784,7 @@ namespace Actualizator
 
         private void VisibilidadFiltroIncluyente()
         {
-            btnFiltrosIncluyentes.Visible  = chkBoxFiltrosIncluyentes.Checked;
+            btnFiltrosIncluyentes.Visible = chkBoxFiltrosIncluyentes.Checked;
             HayFiltrosIncluyentes = chkBoxFiltrosIncluyentes.Checked;
         }
 
@@ -849,7 +849,7 @@ namespace Actualizator
                 chkBoxSobreescribir.Visible = true;
                 chkBorrarDestino.Visible = true;
                 chkCopiarArchivos.Visible = true;
-                if(!chkBoxSobreescribir.Checked && !chkBorrarDestino.Checked) addDocumentImage.Visible = true;
+                if (!chkBoxSobreescribir.Checked && !chkBorrarDestino.Checked) addDocumentImage.Visible = true;
             }
             else
             {
@@ -1123,7 +1123,7 @@ namespace Actualizator
         }
 
         private void chkBoxFiltros_CheckedChanged(object sender, EventArgs e)
-        {            
+        {
             VisibilidadFiltro();
         }
 
@@ -1171,7 +1171,7 @@ namespace Actualizator
                 {
                     chkCopiarArchivos.Checked = true;
                     addDocumentImage.Visible = true;
-                }                
+                }
             }
         }
 
@@ -1201,7 +1201,7 @@ namespace Actualizator
                 else
                 {
                     LocalUtilities.MensajeInfo(StringResource.alertaGuardarProyecto, actualProyecto != null ? actualProyecto.ProyectoName : StringResource.nuevoProyecto);
-                } 
+                }
             }
         }
 
@@ -1236,7 +1236,7 @@ namespace Actualizator
                 control.Size = LocalUtilities.ResizeTlpControl(tableLayoutDestino);
             }
         }
-         
+
         #endregion
 
         #region· CLICKS
@@ -1315,7 +1315,7 @@ namespace Actualizator
         }
 
         private void btnActualizar_Click(object sender, EventArgs e)
-        {            
+        {
             if (actualProyecto != null || !string.IsNullOrEmpty(textOrigen.Text)) ActualizarProyecto();
             VisibilidadesTodas();
         }

@@ -173,7 +173,7 @@
     <value>Configuración</value>
   </data>
   <data name="saludo" xml:space="preserve">
-    <value>Aloha</value>
+    <value>Per Aspera Ad Astra</value>
   </data>
   <data name="mensajeRestaurarBackup" xml:space="preserve">
     <value>¿Quieres restaurar el útimo backup?</value>
