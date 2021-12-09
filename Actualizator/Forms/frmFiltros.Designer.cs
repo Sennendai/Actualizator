@@ -35,11 +35,11 @@
             this.btnAceptar = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAddCarpeta = new System.Windows.Forms.Button();
+            this.btnAbrirOrigen = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbBoxConfigs = new System.Windows.Forms.ComboBox();
             this.openFileDialog = new System.Windows.Forms.OpenFileDialog();
-            this.btnAddCarpeta = new System.Windows.Forms.Button();
-            this.btnAbrirOrigen = new System.Windows.Forms.Button();
             this.btnBorrarFiltro = new System.Windows.Forms.Button();
             this.btnAddFiltros = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridFiltros)).BeginInit();
@@ -73,13 +73,13 @@
             this.dataGridFiltros.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridFiltros.Location = new System.Drawing.Point(0, 79);
             this.dataGridFiltros.Name = "dataGridFiltros";
-            this.dataGridFiltros.Size = new System.Drawing.Size(422, 150);
+            this.dataGridFiltros.Size = new System.Drawing.Size(485, 180);
             this.dataGridFiltros.TabIndex = 30;
             // 
             // btnAceptar
             // 
             this.btnAceptar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnAceptar.Location = new System.Drawing.Point(12, 278);
+            this.btnAceptar.Location = new System.Drawing.Point(12, 308);
             this.btnAceptar.Name = "btnAceptar";
             this.btnAceptar.Size = new System.Drawing.Size(110, 24);
             this.btnAceptar.TabIndex = 31;
@@ -90,40 +90,13 @@
             // btnCancelar
             // 
             this.btnCancelar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnCancelar.Location = new System.Drawing.Point(300, 278);
+            this.btnCancelar.Location = new System.Drawing.Point(363, 308);
             this.btnCancelar.Name = "btnCancelar";
             this.btnCancelar.Size = new System.Drawing.Size(110, 24);
             this.btnCancelar.TabIndex = 32;
             this.btnCancelar.Text = "Cancelar";
             this.btnCancelar.UseVisualStyleBackColor = true;
             this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
-            // 
-            // label1
-            // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(74, 249);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(257, 13);
-            this.label1.TabIndex = 33;
-            this.label1.Text = "Pulse la tecla \'Supr\' para borrar un registro de la tabla";
-            // 
-            // cmbBoxConfigs
-            // 
-            this.cmbBoxConfigs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbBoxConfigs.FormattingEnabled = true;
-            this.cmbBoxConfigs.Location = new System.Drawing.Point(262, 12);
-            this.cmbBoxConfigs.Name = "cmbBoxConfigs";
-            this.cmbBoxConfigs.Size = new System.Drawing.Size(150, 21);
-            this.cmbBoxConfigs.TabIndex = 36;
-            this.cmbBoxConfigs.Visible = false;
-            this.cmbBoxConfigs.SelectedIndexChanged += new System.EventHandler(this.cmbBoxConfigs_SelectedIndexChanged);
-            // 
-            // openFileDialog
-            // 
-            this.openFileDialog.FileName = "archivos";
-            this.openFileDialog.Multiselect = true;
             // 
             // btnAddCarpeta
             // 
@@ -146,6 +119,33 @@
             this.toolTipControl.SetToolTip(this.btnAbrirOrigen, "Seleccionar archivo de las carpeta origen");
             this.btnAbrirOrigen.UseVisualStyleBackColor = true;
             this.btnAbrirOrigen.Click += new System.EventHandler(this.btnAbrirOrigen_Click);
+            // 
+            // label1
+            // 
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(105, 279);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(257, 13);
+            this.label1.TabIndex = 33;
+            this.label1.Text = "Pulse la tecla \'Supr\' para borrar un registro de la tabla";
+            // 
+            // cmbBoxConfigs
+            // 
+            this.cmbBoxConfigs.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbBoxConfigs.FormattingEnabled = true;
+            this.cmbBoxConfigs.Location = new System.Drawing.Point(262, 12);
+            this.cmbBoxConfigs.Name = "cmbBoxConfigs";
+            this.cmbBoxConfigs.Size = new System.Drawing.Size(150, 21);
+            this.cmbBoxConfigs.TabIndex = 36;
+            this.cmbBoxConfigs.Visible = false;
+            this.cmbBoxConfigs.SelectedIndexChanged += new System.EventHandler(this.cmbBoxConfigs_SelectedIndexChanged);
+            // 
+            // openFileDialog
+            // 
+            this.openFileDialog.FileName = "archivos";
+            this.openFileDialog.Multiselect = true;
             // 
             // btnBorrarFiltro
             // 
@@ -173,7 +173,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 314);
+            this.ClientSize = new System.Drawing.Size(485, 344);
             this.ControlBox = false;
             this.Controls.Add(this.btnAddCarpeta);
             this.Controls.Add(this.cmbBoxConfigs);

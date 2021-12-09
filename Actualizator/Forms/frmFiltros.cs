@@ -54,10 +54,13 @@ namespace Actualizator
 
         private void ActualizarDatos()
         {
-            BindingSource source = new BindingSource();
-            source.DataSource = FiltrosADevolver;
+            BindingSource source = new BindingSource
+            {
+                DataSource = FiltrosADevolver
+            };
 
             dataGridFiltros.DataSource = source;
+            //dataGridFiltros.Columns[nameof(Filtro.NombreFiltro)].Visible = false;
         }
 
         private void CargarFiltrosComunes()
@@ -72,13 +75,37 @@ namespace Actualizator
 
             List<Filtro> listaDeFiltros = new List<Filtro>();
 
-
-
-            BindingSource source = new BindingSource();
-            source.DataSource = listaDeFiltros;
+            BindingSource source = new BindingSource
+            {
+                DataSource = listaDeFiltros
+            };
 
             cmbBoxConfigs.DataSource = source;
-            cmbBoxConfigs.DisplayMember = nameof(Filtro.descripcion);
+            cmbBoxConfigs.DisplayMember = nameof(Filtro.Descripcion);
+        }
+
+        /// <summary>
+        /// Filtrar una carpeta entera con todos sus archivos
+        /// </summary>
+        private void AddCarpetaFiltro(DirectoryInfo dirInfo)
+        {
+            Filtro filtro;
+
+            filtro = new Filtro()
+            {
+                Descripcion = Filtrado.Ruta.ToString() + dirInfo.Name,
+                cabecera = Filtrado.Ruta,
+                NombreFiltro = dirInfo.Name,
+                Filtros = new List<string>()
+            };
+
+            var archivosDir = dirInfo.GetFiles("*", SearchOption.AllDirectories);
+            foreach (var archivoDir in archivosDir)
+            {
+                filtro.Filtros.Add(archivoDir.FullName);
+            }
+
+            if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
         }
 
         private void AddFiltro(string archivo = null)
@@ -87,46 +114,31 @@ namespace Actualizator
             {
                 Filtro filtro;
 
+                // añadido a mano
                 if (archivo == null)
                 {
                     filtro = new Filtro()
                     {
+                        Descripcion = cmbBoxFiltros.SelectedItem.ToString() + " - " + txtBoxFiltro.Text,
                         cabecera = (Filtrado)cmbBoxFiltros.SelectedItem,
-                        filtro = txtBoxFiltro.Text,
-                        descripcion = cmbBoxFiltros.SelectedItem.ToString() + " - " + txtBoxFiltro.Text
+                        NombreFiltro = txtBoxFiltro.Text,
+                        Filtros = new List<string> { txtBoxFiltro.Text }
                     };
 
                     if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
                 }
+                // archivo suelto   
                 else
                 {
-                    if (Directory.Exists(archivo))
+                    filtro = new Filtro()
                     {
-                        DirectoryInfo dirArchivos = new DirectoryInfo(archivo);
-                        var archivosDir = dirArchivos.GetFiles("*", SearchOption.AllDirectories);
-                        foreach(var archivoDir in archivosDir)
-                        {
-                            filtro = new Filtro()
-                            {
-                                cabecera = Filtrado.Completo,
-                                filtro = archivoDir.Name,
-                                descripcion = "Completo - " + archivoDir.Name
-                            };
+                        Descripcion = Filtrado.Ruta.ToString() + archivo,
+                        cabecera = Filtrado.Ruta,
+                        NombreFiltro = archivo,
+                        Filtros = new List<string> { archivo }
+                    };
 
-                            if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
-                        }
-                    }
-                    else
-                    {
-                        filtro = new Filtro()
-                        {
-                            cabecera = Filtrado.Completo,
-                            filtro = archivo,
-                            descripcion = "Completo - " + archivo
-                        };
-
-                        if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
-                    }                    
+                    if (ComprobarFiltro(filtro)) FiltrosADevolver.Add(filtro);
                 }
 
                 ActualizarDatos();
@@ -137,9 +149,21 @@ namespace Actualizator
         {
             foreach (var filtroOriginal in FiltrosADevolver)
             {
-                if (filtroOriginal.filtro.Equals(filtroNuevo.filtro))
+                switch (filtroOriginal.cabecera)
                 {
-                    return false;
+                    case Filtrado.TerminaPor:
+                    case Filtrado.Completo:
+                        if (filtroOriginal.Filtros.Equals(filtroNuevo.Filtros))
+                        {
+                            return false;
+                        }
+                        break;
+                    case Filtrado.Ruta:
+                        foreach (var nuevoFiltro in filtroNuevo.Filtros)
+                        {
+                            if (filtroOriginal.Filtros.Any(x => x.Equals(nuevoFiltro))) return false;
+                        }
+                        break;
                 }
             }
             return true;
@@ -171,6 +195,7 @@ namespace Actualizator
             if (e.KeyChar == (char)Keys.Enter)
             {
                 AddFiltro();
+                txtBoxFiltro.Text = string.Empty;
             }
             else if (e.KeyChar == (char)Keys.Escape)
             {
@@ -245,11 +270,12 @@ namespace Actualizator
                     if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                     {
                         DirectoryInfo dirInfo = new DirectoryInfo(dialog.FileName);
-                        var files = dirInfo.GetFiles("*", SearchOption.AllDirectories);
-                        foreach (var file in files)
-                        {
-                            AddFiltro(file.Name);
-                        }
+                        AddCarpetaFiltro(dirInfo);
+                        //var files = dirInfo.GetFiles("*", SearchOption.AllDirectories);
+                        //foreach (var file in files)
+                        //{
+                        //    AddFiltro(file.Name);
+                        //}
                     }
                 }
             }

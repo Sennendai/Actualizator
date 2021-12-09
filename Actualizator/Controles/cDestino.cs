@@ -120,6 +120,7 @@ namespace Actualizator
                 splitContainer.Dock = DockStyle.Fill;
                 lblExpandir.Text = string.Empty;
                 this.treeViewDestino.ExpandAll();
+                if (this.treeViewDestino.Nodes != null) this.treeViewDestino.SelectedNode = this.treeViewDestino.Nodes[0];
             }
             else
             {
@@ -186,16 +187,5 @@ namespace Actualizator
 
         #endregion
 
-        // Para permitir que se pueda cambiar el tamaño del control
-        // No funciona correctamente, hay algo que lo bloquea?
-        //protected override CreateParams CreateParams
-        //{
-        //    get
-        //    {
-        //        var cp = base.CreateParams;
-        //        cp.Style |= 0x00040000;  // Turn on WS_BORDER + WS_THICKFRAME
-        //        return cp;
-        //    }
-        //}
     }
 }

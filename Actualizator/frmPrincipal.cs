@@ -33,6 +33,7 @@ namespace Actualizator
                     lblArchivosOrigen.Text = countArchivosOrigen.ToString();
                     VisibilidadManipularArchivos();
                     treeViewOrigen.ExpandAll();
+                    if (this.treeViewOrigen.Nodes != null && this.treeViewOrigen.Nodes.Count != 0) this.treeViewOrigen.SelectedNode = this.treeViewOrigen.Nodes[0];
                 }
             }
         }
@@ -248,17 +249,6 @@ namespace Actualizator
         {
             try
             {
-                if (HayFiltros)
-                {
-                    ArchivosUtilities.Filtros = filtros;
-                    archivosOrigen.Archivos.FiltrarStringArchivos();
-                }
-                else if (HayFiltrosIncluyentes)
-                {
-                    ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
-                    archivosOrigen.Archivos.FiltrarStringArchivosIncluyente();
-                }
-
                 string directoryRoot;
                 if (root)
                 {
@@ -296,13 +286,13 @@ namespace Actualizator
         private void PopulateArbolOrigen()
         {
             treeViewOrigen.Nodes.Clear();
-            treeViewOrigen = ArbolUtilities.PopulateArchivoTreeView(archivosOrigenArbol, null, HayFiltros, HayFiltrosIncluyentes, treeViewOrigen);
+            treeViewOrigen = ArbolUtilities.PopulateArchivoTreeView(archivosOrigenArbol, null, treeViewOrigen);
             CountArchivosOrigen = archivosOrigenArbol.GetTotalArchivos();
         }
 
         private void PopulateArbolDestino()
         {
-            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, HayFiltros, HayFiltrosIncluyentes, treeviewDestino);
+            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, treeviewDestino);
         }
 
         /// <summary>
@@ -352,7 +342,7 @@ namespace Actualizator
                                     ArchivosUtilities.Filtros = filtros;
                                     contadorTodos.FiltrarFileArchivos();
                                 }
-                                else if (HayFiltrosIncluyentes)
+                                if (HayFiltrosIncluyentes)
                                 {
                                     ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
                                     contadorTodos = contadorTodos.FiltrarFileArchivosIncluyente();
@@ -361,7 +351,7 @@ namespace Actualizator
                             else
                             {
                                 archivosDestinoArbol = ArchivosUtilities.GetArchivosTreeView(dirArbolOrigen, actualProyecto, false);
-                                treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, false, false, treeviewDestino);
+                                treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosDestinoArbol, null, treeviewDestino);
                                 //backWork.Proceso(GetArchivoDestinoArbol, PopulateArbolDestino);
                                 backWork.Visible = false;
                                 destinoIntroducido = true;
@@ -1133,22 +1123,12 @@ namespace Actualizator
         }
 
         private void chkBoxFiltros_CheckedChanged(object sender, EventArgs e)
-        {
-            if (chkBoxFiltros.Checked)
-            {
-                chkBoxFiltrosIncluyentes.Checked = false;
-            }
-
+        {            
             VisibilidadFiltro();
         }
 
         private void chkBoxFiltrosIncluyentes_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBoxFiltrosIncluyentes.Checked)
-            {
-                chkBoxFiltros.Checked = false;
-            }
-
             VisibilidadFiltroIncluyente();
         }
 
@@ -1393,7 +1373,11 @@ namespace Actualizator
         private void btnPrevisualizar_Click(object sender, EventArgs e)
         {
             if (HayFiltros) ArchivosUtilities.Filtros = filtros;
-            else if (HayFiltrosIncluyentes) ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
+            else ArchivosUtilities.Filtros = new BindingList<Filtro>();
+
+            if (HayFiltrosIncluyentes) ArchivosUtilities.FiltrosIncluyentes = filtrosIncluyentes;
+            else ArchivosUtilities.FiltrosIncluyentes = new BindingList<Filtro>();
+
             ActualizarDestino(false, true);
 
             MyProcessControl backWork = new MyProcessControl(this);

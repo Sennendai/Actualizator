@@ -1,35 +1,19 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace Actualizator
 {
     public class Filtro
     {
         public Filtrado cabecera;
-        public string filtro { get; set; }
-        public string descripcion { get; set; }
-
-        //public string descripcion
-        //{
-        //    get
-        //    {
-        //        return cabecera.ToString() + " - " + filtro;
-        //    }
-        //    set { }
-        //}
-
-        //public override string ToString()
-        //{
-        //    return descripcion;
-        //}
+        public string NombreFiltro { get; set; }
+        public string Descripcion { get; set; }
+        public List<string> Filtros { get; set; }
     }
 
     public enum Filtrado
     {
         TerminaPor = 0,
-        Completo = 1
+        Completo = 1,
+        Ruta = 2
     }
 }

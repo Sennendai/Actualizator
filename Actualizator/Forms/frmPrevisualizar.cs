@@ -50,8 +50,9 @@ namespace Actualizator.Forms
 
         private void CargarDatos()
         {
-            ArbolUtilities.PopulateArchivoTreeView(archivosOrigen, null, HayFiltros, HayFiltrosIncluyentes, treeViewOrigen);
+            ArbolUtilities.PopulateArchivoTreeView(archivosOrigen, null, treeViewOrigen);
             treeViewOrigen.ExpandAll();
+            if (this.treeViewOrigen.Nodes != null) this.treeViewOrigen.SelectedNode = this.treeViewOrigen.Nodes[0];
 
             DirectoryInfo dirOrigen = new DirectoryInfo(origen);
             dirDestinos = ArchivosUtilities.GetAllDestinos(destinos, actualProyecto);
@@ -70,7 +71,7 @@ namespace Actualizator.Forms
         {
             cPrevisualizarDestino destinoControl = new cPrevisualizarDestino();
             treeviewDestino = destinoControl.TreeViewDestino;
-            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosModificados, null, HayFiltros, HayFiltrosIncluyentes, treeviewDestino);
+            treeviewDestino = ArbolUtilities.PopulateArchivoTreeView(archivosModificados, null, treeviewDestino);
 
             destinoControl.TreeViewDestino = treeviewDestino;
             destinoControl.RutaDestino = rutaDestino;

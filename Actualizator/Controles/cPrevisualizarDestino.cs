@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Drawing;
-using System.Data;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace Actualizator.Controles
@@ -72,6 +65,7 @@ namespace Actualizator.Controles
             {
                 splitContainer.Dock = DockStyle.Fill;
                 this.treeViewDestino.ExpandAll();
+                if (this.treeViewDestino.Nodes != null) this.treeViewDestino.SelectedNode = this.treeViewDestino.Nodes[0];
             }
             else
             {

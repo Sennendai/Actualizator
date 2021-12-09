@@ -11,25 +11,18 @@ namespace Actualizator.Clases
         /// <summary>
         /// Rellena un TreeView dado un objecto que contiene la estructura de los archivos
         /// </summary>
-        public static TreeView PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, bool? HayFiltros = null, bool? HayFiltrosIncluyentes = null,
-            TreeView treeView = null, bool notRoot = false)
+        public static TreeView PopulateArchivoTreeView(ArchivosTreeView archivosTree, TreeNode treeNode, TreeView treeView = null)
         {
             TreeNode directoryNodeRoot = new TreeNode
             {
                 Text = archivosTree.DirName
             };
-
-            // Rellena a nivel raiz
-            if (treeNode == null)
-            {
-                treeView.Nodes.Add(directoryNodeRoot);
-
-                AddFilesStringNode(archivosTree.Archivos, ref directoryNodeRoot, HayFiltros, HayFiltrosIncluyentes);
-            }
-
             // Rellena las subcarpetas
             foreach (var directory in archivosTree.Subdir)
             {
+                // si la carpeta y sus subcarpetas estan vacias, no se incluye
+                if (directory.GetTotalArchivos() == 0) continue;
+
                 TreeNode directoryNode = new TreeNode
                 {
                     Text = directory.DirName
@@ -44,8 +37,15 @@ namespace Actualizator.Clases
                     treeNode.Nodes.Add(directoryNode);
                 }
 
-                AddFilesStringNode(directory.Archivos, ref directoryNode, HayFiltros, HayFiltrosIncluyentes);
-                PopulateArchivoTreeView(directory, directoryNode, HayFiltros, HayFiltrosIncluyentes, null, true);
+                AddFilesStringNode(directory, ref directoryNode);
+                PopulateArchivoTreeView(directory, directoryNode, null);
+            }
+            // Rellena a nivel raiz
+            if (treeNode == null)
+            {
+                treeView.Nodes.Add(directoryNodeRoot);
+
+                AddFilesStringNode(archivosTree, ref directoryNodeRoot);
             }
 
             return treeView;
@@ -57,18 +57,9 @@ namespace Actualizator.Clases
         /// <param name="archivos">lista de nodes a introducir</param>
         /// <param name="directoryNode">node a modificar</param>
         /// <param name="HayFiltros">indica si se usan filtros</param>
-        private static void AddFilesStringNode(List<string> archivos, ref TreeNode directoryNode, bool? HayFiltros, bool? HayFiltrosIncluyentes)
+        private static void AddFilesStringNode(ArchivosTreeView archivos, ref TreeNode directoryNode)
         {
-            if (HayFiltros == true)
-            {
-                archivos.FiltrarStringArchivos();
-            }
-            else if (HayFiltrosIncluyentes == true)
-            {
-                archivos = archivos.FiltrarStringArchivosIncluyente();
-            }
-
-            foreach (string file in archivos)
+            foreach (string file in archivos.Archivos)
             {
                 TreeNode fileNode = new TreeNode
                 {
