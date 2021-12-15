@@ -143,6 +143,16 @@ namespace Actualizator.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap document_add1 {
+            get {
+                object obj = ResourceManager.GetObject("document_add1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap document_down {
             get {
                 object obj = ResourceManager.GetObject("document_down", resourceCulture);
@@ -166,6 +176,16 @@ namespace Actualizator.Properties {
         internal static System.Drawing.Bitmap document_into {
             get {
                 object obj = ResourceManager.GetObject("document_into", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap document_ok {
+            get {
+                object obj = ResourceManager.GetObject("document_ok", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

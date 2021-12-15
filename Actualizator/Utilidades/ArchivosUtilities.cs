@@ -52,7 +52,7 @@ namespace Actualizator.Clases
                     // Rellena a nivel raiz
                     DirectoryInfo[] directories = dirDestino.GetDirectories();
 
-                    if (Filtros.Count != 0) archivos.FiltrarFileArchivos();
+                    if (Filtros.Count != 0) archivos = archivos.FiltrarFileArchivos();
                     if (FiltrosIncluyentes.Count() != 0) archivos = archivos.FiltrarFileArchivosIncluyente();
 
                     foreach (FileInfo archivo in archivos)

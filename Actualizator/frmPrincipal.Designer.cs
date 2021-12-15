@@ -30,16 +30,14 @@
         {
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
-            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.splitContainerPrincipal = new System.Windows.Forms.SplitContainer();
+            this.chkCopiarArchivos = new System.Windows.Forms.CheckBox();
+            this.btnCopiarProyecto = new System.Windows.Forms.Button();
             this.lblFiltrosIncluyentes = new System.Windows.Forms.Label();
             this.btnFiltrosIncluyentes = new System.Windows.Forms.Button();
             this.chkBoxFiltrosIncluyentes = new System.Windows.Forms.CheckBox();
-            this.addDocumentImage = new System.Windows.Forms.PictureBox();
-            this.chkCopiarArchivos = new System.Windows.Forms.CheckBox();
-            this.fatalWarningImage = new System.Windows.Forms.PictureBox();
             this.chkBorrarDestino = new System.Windows.Forms.CheckBox();
             this.lblFiltrosCount = new System.Windows.Forms.Label();
-            this.warningImage = new System.Windows.Forms.PictureBox();
             this.chkBoxSobreescribir = new System.Windows.Forms.CheckBox();
             this.txtProyecto = new System.Windows.Forms.TextBox();
             this.btnPrevisualizar = new System.Windows.Forms.Button();
@@ -65,7 +63,7 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnRutaDestino = new System.Windows.Forms.Button();
             this.textOrigen = new System.Windows.Forms.TextBox();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainerOrigenDestino = new System.Windows.Forms.SplitContainer();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.treeViewOrigen = new System.Windows.Forms.TreeView();
             this.contextMenuStrip = new System.Windows.Forms.ContextMenuStrip(this.components);
@@ -80,18 +78,18 @@
             this.tableLayoutDestino = new System.Windows.Forms.TableLayoutPanel();
             this.splitter1 = new System.Windows.Forms.Splitter();
             this.toolTipControl = new System.Windows.Forms.ToolTip(this.components);
-            this.btnCopiarProyecto = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
-            this.splitContainer1.Panel1.SuspendLayout();
-            this.splitContainer1.Panel2.SuspendLayout();
-            this.splitContainer1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.addDocumentImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fatalWarningImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
+            this.splitContainerForm = new System.Windows.Forms.SplitContainer();
+            this.statusStrip = new System.Windows.Forms.StatusStrip();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.timer = new System.Windows.Forms.Timer(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerPrincipal)).BeginInit();
+            this.splitContainerPrincipal.Panel1.SuspendLayout();
+            this.splitContainerPrincipal.Panel2.SuspendLayout();
+            this.splitContainerPrincipal.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerOrigenDestino)).BeginInit();
+            this.splitContainerOrigenDestino.Panel1.SuspendLayout();
+            this.splitContainerOrigenDestino.Panel2.SuspendLayout();
+            this.splitContainerOrigenDestino.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.contextMenuStrip.SuspendLayout();
             this.groupBoxOrigen.SuspendLayout();
@@ -100,62 +98,97 @@
             this.splitContainer3.Panel2.SuspendLayout();
             this.splitContainer3.SuspendLayout();
             this.groupBoxDestino.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerForm)).BeginInit();
+            this.splitContainerForm.Panel1.SuspendLayout();
+            this.splitContainerForm.Panel2.SuspendLayout();
+            this.splitContainerForm.SuspendLayout();
+            this.statusStrip.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer1
+            // splitContainerPrincipal
             // 
-            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Name = "splitContainer1";
-            this.splitContainer1.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            this.splitContainerPrincipal.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.splitContainerPrincipal.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.splitContainerPrincipal.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainerPrincipal.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerPrincipal.Name = "splitContainerPrincipal";
+            this.splitContainerPrincipal.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
-            // splitContainer1.Panel1
+            // splitContainerPrincipal.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.btnCopiarProyecto);
-            this.splitContainer1.Panel1.Controls.Add(this.lblFiltrosIncluyentes);
-            this.splitContainer1.Panel1.Controls.Add(this.btnFiltrosIncluyentes);
-            this.splitContainer1.Panel1.Controls.Add(this.chkBoxFiltrosIncluyentes);
-            this.splitContainer1.Panel1.Controls.Add(this.addDocumentImage);
-            this.splitContainer1.Panel1.Controls.Add(this.chkCopiarArchivos);
-            this.splitContainer1.Panel1.Controls.Add(this.fatalWarningImage);
-            this.splitContainer1.Panel1.Controls.Add(this.chkBorrarDestino);
-            this.splitContainer1.Panel1.Controls.Add(this.lblFiltrosCount);
-            this.splitContainer1.Panel1.Controls.Add(this.warningImage);
-            this.splitContainer1.Panel1.Controls.Add(this.chkBoxSobreescribir);
-            this.splitContainer1.Panel1.Controls.Add(this.txtProyecto);
-            this.splitContainer1.Panel1.Controls.Add(this.btnPrevisualizar);
-            this.splitContainer1.Panel1.Controls.Add(this.lblLog);
-            this.splitContainer1.Panel1.Controls.Add(this.btnBorrar);
-            this.splitContainer1.Panel1.Controls.Add(this.btnRecargar);
-            this.splitContainer1.Panel1.Controls.Add(this.btnGuardar);
-            this.splitContainer1.Panel1.Controls.Add(this.btnRutaOrigen);
-            this.splitContainer1.Panel1.Controls.Add(this.btnActualizar);
-            this.splitContainer1.Panel1.Controls.Add(this.btnRestaurarBackup);
-            this.splitContainer1.Panel1.Controls.Add(this.btnAddProyecto);
-            this.splitContainer1.Panel1.Controls.Add(this.btnModificarFiltros);
-            this.splitContainer1.Panel1.Controls.Add(this.chkBoxFiltros);
-            this.splitContainer1.Panel1.Controls.Add(this.checkBoxBackup);
-            this.splitContainer1.Panel1.Controls.Add(this.textBackup);
-            this.splitContainer1.Panel1.Controls.Add(this.btnRutaBackup);
-            this.splitContainer1.Panel1.Controls.Add(this.textDestino);
-            this.splitContainer1.Panel1.Controls.Add(this.cmbProyecto);
-            this.splitContainer1.Panel1.Controls.Add(this.label5);
-            this.splitContainer1.Panel1.Controls.Add(this.btnVerCarpetaDestino);
-            this.splitContainer1.Panel1.Controls.Add(this.btnSincronizar);
-            this.splitContainer1.Panel1.Controls.Add(this.label2);
-            this.splitContainer1.Panel1.Controls.Add(this.label1);
-            this.splitContainer1.Panel1.Controls.Add(this.btnRutaDestino);
-            this.splitContainer1.Panel1.Controls.Add(this.textOrigen);
-            this.toolTipControl.SetToolTip(this.splitContainer1.Panel1, "Copiar configuración");
-            this.splitContainer1.Panel1MinSize = 220;
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.chkCopiarArchivos);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnCopiarProyecto);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.lblFiltrosIncluyentes);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnFiltrosIncluyentes);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.chkBoxFiltrosIncluyentes);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.chkBorrarDestino);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.lblFiltrosCount);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.chkBoxSobreescribir);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.txtProyecto);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnPrevisualizar);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.lblLog);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnBorrar);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnRecargar);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnGuardar);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnRutaOrigen);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnActualizar);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnRestaurarBackup);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnAddProyecto);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnModificarFiltros);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.chkBoxFiltros);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.checkBoxBackup);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.textBackup);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnRutaBackup);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.textDestino);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.cmbProyecto);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.label5);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnVerCarpetaDestino);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnSincronizar);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.label2);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.label1);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.btnRutaDestino);
+            this.splitContainerPrincipal.Panel1.Controls.Add(this.textOrigen);
+            this.toolTipControl.SetToolTip(this.splitContainerPrincipal.Panel1, "Copiar configuración");
+            this.splitContainerPrincipal.Panel1MinSize = 220;
             // 
-            // splitContainer1.Panel2
+            // splitContainerPrincipal.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.splitContainer2);
-            this.splitContainer1.Panel2.Controls.Add(this.splitter1);
-            this.splitContainer1.Size = new System.Drawing.Size(858, 675);
-            this.splitContainer1.SplitterDistance = 220;
-            this.splitContainer1.TabIndex = 1;
+            this.splitContainerPrincipal.Panel2.Controls.Add(this.splitContainerOrigenDestino);
+            this.splitContainerPrincipal.Panel2.Controls.Add(this.splitter1);
+            this.splitContainerPrincipal.Size = new System.Drawing.Size(859, 541);
+            this.splitContainerPrincipal.SplitterDistance = 229;
+            this.splitContainerPrincipal.TabIndex = 1;
+            // 
+            // chkCopiarArchivos
+            // 
+            this.chkCopiarArchivos.Checked = true;
+            this.chkCopiarArchivos.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkCopiarArchivos.Image = global::Actualizator.Properties.Resources.document_add1;
+            this.chkCopiarArchivos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chkCopiarArchivos.Location = new System.Drawing.Point(677, 105);
+            this.chkCopiarArchivos.Name = "chkCopiarArchivos";
+            this.chkCopiarArchivos.Size = new System.Drawing.Size(132, 26);
+            this.chkCopiarArchivos.TabIndex = 25;
+            this.chkCopiarArchivos.Text = "Sobreescribir nuevos";
+            this.chkCopiarArchivos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.chkCopiarArchivos.UseVisualStyleBackColor = true;
+            this.chkCopiarArchivos.Visible = false;
+            this.chkCopiarArchivos.CheckedChanged += new System.EventHandler(this.chkCopiarArchivos_CheckedChanged);
+            // 
+            // btnCopiarProyecto
+            // 
+            this.btnCopiarProyecto.BackColor = System.Drawing.SystemColors.Control;
+            this.btnCopiarProyecto.Image = global::Actualizator.Properties.Resources.copy;
+            this.btnCopiarProyecto.Location = new System.Drawing.Point(116, 3);
+            this.btnCopiarProyecto.Name = "btnCopiarProyecto";
+            this.btnCopiarProyecto.Size = new System.Drawing.Size(30, 32);
+            this.btnCopiarProyecto.TabIndex = 24;
+            this.toolTipControl.SetToolTip(this.btnCopiarProyecto, "Copiar configuración");
+            this.btnCopiarProyecto.UseVisualStyleBackColor = false;
+            this.btnCopiarProyecto.Visible = false;
+            this.btnCopiarProyecto.Click += new System.EventHandler(this.btnCopiarProyecto_Click);
             // 
             // lblFiltrosIncluyentes
             // 
@@ -194,49 +227,16 @@
             this.chkBoxFiltrosIncluyentes.UseVisualStyleBackColor = true;
             this.chkBoxFiltrosIncluyentes.CheckedChanged += new System.EventHandler(this.chkBoxFiltrosIncluyentes_CheckedChanged);
             // 
-            // addDocumentImage
-            // 
-            this.addDocumentImage.Image = global::Actualizator.Properties.Resources.document_add;
-            this.addDocumentImage.Location = new System.Drawing.Point(675, 118);
-            this.addDocumentImage.Name = "addDocumentImage";
-            this.addDocumentImage.Size = new System.Drawing.Size(16, 17);
-            this.addDocumentImage.TabIndex = 20;
-            this.addDocumentImage.TabStop = false;
-            this.addDocumentImage.Visible = false;
-            // 
-            // chkCopiarArchivos
-            // 
-            this.chkCopiarArchivos.AutoSize = true;
-            this.chkCopiarArchivos.Checked = true;
-            this.chkCopiarArchivos.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkCopiarArchivos.Enabled = false;
-            this.chkCopiarArchivos.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chkCopiarArchivos.Location = new System.Drawing.Point(697, 118);
-            this.chkCopiarArchivos.Name = "chkCopiarArchivos";
-            this.chkCopiarArchivos.Size = new System.Drawing.Size(125, 17);
-            this.chkCopiarArchivos.TabIndex = 19;
-            this.chkCopiarArchivos.Text = "Sobreescribir nuevos";
-            this.chkCopiarArchivos.UseVisualStyleBackColor = true;
-            this.chkCopiarArchivos.Visible = false;
-            // 
-            // fatalWarningImage
-            // 
-            this.fatalWarningImage.Image = global::Actualizator.Properties.Resources.delete2;
-            this.fatalWarningImage.Location = new System.Drawing.Point(675, 164);
-            this.fatalWarningImage.Name = "fatalWarningImage";
-            this.fatalWarningImage.Size = new System.Drawing.Size(16, 17);
-            this.fatalWarningImage.TabIndex = 18;
-            this.fatalWarningImage.TabStop = false;
-            this.fatalWarningImage.Visible = false;
-            // 
             // chkBorrarDestino
             // 
-            this.chkBorrarDestino.AutoSize = true;
-            this.chkBorrarDestino.Location = new System.Drawing.Point(697, 164);
+            this.chkBorrarDestino.Image = global::Actualizator.Properties.Resources.delete;
+            this.chkBorrarDestino.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chkBorrarDestino.Location = new System.Drawing.Point(675, 157);
             this.chkBorrarDestino.Name = "chkBorrarDestino";
-            this.chkBorrarDestino.Size = new System.Drawing.Size(151, 17);
+            this.chkBorrarDestino.Size = new System.Drawing.Size(167, 26);
             this.chkBorrarDestino.TabIndex = 17;
             this.chkBorrarDestino.Text = "Borrar archivos del destino";
+            this.chkBorrarDestino.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.toolTipControl.SetToolTip(this.chkBorrarDestino, "Borrar todos los archivos y luego copiar");
             this.chkBorrarDestino.UseVisualStyleBackColor = true;
             this.chkBorrarDestino.Visible = false;
@@ -253,24 +253,16 @@
             this.lblFiltrosCount.Text = "lblFiltrosCount";
             this.lblFiltrosCount.Visible = false;
             // 
-            // warningImage
-            // 
-            this.warningImage.Image = global::Actualizator.Properties.Resources.warning;
-            this.warningImage.Location = new System.Drawing.Point(675, 141);
-            this.warningImage.Name = "warningImage";
-            this.warningImage.Size = new System.Drawing.Size(16, 17);
-            this.warningImage.TabIndex = 15;
-            this.warningImage.TabStop = false;
-            this.warningImage.Visible = false;
-            // 
             // chkBoxSobreescribir
             // 
-            this.chkBoxSobreescribir.AutoSize = true;
-            this.chkBoxSobreescribir.Location = new System.Drawing.Point(697, 141);
+            this.chkBoxSobreescribir.Image = global::Actualizator.Properties.Resources.warning;
+            this.chkBoxSobreescribir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.chkBoxSobreescribir.Location = new System.Drawing.Point(675, 130);
             this.chkBoxSobreescribir.Name = "chkBoxSobreescribir";
-            this.chkBoxSobreescribir.Size = new System.Drawing.Size(116, 17);
+            this.chkBoxSobreescribir.Size = new System.Drawing.Size(132, 26);
             this.chkBoxSobreescribir.TabIndex = 14;
             this.chkBoxSobreescribir.Text = "Sobreescribir todos";
+            this.chkBoxSobreescribir.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.chkBoxSobreescribir.UseVisualStyleBackColor = true;
             this.chkBoxSobreescribir.Visible = false;
             this.chkBoxSobreescribir.CheckedChanged += new System.EventHandler(this.chkBoxSobreescribir_CheckedChanged);
@@ -289,9 +281,9 @@
             this.btnPrevisualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnPrevisualizar.Location = new System.Drawing.Point(675, 76);
             this.btnPrevisualizar.Name = "btnPrevisualizar";
-            this.btnPrevisualizar.Size = new System.Drawing.Size(151, 36);
+            this.btnPrevisualizar.Size = new System.Drawing.Size(167, 28);
             this.btnPrevisualizar.TabIndex = 0;
-            this.btnPrevisualizar.Text = "Previsualizar     sincronización";
+            this.btnPrevisualizar.Text = "Previsualizar sincronización";
             this.btnPrevisualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPrevisualizar.UseVisualStyleBackColor = true;
             this.btnPrevisualizar.Visible = false;
@@ -362,7 +354,7 @@
             this.btnActualizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnActualizar.Location = new System.Drawing.Point(677, 12);
             this.btnActualizar.Name = "btnActualizar";
-            this.btnActualizar.Size = new System.Drawing.Size(151, 23);
+            this.btnActualizar.Size = new System.Drawing.Size(165, 23);
             this.btnActualizar.TabIndex = 9;
             this.btnActualizar.Text = "Actualizar configuración";
             this.btnActualizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -374,9 +366,9 @@
             // 
             this.btnRestaurarBackup.BackgroundImage = global::Actualizator.Properties.Resources.recycle;
             this.btnRestaurarBackup.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.btnRestaurarBackup.Location = new System.Drawing.Point(675, 185);
+            this.btnRestaurarBackup.Location = new System.Drawing.Point(675, 189);
             this.btnRestaurarBackup.Name = "btnRestaurarBackup";
-            this.btnRestaurarBackup.Size = new System.Drawing.Size(151, 26);
+            this.btnRestaurarBackup.Size = new System.Drawing.Size(167, 26);
             this.btnRestaurarBackup.TabIndex = 0;
             this.btnRestaurarBackup.Text = "Restaurar backup";
             this.btnRestaurarBackup.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -501,7 +493,7 @@
             this.btnSincronizar.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.btnSincronizar.Location = new System.Drawing.Point(677, 42);
             this.btnSincronizar.Name = "btnSincronizar";
-            this.btnSincronizar.Size = new System.Drawing.Size(151, 28);
+            this.btnSincronizar.Size = new System.Drawing.Size(165, 28);
             this.btnSincronizar.TabIndex = 0;
             this.btnSincronizar.Text = "Sincronizar carpetas";
             this.btnSincronizar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -546,22 +538,23 @@
             this.textOrigen.TextChanged += new System.EventHandler(this.textOrigen_TextChanged);
             this.textOrigen.MouseHover += new System.EventHandler(this.textOrigen_MouseHover);
             // 
-            // splitContainer2
+            // splitContainerOrigenDestino
             // 
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.Location = new System.Drawing.Point(3, 0);
-            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainerOrigenDestino.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerOrigenDestino.Location = new System.Drawing.Point(3, 0);
+            this.splitContainerOrigenDestino.MinimumSize = new System.Drawing.Size(0, 308);
+            this.splitContainerOrigenDestino.Name = "splitContainerOrigenDestino";
             // 
-            // splitContainer2.Panel1
+            // splitContainerOrigenDestino.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.tableLayoutPanel1);
+            this.splitContainerOrigenDestino.Panel1.Controls.Add(this.tableLayoutPanel1);
             // 
-            // splitContainer2.Panel2
+            // splitContainerOrigenDestino.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.splitContainer3);
-            this.splitContainer2.Size = new System.Drawing.Size(855, 451);
-            this.splitContainer2.SplitterDistance = 389;
-            this.splitContainer2.TabIndex = 2;
+            this.splitContainerOrigenDestino.Panel2.Controls.Add(this.splitContainer3);
+            this.splitContainerOrigenDestino.Size = new System.Drawing.Size(854, 308);
+            this.splitContainerOrigenDestino.SplitterDistance = 393;
+            this.splitContainerOrigenDestino.TabIndex = 2;
             // 
             // tableLayoutPanel1
             // 
@@ -576,7 +569,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(389, 451);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(393, 308);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // treeViewOrigen
@@ -585,7 +578,7 @@
             this.treeViewOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.treeViewOrigen.Location = new System.Drawing.Point(3, 53);
             this.treeViewOrigen.Name = "treeViewOrigen";
-            this.treeViewOrigen.Size = new System.Drawing.Size(383, 395);
+            this.treeViewOrigen.Size = new System.Drawing.Size(387, 252);
             this.treeViewOrigen.TabIndex = 0;
             // 
             // contextMenuStrip
@@ -610,7 +603,7 @@
             this.groupBoxOrigen.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxOrigen.Location = new System.Drawing.Point(3, 3);
             this.groupBoxOrigen.Name = "groupBoxOrigen";
-            this.groupBoxOrigen.Size = new System.Drawing.Size(383, 44);
+            this.groupBoxOrigen.Size = new System.Drawing.Size(387, 44);
             this.groupBoxOrigen.TabIndex = 0;
             this.groupBoxOrigen.TabStop = false;
             this.groupBoxOrigen.Text = "Origen";
@@ -638,6 +631,7 @@
             // splitContainer3
             // 
             this.splitContainer3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer3.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
             this.splitContainer3.Location = new System.Drawing.Point(0, 0);
             this.splitContainer3.Name = "splitContainer3";
             this.splitContainer3.Orientation = System.Windows.Forms.Orientation.Horizontal;
@@ -649,8 +643,8 @@
             // splitContainer3.Panel2
             // 
             this.splitContainer3.Panel2.Controls.Add(this.tableLayoutDestino);
-            this.splitContainer3.Size = new System.Drawing.Size(462, 451);
-            this.splitContainer3.SplitterDistance = 49;
+            this.splitContainer3.Size = new System.Drawing.Size(457, 308);
+            this.splitContainer3.SplitterDistance = 47;
             this.splitContainer3.TabIndex = 0;
             // 
             // groupBoxDestino
@@ -660,14 +654,13 @@
             this.groupBoxDestino.Dock = System.Windows.Forms.DockStyle.Fill;
             this.groupBoxDestino.Location = new System.Drawing.Point(0, 0);
             this.groupBoxDestino.Name = "groupBoxDestino";
-            this.groupBoxDestino.Size = new System.Drawing.Size(462, 49);
+            this.groupBoxDestino.Size = new System.Drawing.Size(457, 47);
             this.groupBoxDestino.TabIndex = 0;
             this.groupBoxDestino.TabStop = false;
             this.groupBoxDestino.Text = "Destino";
             // 
             // lblCountDestinos
             // 
-            this.lblCountDestinos.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.lblCountDestinos.AutoSize = true;
             this.lblCountDestinos.Location = new System.Drawing.Point(137, 20);
             this.lblCountDestinos.Name = "lblCountDestinos";
@@ -677,7 +670,6 @@
             // 
             // label6
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(6, 20);
             this.label6.Name = "label6";
@@ -696,7 +688,7 @@
             this.tableLayoutDestino.Padding = new System.Windows.Forms.Padding(1);
             this.tableLayoutDestino.RowCount = 1;
             this.tableLayoutDestino.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutDestino.Size = new System.Drawing.Size(462, 398);
+            this.tableLayoutDestino.Size = new System.Drawing.Size(457, 257);
             this.tableLayoutDestino.TabIndex = 0;
             this.tableLayoutDestino.ControlAdded += new System.Windows.Forms.ControlEventHandler(this.tableLayoutDestino_ControlAdded);
             this.tableLayoutDestino.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.tableLayoutDestino_ControlRemoved);
@@ -705,45 +697,73 @@
             // 
             this.splitter1.Location = new System.Drawing.Point(0, 0);
             this.splitter1.Name = "splitter1";
-            this.splitter1.Size = new System.Drawing.Size(3, 451);
+            this.splitter1.Size = new System.Drawing.Size(3, 306);
             this.splitter1.TabIndex = 1;
             this.splitter1.TabStop = false;
             // 
-            // btnCopiarProyecto
+            // splitContainerForm
             // 
-            this.btnCopiarProyecto.BackColor = System.Drawing.SystemColors.Control;
-            this.btnCopiarProyecto.Image = global::Actualizator.Properties.Resources.copy;
-            this.btnCopiarProyecto.Location = new System.Drawing.Point(116, 3);
-            this.btnCopiarProyecto.Name = "btnCopiarProyecto";
-            this.btnCopiarProyecto.Size = new System.Drawing.Size(30, 32);
-            this.btnCopiarProyecto.TabIndex = 24;
-            this.toolTipControl.SetToolTip(this.btnCopiarProyecto, "Copiar configuración");
-            this.btnCopiarProyecto.UseVisualStyleBackColor = false;
-            this.btnCopiarProyecto.Visible = false;
-            this.btnCopiarProyecto.Click += new System.EventHandler(this.btnCopiarProyecto_Click);
+            this.splitContainerForm.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainerForm.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
+            this.splitContainerForm.Location = new System.Drawing.Point(0, 0);
+            this.splitContainerForm.Name = "splitContainerForm";
+            this.splitContainerForm.Orientation = System.Windows.Forms.Orientation.Horizontal;
+            // 
+            // splitContainerForm.Panel1
+            // 
+            this.splitContainerForm.Panel1.Controls.Add(this.splitContainerPrincipal);
+            // 
+            // splitContainerForm.Panel2
+            // 
+            this.splitContainerForm.Panel2.Controls.Add(this.statusStrip);
+            this.splitContainerForm.Size = new System.Drawing.Size(858, 571);
+            this.splitContainerForm.SplitterDistance = 541;
+            this.splitContainerForm.TabIndex = 26;
+            // 
+            // statusStrip
+            // 
+            this.statusStrip.AutoSize = false;
+            this.statusStrip.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
+            this.statusStrip.Location = new System.Drawing.Point(0, 0);
+            this.statusStrip.MaximumSize = new System.Drawing.Size(0, 26);
+            this.statusStrip.Name = "statusStrip";
+            this.statusStrip.Size = new System.Drawing.Size(858, 26);
+            this.statusStrip.TabIndex = 0;
+            this.statusStrip.Text = "statusStrip1";
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(112, 21);
+            this.toolStripStatusLabel.Text = "toolStripStatusLabel";
+            // 
+            // timer
+            // 
+            this.timer.Enabled = true;
+            this.timer.Tick += new System.EventHandler(this.timer_Tick);
             // 
             // frmPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(858, 675);
-            this.Controls.Add(this.splitContainer1);
+            this.ClientSize = new System.Drawing.Size(858, 571);
+            this.Controls.Add(this.splitContainerForm);
             this.HelpButton = true;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(874, 538);
             this.Name = "frmPrincipal";
             this.Text = "Sincronizar carpetas";
-            this.splitContainer1.Panel1.ResumeLayout(false);
-            this.splitContainer1.Panel1.PerformLayout();
-            this.splitContainer1.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
-            this.splitContainer1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.addDocumentImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.fatalWarningImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.warningImage)).EndInit();
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.splitContainerPrincipal.Panel1.ResumeLayout(false);
+            this.splitContainerPrincipal.Panel1.PerformLayout();
+            this.splitContainerPrincipal.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerPrincipal)).EndInit();
+            this.splitContainerPrincipal.ResumeLayout(false);
+            this.splitContainerOrigenDestino.Panel1.ResumeLayout(false);
+            this.splitContainerOrigenDestino.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerOrigenDestino)).EndInit();
+            this.splitContainerOrigenDestino.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.contextMenuStrip.ResumeLayout(false);
             this.groupBoxOrigen.ResumeLayout(false);
@@ -754,13 +774,19 @@
             this.splitContainer3.ResumeLayout(false);
             this.groupBoxDestino.ResumeLayout(false);
             this.groupBoxDestino.PerformLayout();
+            this.splitContainerForm.Panel1.ResumeLayout(false);
+            this.splitContainerForm.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainerForm)).EndInit();
+            this.splitContainerForm.ResumeLayout(false);
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer1;
+        private System.Windows.Forms.SplitContainer splitContainerPrincipal;
         private System.Windows.Forms.TextBox textDestino;
         private System.Windows.Forms.ComboBox cmbProyecto;
         private System.Windows.Forms.Label label5;
@@ -771,7 +797,7 @@
         private System.Windows.Forms.Button btnRutaDestino;
         private System.Windows.Forms.TextBox textOrigen;
         private System.Windows.Forms.Splitter splitter1;
-        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainerOrigenDestino;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TreeView treeViewOrigen;
         private System.Windows.Forms.GroupBox groupBoxOrigen;
@@ -796,21 +822,22 @@
         private System.Windows.Forms.Label lblLog;
         private System.Windows.Forms.Button btnPrevisualizar;
         private System.Windows.Forms.TextBox txtProyecto;
-        private System.Windows.Forms.PictureBox warningImage;
         private System.Windows.Forms.CheckBox chkBoxSobreescribir;
         private System.Windows.Forms.Label lblFiltrosCount;
         private System.Windows.Forms.Label lblCountDestinos;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.PictureBox fatalWarningImage;
         private System.Windows.Forms.CheckBox chkBorrarDestino;
-        private System.Windows.Forms.PictureBox addDocumentImage;
-        private System.Windows.Forms.CheckBox chkCopiarArchivos;
         private System.Windows.Forms.Label lblFiltrosIncluyentes;
         private System.Windows.Forms.Button btnFiltrosIncluyentes;
         private System.Windows.Forms.CheckBox chkBoxFiltrosIncluyentes;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip;
         private System.Windows.Forms.ToolStripMenuItem abrirCarpetaOrigenToolStripMenuItem;
         private System.Windows.Forms.Button btnCopiarProyecto;
+        private System.Windows.Forms.CheckBox chkCopiarArchivos;
+        private System.Windows.Forms.SplitContainer splitContainerForm;
+        private System.Windows.Forms.StatusStrip statusStrip;
+        private System.Windows.Forms.Timer timer;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }
 

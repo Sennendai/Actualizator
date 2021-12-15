@@ -124,6 +124,15 @@ namespace Actualizator
         private bool modificandoProyecto = false;
         private bool destinoIntroducido = false;
         private bool iniciando;
+
+        public TipoEscritura tipoEscrituraSeleccionado;
+        public bool gestionarChecks;
+        public enum TipoEscritura  {
+            SobrescribirNuevos,
+            SobrescribirTodos,
+            BorrarArchivosDestino
+        }
+
         #endregion
 
         #endregion
@@ -340,7 +349,7 @@ namespace Actualizator
                                 if (HayFiltros)
                                 {
                                     ArchivosUtilities.Filtros = filtros;
-                                    contadorTodos.FiltrarFileArchivos();
+                                    contadorTodos = contadorTodos.FiltrarFileArchivos();
                                 }
                                 if (HayFiltrosIncluyentes)
                                 {
@@ -849,7 +858,6 @@ namespace Actualizator
                 chkBoxSobreescribir.Visible = true;
                 chkBorrarDestino.Visible = true;
                 chkCopiarArchivos.Visible = true;
-                if (!chkBoxSobreescribir.Checked && !chkBorrarDestino.Checked) addDocumentImage.Visible = true;
             }
             else
             {
@@ -859,7 +867,6 @@ namespace Actualizator
                 chkBoxSobreescribir.Visible = false;
                 chkBorrarDestino.Visible = false;
                 chkCopiarArchivos.Visible = false;
-                addDocumentImage.Visible = false;
             }
         }
 
@@ -1134,44 +1141,45 @@ namespace Actualizator
 
         private void chkBoxSobreescribir_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBoxSobreescribir.Checked)
-            {
-                sobreescribir = true;
-                warningImage.Visible = true;
-                chkCopiarArchivos.Checked = false;
-                addDocumentImage.Visible = false;
-                chkBorrarDestino.Checked = false;
-                fatalWarningImage.Visible = false;
-            }
-            else
-            {
-                sobreescribir = false;
-                warningImage.Visible = false;
-                chkCopiarArchivos.Checked = true;
-                addDocumentImage.Visible = true;
-            }
+            gestionarCheckTipoEscritura(TipoEscritura.SobrescribirTodos);
         }
 
         private void chkBorrarDestino_CheckedChanged(object sender, EventArgs e)
         {
-            if (chkBorrarDestino.Checked)
+            gestionarCheckTipoEscritura(TipoEscritura.BorrarArchivosDestino);
+        }
+
+        private void chkCopiarArchivos_CheckedChanged(object sender, EventArgs e)
+        {
+            gestionarCheckTipoEscritura(TipoEscritura.SobrescribirNuevos);
+        }
+
+
+        private void gestionarCheckTipoEscritura(TipoEscritura tipoEscritura)
+        {
+            if (!gestionarChecks)
             {
-                borrarArchivosDestino = true;
-                fatalWarningImage.Visible = true;
-                chkBoxSobreescribir.Checked = false;
-                warningImage.Visible = false;
-                chkCopiarArchivos.Checked = false;
-                addDocumentImage.Visible = false;
-            }
-            else
-            {
-                borrarArchivosDestino = false;
-                fatalWarningImage.Visible = false;
-                if (!chkBoxSobreescribir.Checked)
+                tipoEscrituraSeleccionado = tipoEscritura;
+                gestionarChecks = true;
+                switch (tipoEscritura)
                 {
-                    chkCopiarArchivos.Checked = true;
-                    addDocumentImage.Visible = true;
+                    case TipoEscritura.SobrescribirNuevos:
+                        chkCopiarArchivos.Checked = true;
+                        chkBoxSobreescribir.Checked = false;
+                        chkBorrarDestino.Checked = false;
+                        break;
+                    case TipoEscritura.SobrescribirTodos:
+                        chkCopiarArchivos.Checked = false;
+                        chkBoxSobreescribir.Checked = true;
+                        chkBorrarDestino.Checked = false;
+                        break;
+                    case TipoEscritura.BorrarArchivosDestino:
+                        chkCopiarArchivos.Checked = false;
+                        chkBoxSobreescribir.Checked = false;
+                        chkBorrarDestino.Checked = true;
+                        break;
                 }
+                gestionarChecks = false;
             }
         }
 
@@ -1425,9 +1433,14 @@ namespace Actualizator
             }
         }
 
-        #endregion
 
         #endregion
 
+        #endregion
+
+        private void timer_Tick(object sender, EventArgs e)
+        {
+            toolStripStatusLabel.Text = DateTime.Now.ToString();
+        }
     }
 }
