@@ -85,8 +85,8 @@ namespace Actualizator
                 {
                     hacerBackup = value;
                     checkBoxBackup.Checked = hacerBackup;
-                    textBackup.Visible = hacerBackup;
-                    btnRutaBackup.Visible = hacerBackup;
+                    textBackup.Enabled = hacerBackup;
+                    btnRutaBackup.Enabled = hacerBackup;
                 }
             }
         }
@@ -99,7 +99,7 @@ namespace Actualizator
                 {
                     hayFiltros = value;
                     chkBoxFiltros.Checked = hayFiltros;
-                    btnModificarFiltros.Visible = hayFiltros;
+                    btnModificarFiltros.Enabled = hayFiltros;
                     lblFiltrosCount.Visible = hayFiltros;
                     lblFiltrosCount.Text = StringResource.filtrosCount + filtros.Count().ToString();
                 }
@@ -114,7 +114,7 @@ namespace Actualizator
                 {
                     hayFiltrosIncluyentes = value;
                     chkBoxFiltrosIncluyentes.Checked = hayFiltrosIncluyentes;
-                    btnFiltrosIncluyentes.Visible = hayFiltrosIncluyentes;
+                    btnFiltrosIncluyentes.Enabled = hayFiltrosIncluyentes;
                     lblFiltrosIncluyentes.Visible = hayFiltrosIncluyentes;
                     lblFiltrosIncluyentes.Text = StringResource.filtrosCount + filtrosIncluyentes.Count().ToString();
                 }
@@ -202,7 +202,7 @@ namespace Actualizator
             if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
             {
                 txtBox.Text = dialog.FileName;
-                if (btn != null) { btn.Visible = true; }
+                if (btn != null) { btn.Enabled = true; }
             }
         }
 
@@ -787,20 +787,20 @@ namespace Actualizator
 
         private void VisibilidadFiltro()
         {
-            btnModificarFiltros.Visible = chkBoxFiltros.Checked;
+            btnModificarFiltros.Enabled = chkBoxFiltros.Checked;
             HayFiltros = chkBoxFiltros.Checked;
         }
 
         private void VisibilidadFiltroIncluyente()
         {
-            btnFiltrosIncluyentes.Visible = chkBoxFiltrosIncluyentes.Checked;
+            btnFiltrosIncluyentes.Enabled = chkBoxFiltrosIncluyentes.Checked;
             HayFiltrosIncluyentes = chkBoxFiltrosIncluyentes.Checked;
         }
 
         private void VisibilidadBackup()
         {
-            textBackup.Visible = checkBoxBackup.Checked;
-            btnRutaBackup.Visible = checkBoxBackup.Checked;
+            textBackup.Enabled = checkBoxBackup.Checked;
+            btnRutaBackup.Enabled = checkBoxBackup.Checked;
             HacerBackup = checkBoxBackup.Checked;
         }
 
@@ -808,19 +808,19 @@ namespace Actualizator
         {
             if (actualProyecto != null && proyectos.Count() != 0)
             {
-                btnBorrar.Visible = true;
-                btnRecargar.Visible = true;
-                btnActualizar.Visible = true;
-                btnAddProyecto.Visible = true;
-                btnCopiarProyecto.Visible = true;
+                btnBorrar.Enabled = true;
+                btnRecargar.Enabled = true;
+                btnActualizar.Enabled = true;
+                btnAddProyecto.Enabled = true;
+                btnCopiarProyecto.Enabled = true;
             }
             else
             {
-                btnBorrar.Visible = false;
-                btnRecargar.Visible = false;
-                btnActualizar.Visible = false;
-                btnCopiarProyecto.Visible = false;
-                if (!addProyecto) btnAddProyecto.Visible = false;
+                btnBorrar.Enabled = false;
+                btnRecargar.Enabled = false;
+                btnActualizar.Enabled = false;
+                btnCopiarProyecto.Enabled = false;
+                if (!addProyecto) btnAddProyecto.Enabled = false;
             }
         }
 
@@ -828,11 +828,11 @@ namespace Actualizator
         {
             if (!string.IsNullOrEmpty(textOrigen.Text))
             {
-                btnActualizar.Visible = true;
+                btnActualizar.Enabled = true;
             }
             else
             {
-                btnActualizar.Visible = false;
+                btnActualizar.Enabled = false;
             }
         }
 
@@ -840,11 +840,11 @@ namespace Actualizator
         {
             if (!string.IsNullOrEmpty(textDestino.Text))
             {
-                btnVerCarpetaDestino.Visible = true;
+                btnVerCarpetaDestino.Enabled = true;
             }
             else
             {
-                btnVerCarpetaDestino.Visible = false;
+                btnVerCarpetaDestino.Enabled = false;
             }
         }
 
@@ -852,21 +852,21 @@ namespace Actualizator
         {
             if (!string.IsNullOrEmpty(textOrigen.Text) && RutasDestinos.Count() != 0)
             {
-                btnActualizar.Visible = true;
-                btnSincronizar.Visible = true;
-                btnPrevisualizar.Visible = true;
-                chkBoxSobreescribir.Visible = true;
-                chkBorrarDestino.Visible = true;
-                chkCopiarArchivos.Visible = true;
+                btnActualizar.Enabled = true;
+                btnSincronizar.Enabled = true;
+                btnPrevisualizar.Enabled = true;
+                chkBoxSobreescribir.Enabled = true;
+                chkBorrarDestino.Enabled = true;
+                chkCopiarArchivos.Enabled = true;
             }
             else
             {
-                btnActualizar.Visible = false;
-                btnSincronizar.Visible = false;
-                btnPrevisualizar.Visible = false;
-                chkBoxSobreescribir.Visible = false;
-                chkBorrarDestino.Visible = false;
-                chkCopiarArchivos.Visible = false;
+                btnActualizar.Enabled = false;
+                btnSincronizar.Enabled = false;
+                btnPrevisualizar.Enabled = false;
+                chkBoxSobreescribir.Enabled = false;
+                chkBorrarDestino.Enabled = false;
+                chkCopiarArchivos.Enabled = false;
             }
         }
 
@@ -874,11 +874,11 @@ namespace Actualizator
         {
             if (!string.IsNullOrEmpty(actualProyecto?.LastPathBackup))
             {
-                btnRestaurarBackup.Visible = true;
+                btnRestaurarBackup.Enabled = true;
             }
             else
             {
-                btnRestaurarBackup.Visible = false;
+                btnRestaurarBackup.Enabled = false;
             }
         }
 
@@ -1370,10 +1370,10 @@ namespace Actualizator
 
                 if (proyectos.Count() == 0)
                 {
-                    btnBorrar.Visible = false;
-                    btnRecargar.Visible = false;
-                    btnActualizar.Visible = false;
-                    if (!addProyecto) btnAddProyecto.Visible = false;
+                    btnBorrar.Enabled = false;
+                    btnRecargar.Enabled = false;
+                    btnActualizar.Enabled = false;
+                    if (!addProyecto) btnAddProyecto.Enabled = false;
                 }
             }
         }
