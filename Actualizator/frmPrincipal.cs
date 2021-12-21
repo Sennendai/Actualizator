@@ -806,7 +806,7 @@ namespace Actualizator
 
         private void VisibilidadBotonesControl()
         {
-            if (actualProyecto != null && proyectos.Count() != 0)
+            if ((actualProyecto != null && proyectos.Count() != 0) && !modificandoProyecto)
             {
                 btnBorrar.Enabled = true;
                 btnRecargar.Enabled = true;
