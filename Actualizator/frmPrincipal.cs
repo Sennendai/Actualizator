@@ -161,6 +161,9 @@ namespace Actualizator
             lblArchivosOrigen.Text = CountArchivosOrigen.ToString();
             ActualizarCountDestino();
 
+            // pequeño hack, para hacer que el FlowLayoutPanel se ponga por detras del otro y no se vea las lineas
+            flpBotonesControl.SendToBack();
+
             textBackup.Text = rutaBackup;
             cmbProyecto.DisplayMember = nameof(Proyecto.ProyectoName);
             lblLog.Text = StringResource.saludo;
