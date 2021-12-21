@@ -265,12 +265,16 @@ namespace Actualizator
                     CommonOpenFileDialog dialog = new CommonOpenFileDialog
                     {
                         InitialDirectory = rutaOrigen,
-                        IsFolderPicker = true
+                        IsFolderPicker = true,
+                        Multiselect = true
                     };
                     if (dialog.ShowDialog() == CommonFileDialogResult.Ok)
                     {
-                        DirectoryInfo dirInfo = new DirectoryInfo(dialog.FileName);
-                        AddCarpetaFiltro(dirInfo);
+                        foreach (string filename in dialog.FileNames)
+                        {
+                            DirectoryInfo dirInfo = new DirectoryInfo(filename);
+                            AddCarpetaFiltro(dirInfo); 
+                        }
                         //var files = dirInfo.GetFiles("*", SearchOption.AllDirectories);
                         //foreach (var file in files)
                         //{
