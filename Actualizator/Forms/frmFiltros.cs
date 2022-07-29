@@ -75,13 +75,15 @@ namespace Actualizator
 
             List<Filtro> listaDeFiltros = new List<Filtro>();
 
+            listaDeFiltros = backupFiltros;
+
             BindingSource source = new BindingSource
             {
                 DataSource = listaDeFiltros
             };
 
             cmbBoxConfigs.DataSource = source;
-            cmbBoxConfigs.DisplayMember = nameof(Filtro.Descripcion);
+            cmbBoxConfigs.DisplayMember = nameof(Filtro.Descripcion);            
         }
 
         /// <summary>

@@ -139,7 +139,6 @@
             this.cmbBoxConfigs.Name = "cmbBoxConfigs";
             this.cmbBoxConfigs.Size = new System.Drawing.Size(150, 21);
             this.cmbBoxConfigs.TabIndex = 36;
-            this.cmbBoxConfigs.Visible = false;
             this.cmbBoxConfigs.SelectedIndexChanged += new System.EventHandler(this.cmbBoxConfigs_SelectedIndexChanged);
             // 
             // openFileDialog
